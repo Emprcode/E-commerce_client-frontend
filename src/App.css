@@ -66,3 +66,10 @@ cursor: pointer;
   filter: grayscale(0);
   transition: .5s all ease;
 }
+
+.products{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2;
+}
