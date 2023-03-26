@@ -1,13 +1,17 @@
 .main{
-  height: 80vh;
+  height: 140vh;
 }
 
 .hero{
-  background:url(./assets/Bgshoes.png) ;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(./assets/Bgshoes.png) ;
   height: 100%;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  
-  
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
+
