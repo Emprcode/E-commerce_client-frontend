@@ -1,17 +1,68 @@
 .main{
-  height: 140vh;
+  /* min-height: 140vh; */
 }
 
 .hero{
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(./assets/Bgshoes.png) ;
-  height: 100%;
-  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(./assets/Bgshoes.png) center center no-repeat ;
+  min-height: 100vh;
+  width: auto;
   background-size: cover;
-  background-repeat: no-repeat;
-
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
 }
 
+.btnbtn{
+position: absolute;
+top: 350px;
+left: 68px;
+height: 40px;
+width: 250px;
+font-size: 1rem !important;
+
+
+}
+
+.top{
+background: url(./assets/top.png) no-repeat center center;
+height:80vh ;
+width: 100%;
+background-size: cover;
+filter: grayscale(80%);
+transition: .5s all ease;
+cursor: pointer;
+position: relative;
+
+}
+.bottom{
+background: url(./assets/bottom.png) no-repeat center center;
+height:80vh ;
+background-size: cover;
+filter: grayscale(80%);
+transition: .5s all ease;
+cursor: pointer;
+}
+.shoes{
+background: url(./assets/shoes.png) no-repeat center center;
+height:80vh ;
+width: 100%;
+background-size: cover;
+filter: grayscale(100%);
+transition: .5s all ease;
+cursor: pointer;
+}
+
+.top:hover{
+  filter: grayscale(0);
+  transition: .5s all ease;
+
+}
+.bottom:hover{
+  filter: grayscale(0);
+  transition: .5s all ease;
+}
+.shoes:hover{
+  filter: grayscale(0);
+  transition: .5s all ease;
+}

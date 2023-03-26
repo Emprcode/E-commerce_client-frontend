@@ -4,7 +4,7 @@ import { Header } from "./Header";
 
 export const MainLayout = ({ children }) => {
   return (
-    <div className="">
+    <div className="d-flex flex-column">
       <Header />
       <div className="main">{children}</div>
       <Footer />

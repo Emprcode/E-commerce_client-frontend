@@ -1,5 +1,7 @@
 import React from "react";
-import { Container, Row, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { ShopHere } from "../components/page-components/ShopHere";
+import { Tranding } from "../components/page-components/Tranding";
 import { MainLayout } from "../layout/MainLayout";
 
 const HomePage = () => {
@@ -18,6 +20,9 @@ const HomePage = () => {
           </Button>
         </div>
       </div>
+      <ShopHere />
+      <hr />
+      <Tranding />
     </MainLayout>
   );
 };
