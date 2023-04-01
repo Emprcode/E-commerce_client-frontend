@@ -1,7 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { LatestRelease } from "../components/page-components/LatestRelease";
+import { Membership } from "../components/page-components/Membership";
+import { Sale } from "../components/page-components/Sale";
 import { ShopHere } from "../components/page-components/ShopHere";
-import { Tranding } from "../components/page-components/Tranding";
+import { Trending } from "../components/page-components/Trending";
 import { MainLayout } from "../layout/MainLayout";
 
 const HomePage = () => {
@@ -15,14 +18,17 @@ const HomePage = () => {
             All latest streetware stuff available here.
           </h5>
 
-          <Button variant="" className="btn btn-dark rounded fw-bold">
+          <Button variant="dark" className="rounded fw-bold">
             Shop Now!
           </Button>
         </div>
       </div>
       <ShopHere />
-      <hr />
-      <Tranding />
+      {/* <hr /> */}
+      <Sale />
+      <Trending />
+      <LatestRelease />
+      <Membership />
     </MainLayout>
   );
 };

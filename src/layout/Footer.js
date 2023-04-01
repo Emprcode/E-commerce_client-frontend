@@ -2,9 +2,9 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div className='text-center p-5 bg-info text-light'>
+    <div className='text-center p-5'>
         
-        &copy; all right reserved || The AceAttire 
+        &copy; 2023 || all right reserved || The AceAttire 
     </div>
   )
 }

@@ -13,15 +13,19 @@
   color: #fff;
 }
 
-.btnbtn{
+.shoptag{
+  position: absolute;
+  top: 310px;
+  left: 158px;
+
+}
+.shopbtn{
 position: absolute;
 top: 350px;
 left: 68px;
 height: 40px;
 width: 250px;
 font-size: 1rem !important;
-
-
 }
 
 .top{
@@ -29,7 +33,6 @@ background: url(./assets/top.png) no-repeat center center;
 height:80vh ;
 width: 100%;
 background-size: cover;
-filter: grayscale(80%);
 transition: .5s all ease;
 cursor: pointer;
 position: relative;
@@ -39,37 +42,46 @@ position: relative;
 background: url(./assets/bottom.png) no-repeat center center;
 height:80vh ;
 background-size: cover;
-filter: grayscale(80%);
 transition: .5s all ease;
 cursor: pointer;
+position: relative;
 }
 .shoes{
 background: url(./assets/shoes.png) no-repeat center center;
 height:80vh ;
 width: 100%;
 background-size: cover;
-filter: grayscale(100%);
 transition: .5s all ease;
+position: relative;
 cursor: pointer;
 }
 
 .top:hover{
-  filter: grayscale(0);
+  transform: scale(1.03);
   transition: .5s all ease;
 
 }
 .bottom:hover{
-  filter: grayscale(0);
+  transform: scale(1.03);
   transition: .5s all ease;
 }
 .shoes:hover{
-  filter: grayscale(0);
+  /* filter: grayscale(0); */
+  transform: scale(1.03);
   transition: .5s all ease;
 }
 
-.products{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2;
+.bgmembership{
+  margin-top: 2rem;
+  padding: 4rem;
+  background: #f5f5f5;
+}
+
+.cardcss{
+  cursor: pointer;
+}
+.spanline{
+  background: black;
+  width: 10rem;
+  height: 9rem;
 }

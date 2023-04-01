@@ -1,17 +1,16 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 
-export const CardComponents = ({ ...item}) => {
+export const CardComponents = ({ img, price, ...item}) => {
   return (
-    <Card style={{ width: '18rem' }} className="products">
-    <Card.Img variant="top"  src="holder.js/100px180"  />
+    <Card style={{ width: '18rem' }} className="cardcss">
+    <Card.Img variant="top"  src={img} height="340px" />
     <Card.Body>
-      <Card.Title>{item.title}</Card.Title>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the
-        bulk of the card's content.
+      <Card.Title className='text-center fw-bold'>{item.title}</Card.Title>
+      <Card.Text className='text-center'>
+        {price}
       </Card.Text>
-      <Button variant="primary">Go somewhere</Button>
+      {/* <Button variant="primary">Go somewhere</Button> */}
     </Card.Body>
   </Card>
   )
