@@ -25,7 +25,7 @@ const HomePage = () => {
       </div>
       <ShopHere />
       {/* <hr /> */}
-      <Sale />
+      {/* <Sale /> */}
       <Trending />
       <LatestRelease />
       <Membership />

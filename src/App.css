@@ -80,8 +80,16 @@ cursor: pointer;
 .cardcss{
   cursor: pointer;
 }
-.spanline{
-  background: black;
-  width: 10rem;
-  height: 9rem;
+
+/* .title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.title span{
+  border-bottom:  5px solid grey;
+  padding: 1rem 25rem;
+
+
 }
