@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import MenTops from './pages/MenTops';
 import MenBottoms from './pages/MenBottoms';
 import MenFootwares from './pages/MenFootwares';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -16,9 +17,9 @@ function App() {
         <Route path='/mentops' element={<MenTops/>}/>
         <Route path='/menbottoms' element={<MenBottoms/>}/>
         <Route path='/menfootwares' element={<MenFootwares/>}/>
+        <Route path='/cart' element={<Cart/>}/>
       </Routes>
       </BrowserRouter>
-      
     </div>
   );
 }

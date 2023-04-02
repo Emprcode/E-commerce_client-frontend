@@ -1,11 +1,12 @@
 import {Container, Nav, Navbar, Form, Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
 
   return (
     <Navbar bg="light" expand="md">
       <Container className='p-3'>
-        <Navbar.Brand className='fw-bold' href="#home">The AceAttire</Navbar.Brand>
+        <Navbar.Brand className='fw-bold' href="/">The AceAttire</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto fw-bold">
@@ -19,8 +20,8 @@ export const Header = () => {
             <Button variant="outline-success"><i class="fa-solid fa-magnifying-glass"></i></Button>
           </Form>
 
-            <Nav.Link href="#cart"><i class="fa-solid fa-cart-shopping"></i></Nav.Link>
-            <Nav.Link href="#profile"><i class="fa-solid fa-user"></i></Nav.Link>
+            <Link className='nav-link' to="/cart"><i class="fa-solid fa-cart-shopping"></i></Link>
+            <Link  className='nav-link' to="/profile"><i class="fa-solid fa-user"></i></Link>
             
           </Nav>
         </Navbar.Collapse>

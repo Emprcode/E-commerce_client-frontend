@@ -83,7 +83,7 @@ const MenTops = () => {
         <div>
           <h2 className="p-5 text-center fw-bold"> MEN'S TOP</h2>
         </div>
-        <div className="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+        <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
           {MenTops.map((item, i) => (
             <CardComponents key={i} {...item} />
           ))}
