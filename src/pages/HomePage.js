@@ -23,8 +23,6 @@ const HomePage = () => {
         </div>
       </div>
       <ShopHere />
-      {/* <hr /> */}
-      {/* <Sale /> */}
       <Trending />
       <LatestRelease />
       <Membership />

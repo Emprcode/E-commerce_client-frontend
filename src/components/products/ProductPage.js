@@ -6,7 +6,7 @@ import { CardComponents } from "../card/CardComponents";
 import { AssociatedPage } from "../page-components/AssociatedPage";
 import { Membership } from "../page-components/Membership";
 
-export const EachProduct = () => {
+export const ProductPage = () => {
   return (
     <MainLayout>
       <Breadcrumb className="m-2">
