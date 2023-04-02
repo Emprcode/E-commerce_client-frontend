@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 export const ShopHere = () => {
   return (
     <div>
-      <Container className="p-4 d-flex justify-content-center align-items-center gap-5">
+      <Container
+        className="p-4 d-flex justify-content-center align-items-center gap-5"
+        id="shopnow">
         <Col className=" top rounded shopbtn ">
           <Link className="nav-link" to="/mentops">
             <h4 className="fw-bold text-light text-center">TOPS</h4>

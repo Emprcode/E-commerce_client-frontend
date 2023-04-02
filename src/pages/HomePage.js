@@ -5,6 +5,7 @@ import { Membership } from "../components/page-components/Membership";
 import { ShopHere } from "../components/page-components/ShopHere";
 import { Trending } from "../components/page-components/Trending";
 import { MainLayout } from "../layout/MainLayout";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -17,7 +18,7 @@ const HomePage = () => {
             All latest streetware stuff available here.
           </h5>
 
-          <Button variant="dark" className="rounded fw-bold">
+          <Button variant="dark" href="#shopnow" className="rounded fw-bold">
             Shop Now!
           </Button>
         </div>
