@@ -6,7 +6,7 @@ import { CardComponents } from "../card/CardComponents";
 export const Slide1 = () => {
     const products = [
         {
-          title: "shoes",
+          title: "Air Jordan 1 High",
           img: shoes,
           price: "$200",
         },
