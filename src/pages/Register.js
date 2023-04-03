@@ -5,28 +5,66 @@ import { Membership } from "../components/page-components/Membership";
 import { FormComponents } from "../components/form-components/FormComponents";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const InputFields = [
+    {
+      name: "fName",
+      type: "text",
+      label: "First Name",
+      placeholder: "Sam",
+      required: true,
+    },
+    {
+      name: "lName",
+      type: "text",
+      label: "Last Name",
+      placeholder: "Smith",
+      required: true,
+    },
+    {
+      name: "phone",
+      type: "number",
+      label: "Phone Number",
+      placeholder: "0123456789",
+      required: true,
+    },
     {
       name: "email",
       type: "email",
       label: "Email",
       placeholder: "Email",
-      required: "true",
+      required: true,
     },
     {
       name: "password",
       type: "password",
       label: "Password",
       placeholder: "*****",
-      required: "true",
+      required: true,
+    },
+  ];
+
+  const BillingAddress = [
+    {
+      name: "country",
+      type: "text",
+      label: "Country",
+      placeholder: "Australia",
+      required: true,
+    },
+    {
+      name: "address",
+      type: "text",
+      label: "Address",
+      placeholder: "Your delivery address",
+      required: true,
     },
   ];
   return (
     <MainLayout>
-      <Row className="bgcolor p-5">
+      <Row className="p-5">
         <Col>
-          <h2 className="fw-bold">SIGN IN</h2>
+          <h2 className="fw-bold">Register Here!</h2>
           <Form>
             {InputFields.map((item, i) => (
               <FormComponents key={i} {...item} />
@@ -43,22 +81,16 @@ const Login = () => {
             Forgot Password?
           </Link>
         </Col>
-
-        <Col className="d-flex justify-content-center align-items-center ">
-          <p className="mt-3 fw-bold text-center">
-            New to AceAttire?
-            <Link className="nav-link" to="/myaccount/register">
-              <div className="d-grid p-5">
-                <Button variant="dark">Register here</Button>
-              </div>
-            </Link>
-          </p>
+        <Col>
+          <h4>Billing address</h4>
+          {BillingAddress.map((item, i) => (
+            <FormComponents key={i} {...item} />
+          ))}
         </Col>
       </Row>
-
       <Membership />
     </MainLayout>
   );
 };
 
-export default Login;
+export default Register;
