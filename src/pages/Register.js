@@ -14,20 +14,7 @@ const Register = () => {
       placeholder: "Sam",
       required: true,
     },
-    {
-      name: "lName",
-      type: "text",
-      label: "Last Name",
-      placeholder: "Smith",
-      required: true,
-    },
-    {
-      name: "phone",
-      type: "number",
-      label: "Phone Number",
-      placeholder: "0123456789",
-      required: true,
-    },
+
     {
       name: "email",
       type: "email",
@@ -42,9 +29,30 @@ const Register = () => {
       placeholder: "*****",
       required: true,
     },
+    {
+      name: "cPassword",
+      type: "password",
+      label: "Confirm Password",
+      placeholder: "*****",
+      required: true,
+    },
   ];
 
   const BillingAddress = [
+    {
+      name: "lName",
+      type: "text",
+      label: "Last Name",
+      placeholder: "Smith",
+      required: true,
+    },
+    {
+      name: "phone",
+      type: "number",
+      label: "Phone Number",
+      placeholder: "0123456789",
+      required: true,
+    },
     {
       name: "country",
       type: "text",
@@ -63,8 +71,8 @@ const Register = () => {
   return (
     <MainLayout>
       <Row className="p-5">
+        <h2 className="fw-bold">Register Here!</h2>
         <Col>
-          <h2 className="fw-bold">Register Here!</h2>
           <Form>
             {InputFields.map((item, i) => (
               <FormComponents key={i} {...item} />
@@ -72,21 +80,27 @@ const Register = () => {
             <div className="d-grid col-5">
               <Button variant="dark" type="submit" className="rounded fw-bold">
                 {" "}
-                Sign In
+                Register
               </Button>
             </div>
           </Form>
-          <Link className="nav-link mt-3" to="/forgotpassword">
-            {" "}
-            Forgot Password?
-          </Link>
         </Col>
         <Col>
-          <h4>Billing address</h4>
-          {BillingAddress.map((item, i) => (
-            <FormComponents key={i} {...item} />
-          ))}
+          <Form>
+            {BillingAddress.map((item, i) => (
+              <FormComponents key={i} {...item} />
+            ))}
+          </Form>
         </Col>
+        <div className="p-4">
+          <p>
+            Creating an account means you accept our Terms of Use and Privacy
+            Policy.
+          </p>
+          <Link className="nav-link mt-3 fw-bold" to="/myaccount/login">
+            Already have an account?
+          </Link>
+        </div>
       </Row>
       <Membership />
     </MainLayout>
