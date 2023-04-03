@@ -1,8 +1,9 @@
 import React from "react";
 import { MainLayout } from "../layout/MainLayout";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Membership } from "../components/page-components/Membership";
 import { FormComponents } from "../components/form-components/FormComponents";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const InputFields = [
@@ -23,20 +24,37 @@ const Login = () => {
   ];
   return (
     <MainLayout>
-      <Container>
-        <div className="bg-warning text-center">
-          <h2>SIGN IN</h2>
+      <Row className="bgcolor p-5">
+        <Col>
+          <h2 className="fw-bold">SIGN IN</h2>
           <Form>
             {InputFields.map((item, i) => (
               <FormComponents key={i} {...item} />
             ))}
-
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
+            <div className="d-grid col-5">
+              <Button variant="dark" type="submit" className="rounded fw-bold">
+                {" "}
+                Sign In
+              </Button>
+            </div>
           </Form>
-        </div>
-      </Container>
+          <Link className="nav-link mt-3" to="/forgotpassword">
+            {" "}
+            Forgot Password?
+          </Link>
+        </Col>
+        <Col className="d-flex justify-content-center align-items-center ">
+          <p className="mt-3 fw-bold text-center">
+            New to AceAttire?
+            <Link className="nav-link" to="/myaccount/register">
+              <div className="d-grid p-5">
+                <Button variant="dark">Register here</Button>
+              </div>
+            </Link>
+          </p>
+        </Col>
+      </Row>
+
       <Membership />
     </MainLayout>
   );

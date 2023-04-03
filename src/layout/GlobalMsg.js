@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const GlobalMsg = () => {
   return (
-    <div className=" glbmsg">
+    <div className="bgcolor">
       <div className=" p-2 d-flex justify-content-between">
         <div>
         Free Shipping on Orders +$100

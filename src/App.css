@@ -1,4 +1,9 @@
+.bgcolor{
+  background: #f0f2f3d2;
+}
+
 .hero{
+
   background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(./assets/Bgshoes.png) center center no-repeat ;
   min-height: 100vh;
   width: auto;
@@ -8,6 +13,7 @@
   justify-content: center;
   color: #fff;
 }
+
 
 
 
@@ -110,6 +116,4 @@ cursor: pointer;
   background-attachment: fixed;
   background-size: cover;
 }
-.glbmsg{
-  background: #e7e3e3;
-}
+
