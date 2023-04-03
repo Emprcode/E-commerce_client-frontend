@@ -21,7 +21,7 @@ export const Header = () => {
           </Form>
 
             <Link className='nav-link' to="/cart"><i class="fa-solid fa-cart-shopping"></i></Link>
-            <Link  className='nav-link' to="/profile"><i class="fa-solid fa-user"></i></Link>
+            <Link  className='nav-link' to="/myaccount/login"><i class="fa-solid fa-user"></i></Link>
             
           </Nav>
         </Navbar.Collapse>
