@@ -94,8 +94,9 @@ const Register = () => {
         </Col>
         <div className="p-4">
           <p>
-            Creating an account means you accept our Terms of Use and Privacy
-            Policy.
+            Creating an account means you accept our
+            <span className="fw-bold"> Terms of Use </span> and
+            <span className="fw-bold"> Privacy Policy </span>.
           </p>
           <Link className="nav-link mt-3 fw-bold" to="/myaccount/login">
             Already have an account?

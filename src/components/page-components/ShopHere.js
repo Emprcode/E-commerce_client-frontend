@@ -6,7 +6,7 @@ export const ShopHere = () => {
   return (
     <div>
       <Container
-        className="p-4 d-flex justify-content-center align-items-center gap-5"
+        className="p-4 d-flex justify-content-center align-items-center gap-5 flex-wrap"
         id="shopnow">
         <Col className=" top rounded shopbtn ">
           <Link className="nav-link" to="/mentops">

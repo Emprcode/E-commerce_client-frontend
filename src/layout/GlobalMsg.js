@@ -10,7 +10,7 @@ const GlobalMsg = () => {
         Free Shipping on Orders +$100
         </div>
         <div className="d-flex gap-2 justify-content-around flex-row">
-        <Link className='nav-link' to="/cart"><i className="fa-solid fa-phone-volume"></i> 0000 000 000 | </Link>
+        <Link className='nav-link' to="/"><i className="fa-solid fa-phone-volume"></i> 0000 000 000 | </Link>
         <Link  className='nav-link' to="/">Find a store | </Link>
         <Link  className='nav-link' to="/"> Help </Link>
       
