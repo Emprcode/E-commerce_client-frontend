@@ -5,7 +5,7 @@ import { Membership } from "../components/page-components/Membership";
 import { ShopHere } from "../components/page-components/ShopHere";
 import { Trending } from "../components/page-components/Trending";
 import { MainLayout } from "../layout/MainLayout";
-import { Link } from "react-router-dom";
+import { StoreInfo } from "../components/page-components/StoreInfo";
 
 const HomePage = () => {
   return (
@@ -27,6 +27,7 @@ const HomePage = () => {
       <Trending />
       <LatestRelease />
       <Membership />
+      <StoreInfo/>
     </MainLayout>
   );
 };
