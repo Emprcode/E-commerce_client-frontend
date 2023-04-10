@@ -2,7 +2,7 @@ import React from "react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import GlobalMsg from "./GlobalMsg";
-import { StoreInfo } from "../components/page-components/StoreInfo";
+import { StoreInfo } from "./StoreInfo";
 
 export const MainLayout = ({ children }) => {
   return (
