@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { MainLayout } from "../../layout/MainLayout";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import { Button, Col, Container, Dropdown, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { CardComponents } from "../card/CardComponents";
 import { AssociatedPage } from "../page-components/AssociatedPage";
 import { Membership } from "../page-components/Membership";
 
 export const ProductPage = () => {
+  const [select, setSelect] = useState();
+
+  const handleOnChange = (e) => {
+    setSelect(e.target.value);
+  };
   return (
     <MainLayout>
       <Breadcrumb className="m-2">
@@ -18,6 +23,8 @@ export const ProductPage = () => {
       <Container>
         <Row>
           <Col>
+            {/* product image here */}
+
             <CardComponents />
           </Col>
           <Col>
@@ -27,19 +34,17 @@ export const ProductPage = () => {
               <p> $150</p>
             </div>
             <div>
-              <Dropdown>
-                <Dropdown.Toggle variant="info border-1" id="dropdown-basic">
-                  Select Your Size
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="/xs">Xs</Dropdown.Item>
-                  <Dropdown.Item href="/s">S</Dropdown.Item>
-                  <Dropdown.Item href="m">M</Dropdown.Item>
-                  <Dropdown.Item href="l">L</Dropdown.Item>
-                  <Dropdown.Item href="xl">XL</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <select
+                className="btn border-primary"
+                value={select}
+                onChange={handleOnChange}>
+                <option> Select Your Size </option>
+                <option>Xs</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
             </div>
 
             <div className=" mt-4 d-grid">
