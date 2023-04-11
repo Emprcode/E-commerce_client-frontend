@@ -26,7 +26,7 @@ export const Membership = () => {
   };
   return (
     <div className="bgmembership text-center">
-      <Row className="">
+      <Row className=" m-5">
         <h5 className="fw-bold">
           BECOME A VIP MEMBER NOW! BE THE FIRST IN LINE TO DRIP HARD.
         </h5>
