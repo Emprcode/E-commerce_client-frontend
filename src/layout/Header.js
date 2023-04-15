@@ -5,12 +5,13 @@ export const Header = () => {
   return (
     <Navbar bg="light" expand="md">
       <Container className="p-3">
+       
         <Navbar.Brand href="/">
           <h1 className="fw-bold">The AceAttire</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto fw-bold">
+          <Nav className="ms-auto fw-bold gap-3">
             <Form className="d-flex">
               <Form.Control
                 type="search"
@@ -18,8 +19,8 @@ export const Header = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">
-                <i class="fa-solid fa-magnifying-glass"></i>
+              <Button variant="outline-info">
+                <i class="fa-solid fa-magnifying-glass "></i>
               </Button>
             </Form>
 
