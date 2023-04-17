@@ -9,7 +9,7 @@ import { MainLayout } from "../layout/MainLayout";
 const HomePage = () => {
   return (
     <MainLayout>
-      <div className="hero ">
+      <div className="hero">
         <div className="mt-5 d-flex flex-column gap-2 justify-content-center align-items-center">
           <h1 className="fw-bold ">Unleash your inner rebel</h1>
 
@@ -26,7 +26,6 @@ const HomePage = () => {
       <Trending />
       <LatestRelease />
       <Membership />
-   
     </MainLayout>
   );
 };
