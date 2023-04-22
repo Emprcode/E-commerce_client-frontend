@@ -1,82 +1,95 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
-import { Container, Row } from "react-bootstrap";
-import { CardComponents } from "../components/card/CardComponents";
+import { Container} from "react-bootstrap";
 import top from "../assets/top.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProductsAction } from "../components/products/productAction";
+import { MensTopCard } from "../components/card/MensTopCard";
 
 const MenTops = () => {
-  const MenTops = [
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-    {
-      img: top,
-      title: "Nike Air Max T-shirt",
-      price: "$60",
-    },
-  ];
+
+  const {  products } = useSelector((state) => state.product)
+console.log(products)
+
+const dispatch = useDispatch()
+
+useEffect(()=> {
+dispatch(getAllProductsAction())
+
+}, [dispatch])
+
+  // const MenTops = [
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  //   {
+  //     img: top,
+  //     title: "Nike Air Max T-shirt",
+  //     price: "$60",
+  //   },
+  // ];
   return (
     <MainLayout>
       <Container>
@@ -84,8 +97,8 @@ const MenTops = () => {
           <h2 className="p-5 text-center fw-bold"> MEN'S TOP</h2>
         </div>
         <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
-          {MenTops.map((item, i) => (
-            <CardComponents key={i} {...item} />
+          {products.map((item, i) => (
+            <MensTopCard key={i} {...item} />
           ))}
         </div>
       </Container>
