@@ -20,15 +20,15 @@ export const Header = () => {
                 aria-label="Search"
               />
               <Button variant="outline-info">
-                <i class="fa-solid fa-magnifying-glass "></i>
+                <i className="fa-solid fa-magnifying-glass "></i>
               </Button>
             </Form>
 
             <Link className="nav-link" to="/cart">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i className="fa-solid fa-cart-shopping"></i>
             </Link>
             <Link className="nav-link" to="/myaccount/login">
-              <i class="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user"></i>
             </Link>
           </Nav>
         </Navbar.Collapse>

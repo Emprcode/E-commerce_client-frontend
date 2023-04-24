@@ -31,14 +31,14 @@ export const StoreInfo = () => {
           <h2 className="fw-bold">Contact</h2>
           <div>
             <p>
-              <i class="fa-solid fa-location-dot fa-bounce"></i> Sydney,
+              <i className="fa-solid fa-location-dot fa-bounce"></i> Sydney,
               Australia
             </p>
             <p>
-              <i class="fa-solid fa-phone fa-shake"></i> 0450647121
+              <i className="fa-solid fa-phone fa-shake"></i> 0450647121
             </p>
             <p>
-              <i class="fa-solid fa-envelope fa-beat-fade"></i>{" "}
+              <i className="fa-solid fa-envelope fa-beat-fade"></i>{" "}
               ouremail@aceattire.com.au
             </p>
           </div>
