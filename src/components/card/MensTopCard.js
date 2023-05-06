@@ -2,12 +2,12 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-export const MensTopCard = ({ img, price, description, ...item }) => {
+export const MensTopCard = ({ img, price, description, _id, ...item }) => {
   const navigate = useNavigate();
 
   const lunchProductCard = (e) => {
     // e.preventDefault();
-    navigate("/product");
+    navigate("/product/" + _id);
   };
   return (
     <Card style={{ width: "18rem" }} className="cardcss border-0">
@@ -19,20 +19,20 @@ export const MensTopCard = ({ img, price, description, ...item }) => {
         onClick={lunchProductCard}
       />
       <Card.Body>
-        {/* <div></div> */}
         <div className="d-flex justify-content-center gap-3">
           <img
             src={"http://localhost:8000/" + item?.images[0].substr(6)}
             width="50px"
             height="50px"
+            alt="product"
           />
           {/* </div>
         <div> */}
-          <img
+          {/* <img
             src={"http://localhost:8000/" + item?.images[1].substr(6)}
             width="50px"
             height="50px"
-          />
+          /> */}
         </div>
         <Card.Title className="text-center m-3">{item.name}</Card.Title>
         <Card.Text className="text-center">

@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-import { MainLayout } from "../../layout/MainLayout";
+import { MainLayout } from "../layout/MainLayout";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { CardComponents } from "../card/CardComponents";
-import { AssociatedPage } from "../page-components/AssociatedPage";
-import { Membership } from "../page-components/Membership";
+import { CardComponents } from "../components/card/CardComponents";
+import { AssociatedPage } from "../components/page-components/AssociatedPage";
+import { Membership } from "../components/page-components/Membership";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 export const ProductPage = () => {
+
+  const {products} = useSelector((state) => state.product)
+
+
+
+  const {_id} = useParams()
+  console.log(_id)
   const [select, setSelect] = useState();
 
   const handleOnChange = (e) => {

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Container} from "react-bootstrap";
-import top from "../assets/top.png";
+// import top from "../assets/top.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsAction } from "../components/products/productAction";
+import { getAllProductsAction } from "../components/products-redux/productAction";
 import { MensTopCard } from "../components/card/MensTopCard";
 
 const MenTops = () => {
