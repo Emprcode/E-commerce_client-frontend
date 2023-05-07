@@ -2,12 +2,19 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-export const MensTopCard = ({ img, price, description, _id, ...item }) => {
+export const MensTopCard = ({
+  img,
+  price,
+  slug,
+  description,
+  _id,
+  ...item
+}) => {
   const navigate = useNavigate();
 
   const lunchProductCard = (e) => {
     // e.preventDefault();
-    navigate("/product/" + _id);
+    navigate("/products/" + slug);
   };
   return (
     <Card style={{ width: "18rem" }} className="cardcss border-0">

@@ -3,7 +3,7 @@ import { MainLayout } from "../layout/MainLayout";
 import { Container} from "react-bootstrap";
 // import top from "../assets/top.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsAction } from "../components/products-redux/productAction";
+import { getAllProductsAction } from "../components/redux/products-redux/productAction";
 import { MensTopCard } from "../components/card/MensTopCard";
 
 const MenTops = () => {

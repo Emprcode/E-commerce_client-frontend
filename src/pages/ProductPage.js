@@ -1,25 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { CardComponents } from "../components/card/CardComponents";
 import { AssociatedPage } from "../components/page-components/AssociatedPage";
 import { Membership } from "../components/page-components/Membership";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getSingleProductAction } from "../components/redux/products-redux/productAction";
+import { setCart } from "../components/redux/cart/CartSlice";
 
 export const ProductPage = () => {
+  const { selectedProduct } = useSelector((state) => state.singleProduct);
+  console.log(selectedProduct);
 
-  const {products} = useSelector((state) => state.product)
+  //_id is taken from req.params for fetching product based on that id
+  // const { _id } = useParams();
+  // console.log(_id);
+  const { slug } = selectedProduct;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSingleProductAction(slug));
+  }, [dispatch, slug]);
 
-
-
-  const {_id} = useParams()
-  console.log(_id)
   const [select, setSelect] = useState();
 
   const handleOnChange = (e) => {
     setSelect(e.target.value);
+  };
+
+  const handleOnAddToCart = (e) => {
+    e.preventDefault();
+    setCart(select);
   };
   return (
     <MainLayout>
@@ -32,32 +43,53 @@ export const ProductPage = () => {
       <Container>
         <Row>
           <Col>
-            {/* product image here */}
-
-            <CardComponents />
+            <div className="d-flex justify-content-center gap-3">
+              <img
+                src={
+                  "http://localhost:8000/" +
+                  selectedProduct?.thumbnail?.substr(7)
+                }
+                width="250px"
+                height="350px"
+                alt="product"
+              />
+              <div>
+                {selectedProduct?.images?.map((item) => (
+                  <img
+                    src={"http://localhost:8000/" + item?.substr(6)}
+                    width="50px"
+                    height="50px"
+                  />
+                ))}
+              </div>
+            </div>
           </Col>
           <Col>
             <div>
-              <h3 className="fw-bold"> Jordan Nike Air Max</h3>
-              <p> Men Tops</p>
-              <p> $150</p>
+              <h3 className="fw-bold"> {selectedProduct.name}</h3>
+              <p> {selectedProduct.sku}</p>
+              <p> {selectedProduct.price}</p>
             </div>
             <div>
               <select
                 className="btn border-primary"
-                value={select}
+                required
                 onChange={handleOnChange}>
                 <option> Select Your Size </option>
-                <option>Xs</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
+                <option value="xs">Xs</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
               </select>
             </div>
 
             <div className=" mt-4 d-grid">
-              <Button variant="success" className="fw-bold cartbtn">
+              <Button
+                variant="success"
+                type="submit"
+                onClick={handleOnAddToCart}
+                className="fw-bold cartbtn">
                 ADD TO CART
               </Button>
             </div>

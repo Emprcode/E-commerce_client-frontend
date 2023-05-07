@@ -2,7 +2,8 @@ import axios from "axios";
 
 const apiRoot = process.env.REACT_APP_ROOT_API;
 
-const productApi = apiRoot + "/product";
+const productUrl = apiRoot + "/products";
+// const singleProductURL = apiRoot + `/products/${_id}`;
 
 const axiosProcessor = async ({ method, url, objDt }) => {
   try {
@@ -11,6 +12,7 @@ const axiosProcessor = async ({ method, url, objDt }) => {
       url,
       //   data: objDt,
     });
+    console.log(data)
     return data;
   } catch (error) {
     return {
@@ -20,10 +22,20 @@ const axiosProcessor = async ({ method, url, objDt }) => {
   }
 };
 
-export const fetchProducts = async () => {
+export const fetchAllProducts = async () => {
   const obj = {
     method: "get",
-    url: productApi,
+    url: productUrl,
   };
   return axiosProcessor(obj);
 };
+
+export const fetchSingleProduct = async (slug) => {
+  const obj = {
+    method: "get",
+    url: productUrl + "/" + slug,
+  };
+  return axiosProcessor(obj);
+};
+
+
