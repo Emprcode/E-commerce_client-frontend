@@ -5,23 +5,27 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { AssociatedPage } from "../components/page-components/AssociatedPage";
 import { Membership } from "../components/page-components/Membership";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { getSingleProductAction } from "../components/redux/products-redux/productAction";
 import { setCart } from "../components/redux/cart/CartSlice";
+import { useParams } from "react-router-dom";
 
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.singleProduct);
-  console.log(selectedProduct);
+  // console.log(selectedProduct);
 
-  //_id is taken from req.params for fetching product based on that id
+  //_idor slug is taken from req.params for fetching product based on that id or slug
   // const { _id } = useParams();
   // console.log(_id);
-  const { slug } = selectedProduct;
+  const { slug } = useParams();
+  console.log(slug);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getSingleProductAction(slug));
   }, [dispatch, slug]);
 
+  //local state to capture size data
   const [select, setSelect] = useState();
 
   const handleOnChange = (e) => {
@@ -53,15 +57,18 @@ export const ProductPage = () => {
                 height="350px"
                 alt="product"
               />
-              <div>
-                {selectedProduct?.images?.map((item) => (
-                  <img
-                    src={"http://localhost:8000/" + item?.substr(6)}
-                    width="50px"
-                    height="50px"
-                  />
-                ))}
-              </div>
+
+              {/* <div className="d-flex justify-content-center gap-3">
+                <img
+                  src={
+                    "http://localhost:8000/" +
+                    selectedProduct?.images[0].substr(6)
+                  }
+                  width="50px"
+                  height="50px"
+                  alt="product"
+                />
+              </div> */}
             </div>
           </Col>
           <Col>
