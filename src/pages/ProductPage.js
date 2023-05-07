@@ -7,34 +7,47 @@ import { Membership } from "../components/page-components/Membership";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProductAction } from "../components/redux/products-redux/productAction";
 import { setCart } from "../components/redux/cart/CartSlice";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { addToCartAction } from "../components/redux/cart/CartAction";
 
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.singleProduct);
   // console.log(selectedProduct);
 
   //_idor slug is taken from req.params for fetching product based on that id or slug
-  // const { _id } = useParams();
-  // console.log(_id);
+  const dispatch = useDispatch();
+
   const { slug } = useParams();
   console.log(slug);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getSingleProductAction(slug));
   }, [dispatch, slug]);
 
   //local state to capture size data
-  const [select, setSelect] = useState();
+  const [size, setSize] = useState();
+  const [quantity, setQuantity] = useState(1);
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
 
   const handleOnChange = (e) => {
-    setSelect(e.target.value);
+    setSize(e.target.value);
   };
 
   const handleOnAddToCart = (e) => {
-    e.preventDefault();
-    setCart(select);
+    // e.preventDefault();
+    const { _id } = selectedProduct;
+    const obj = { _id, size, quantity };
+    console.log(obj);
+    dispatch(addToCartAction(obj));
   };
   return (
     <MainLayout>
@@ -90,12 +103,17 @@ export const ProductPage = () => {
                 <option value="xl">XL</option>
               </select>
             </div>
+            <div>
+              <button onClick={handleDecrement}>-</button>
+              <input type="text" value={quantity} readOnly />
+              <button onClick={handleIncrement}>+</button>
+            </div>
 
             <div className=" mt-4 d-grid">
               <Button
                 variant="success"
                 type="submit"
-                onClick={handleOnAddToCart}
+                onClick={() => handleOnAddToCart()}
                 className="fw-bold cartbtn">
                 ADD TO CART
               </Button>

@@ -8,6 +8,7 @@ import Cart from "./pages/Cart";
 import { ProductPage } from "./pages/ProductPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/myaccount/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer/>
     </div>
   );
 };
