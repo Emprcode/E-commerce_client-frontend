@@ -2,21 +2,33 @@ import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCartAction } from "../components/redux/cart/CartAction";
-import { getSingleProductAction } from "../components/redux/products-redux/productAction";
+import { setCart } from "../components/redux/cart/CartSlice";
 
 const Cart = () => {
-  const cart = []
+
+  const dispatch = useDispatch()
+  const { selectedProduct } = useSelector((state) => state.selectedProduct);
+  console.log(selectedProduct);
+
+  const {cart} = useSelector(state => state.cartItems)
+console.log(cart)
+
+  useEffect(() => {
+    dispatch(setCart(selectedProduct))
+  }, [dispatch, selectedProduct, cart]);
+
+
+ 
   return (
     <MainLayout>
       <Container>
         <div>
-          <h2 className="p-3 fw-bold">YOUR CART</h2>
+          <h2 className="p-3 fw-bold">YOUR CART </h2>
           <hr />
         </div>
-
         {
-          cart.length ?    <Row>
+          cart.length !== 0 ?  
+           <Row>
           <Col className="p-4 d-flex justify-content-center align-items-center flex-column">
           <Table striped bordered hover>
       <thead>
@@ -29,15 +41,15 @@ const Cart = () => {
         </tr>
       </thead>
       <tbody>
-        {/* {
-          obj.map((item, i)=>  <tr key={i}>
+         {
+          selectedProduct.map((item, i)=>  <tr key={i}>
           <td>{i+ 1}</td>
-          <td>{item.thuumbnail}</td>
+          <td>{item.thumbnail}</td>
           <td>{item.name}</td>
           <td>{item.price}</td>
-          <td>{item.quantity}</td>
+          <td>{item.qty}</td>
         </tr>)
-        } */}
+        } 
        
       
       </tbody>

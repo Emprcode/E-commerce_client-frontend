@@ -5,8 +5,8 @@ import cartReducer from "./components/redux/cart/CartSlice";
 const store = configureStore({
   reducer: {
     product : productReducer,
-    singleProduct : productReducer,
-    cart: cartReducer
+    selectedProduct : productReducer,
+    cartItems: cartReducer
      
   },
 });

@@ -3,10 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cart: [],
   isLoading: false,
+  
 };
 
 const productSlice = createSlice({
-  name: "cart",
+  name: "cartItem",
   initialState,
   reducers: {
     requestPending: (state, action) => {

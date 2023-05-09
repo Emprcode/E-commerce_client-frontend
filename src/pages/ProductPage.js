@@ -1,65 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { MainLayout } from "../layout/MainLayout";
-import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { AssociatedPage } from "../components/page-components/AssociatedPage";
 import { Membership } from "../components/page-components/Membership";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProductAction } from "../components/redux/products-redux/productAction";
 import { setCart } from "../components/redux/cart/CartSlice";
-import { Link, useParams } from "react-router-dom";
-import { addToCartAction } from "../components/redux/cart/CartAction";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export const ProductPage = () => {
-  const { selectedProduct } = useSelector((state) => state.singleProduct);
-  // console.log(selectedProduct);
+  const { selectedProduct } = useSelector((state) => state.selectedProduct);
+  console.log(selectedProduct);
 
   //_idor slug is taken from req.params for fetching product based on that id or slug
   const dispatch = useDispatch();
-
+  const navigate = useNavigate;
   const { slug } = useParams();
-  console.log(slug);
+  // console.log(slug);
 
   useEffect(() => {
     dispatch(getSingleProductAction(slug));
   }, [dispatch, slug]);
 
-  //local state to capture size data
-  const [size, setSize] = useState();
-  const [quantity, setQuantity] = useState(1);
+  const addToCartHandler = (selectedProduct) => {
+    console.log(selectedProduct);
+    dispatch(setCart(selectedProduct));
 
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleOnChange = (e) => {
-    setSize(e.target.value);
-  };
-
-  const handleOnAddToCart = (e) => {
-    // e.preventDefault();
-    const { _id } = selectedProduct;
-    const obj = { _id, size, quantity };
-    console.log(obj);
-    dispatch(addToCartAction(obj));
+    window.scrollTo(0, 0);
   };
   return (
     <MainLayout>
-      <Breadcrumb className="m-2">
-        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="/mentops">MenTops</Breadcrumb.Item>
-        <Breadcrumb.Item active>Tops</Breadcrumb.Item>
-      </Breadcrumb>
-      <hr />
       <Container>
         <Row>
-          <Col>
+          <Col className="d-column">
             <div className="d-flex justify-content-center gap-3">
               <img
                 src={
@@ -90,30 +63,11 @@ export const ProductPage = () => {
               <p> {selectedProduct.sku}</p>
               <p> {selectedProduct.price}</p>
             </div>
-            <div>
-              <select
-                className="btn border-primary"
-                required
-                onChange={handleOnChange}>
-                <option> Select Your Size </option>
-                <option value="xs">Xs</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-              </select>
-            </div>
-            <div>
-              <button onClick={handleDecrement}>-</button>
-              <input type="text" value={quantity} readOnly />
-              <button onClick={handleIncrement}>+</button>
-            </div>
 
             <div className=" mt-4 d-grid">
               <Button
                 variant="success"
-                type="submit"
-                onClick={() => handleOnAddToCart()}
+                onClick={() => addToCartHandler(selectedProduct)}
                 className="fw-bold cartbtn">
                 ADD TO CART
               </Button>
