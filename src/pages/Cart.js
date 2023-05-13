@@ -4,20 +4,10 @@ import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../components/redux/cart/CartSlice";
 
-const Cart = () => {
+const Cart = ({ selectedProduct=[]}) => {
 
-  const dispatch = useDispatch()
-  const { selectedProduct } = useSelector((state) => state.selectedProduct);
-  console.log(selectedProduct);
-
-  const {cart} = useSelector(state => state.cartItems)
+ const {cart } = useSelector((state) => state.cartItems)
 console.log(cart)
-
-  useEffect(() => {
-    dispatch(setCart(selectedProduct))
-  }, [dispatch, selectedProduct, cart]);
-
-
  
   return (
     <MainLayout>
@@ -42,9 +32,17 @@ console.log(cart)
       </thead>
       <tbody>
          {
-          selectedProduct.map((item, i)=>  <tr key={i}>
+          cart.map((item, i)=>  <tr key={i}>
           <td>{i+ 1}</td>
-          <td>{item.thumbnail}</td>
+          <td><img
+                  src={
+                    "http://localhost:8000/" +
+                    cart?.thumbnail?.substr(6)
+                  }
+                  width="50px"
+                  height="50px"
+                  alt="product"
+                /></td>
           <td>{item.name}</td>
           <td>{item.price}</td>
           <td>{item.qty}</td>

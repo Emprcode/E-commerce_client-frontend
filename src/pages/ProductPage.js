@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MainLayout } from "../layout/MainLayout";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { AssociatedPage } from "../components/page-components/AssociatedPage";
 import { Membership } from "../components/page-components/Membership";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,9 +12,10 @@ export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.selectedProduct);
   console.log(selectedProduct);
 
-  //_idor slug is taken from req.params for fetching product based on that id or slug
+  //_id or slug is taken from req.params for fetching product based on that id or slug
   const dispatch = useDispatch();
-  const navigate = useNavigate;
+  const [form, setForm] = useState(1);
+
   const { slug } = useParams();
   // console.log(slug);
 
@@ -22,12 +23,40 @@ export const ProductPage = () => {
     dispatch(getSingleProductAction(slug));
   }, [dispatch, slug]);
 
-  const addToCartHandler = (selectedProduct) => {
-    console.log(selectedProduct);
-    dispatch(setCart(selectedProduct));
+  // const filteredproduct = selectedProduct.length
+  //   ? selectedProduct.find((item) => item.slug === slug)
+  //   : [];
+
+  // console.log(filteredproduct);
+
+  const [count, setCount] = useState(0);
+
+  const handleIncrease = () => {
+    setCount(count + 1);
+  };
+
+  const handleDecrease = () => {
+    setCount(count - 1);
+  };
+  console.log(count);
+
+  const addToCartHandler = (e) => {
+    e.preventDefault();
+    const { name, description, price, thumbnail, _id } = selectedProduct;
+    const obj = {
+      shopQty: count,
+      name,
+      description,
+      price,
+      thumbnail,
+      _id,
+    };
+    console.log(obj);
+    dispatch(setCart(obj));
 
     window.scrollTo(0, 0);
   };
+
   return (
     <MainLayout>
       <Container>
@@ -63,15 +92,23 @@ export const ProductPage = () => {
               <p> {selectedProduct.sku}</p>
               <p> {selectedProduct.price}</p>
             </div>
+            <Form onSubmit={addToCartHandler}>
+              <div className="d-flex justify-content-center gap-3">
+                <Button onClick={handleDecrease}>Decrease</Button>
+                <p> {count}</p>
+                <Button onClick={handleIncrease}>Increase</Button>
+              </div>
 
-            <div className=" mt-4 d-grid">
-              <Button
-                variant="success"
-                onClick={() => addToCartHandler(selectedProduct)}
-                className="fw-bold cartbtn">
-                ADD TO CART
-              </Button>
-            </div>
+              <div className=" mt-4 d-grid">
+                <Button
+                  variant="success"
+                  type="submit"
+                  // onClick={() => addToCartHandler()}
+                  className="fw-bold cartbtn">
+                  ADD TO CART
+                </Button>
+              </div>
+            </Form>
           </Col>
         </Row>
       </Container>
