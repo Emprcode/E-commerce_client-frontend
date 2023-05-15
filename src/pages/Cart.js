@@ -4,7 +4,7 @@ import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../components/redux/cart/CartSlice";
 
-const Cart = ({ selectedProduct=[]}) => {
+const Cart = () => {
 
  const {cart } = useSelector((state) => state.cartItems)
 console.log(cart)
