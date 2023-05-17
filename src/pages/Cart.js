@@ -2,12 +2,20 @@ import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setCart } from "../components/redux/cart/CartSlice";
+import { setCart, setUpdateCart } from "../components/redux/cart/CartSlice";
 
 const Cart = () => {
 
  const {cart } = useSelector((state) => state.cartItems)
 console.log(cart)
+const dispatch = useDispatch()
+
+const handleOnAddCart = (id, e) => {
+  const { name, value } = e.target;
+  console.log(id)
+  dispatch(setUpdateCart({ id, name, value }))
+
+}
  
   return (
     <MainLayout>
