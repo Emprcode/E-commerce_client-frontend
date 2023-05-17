@@ -93,10 +93,20 @@ export const ProductPage = () => {
               <p> {selectedProduct.price}</p>
             </div>
             <Form onSubmit={addToCartHandler}>
-              <div className="d-flex justify-content-center gap-3">
-                <Button onClick={handleDecrease}>Decrease</Button>
-                <p> {count}</p>
-                <Button onClick={handleIncrease}>Increase</Button>
+              <div className="d-flex  align-items-center gap-3">
+                <Button
+                  onClick={handleDecrease}
+                  variant="none"
+                  className="border border-dark">
+                  <i className="fa-solid fa-minus"></i>
+                </Button>
+                <p className="fw-bold mt-3  "> {count}</p>
+                <Button
+                  onClick={handleIncrease}
+                  variant="none"
+                  className="border border-dark">
+                  <i className="fa-solid fa-plus"></i>
+                </Button>
               </div>
 
               <div className=" mt-4 d-grid">
