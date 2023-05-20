@@ -43,17 +43,14 @@ const handleOnAddCart = (id, e) => {
           cart.map((item, i)=>  <tr key={i}>
           <td>{i+ 1}</td>
           <td><img
-                  src={
-                    "http://localhost:8000/" +
-                    cart?.thumbnail?.substr(6)
-                  }
-                  width="50px"
-                  height="50px"
+                   src={"http://localhost:8000/" + item?.thumbnail.substr(6)}
+                  width="80px"
+                  height="80px"
                   alt="product"
                 /></td>
           <td>{item.name}</td>
           <td>{item.price}</td>
-          <td>{item.qty}</td>
+          <td>{item.shopQty}</td>
         </tr>)
         } 
        

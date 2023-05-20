@@ -6,8 +6,10 @@ import { Membership } from "../components/page-components/Membership";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProductAction } from "../components/redux/products-redux/productAction";
 import { setCart } from "../components/redux/cart/CartSlice";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getState } from "@reduxjs/toolkit";
+import store from "../store";
 
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.selectedProduct);
@@ -15,7 +17,6 @@ export const ProductPage = () => {
 
   //_id or slug is taken from req.params for fetching product based on that id or slug
   const dispatch = useDispatch();
-  const [form, setForm] = useState(1);
 
   const { slug } = useParams();
   // console.log(slug);
@@ -30,7 +31,7 @@ export const ProductPage = () => {
 
   // console.log(filteredproduct);
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const handleIncrease = () => {
     setCount(count + 1);
@@ -55,6 +56,10 @@ export const ProductPage = () => {
     console.log(obj);
     toast.success("Item added to cart");
     dispatch(setCart(obj));
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(store.getState().cartItems.cart)
+    );
 
     window.scrollTo(0, 0);
   };
