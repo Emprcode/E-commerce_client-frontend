@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { removeProductFromCart, setUpdateCart } from "../components/redux/cart/CartSlice";
+import { clearCart, getTotals, removeProductFromCart } from "../components/redux/cart/CartSlice";
 import store from "../store";
 
 const Cart = () => {
@@ -11,18 +11,20 @@ const Cart = () => {
 console.log(cart)
 const dispatch = useDispatch()
 
-const handleOnUpdateCart = (id, e) => {
-  const { name, value } = e.target;
-  console.log(id)
-  dispatch(setUpdateCart({ id, name, value }))
+// useEffect(() => {
+//   dispatch(getTotals())
+// }, [cart, dispatch])
 
-}
-
+// remove one item
 const handleOnRemove = (item) => {
   dispatch(removeProductFromCart(item))
 
 }
  
+// remove all item
+const clearCartHandler = () => {
+  dispatch(clearCart())
+}
   return (
     <MainLayout>
       <Container>
@@ -71,7 +73,7 @@ const handleOnRemove = (item) => {
             <hr />
             <div className="d-flex justify-content-center align-items-center h5 p-4">
               <p className="col-9 fw-bold"> Total</p>
-              <p> 0.000</p>
+              <p> {cart.totalAmount}</p>
             </div>
 
             <div className="d-grid gap-3">

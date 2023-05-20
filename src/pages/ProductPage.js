@@ -51,13 +51,7 @@ export const ProductPage = () => {
       _id,
     };
     console.log(obj);
-    // toast.success("Item added to cart");
     dispatch(setCart(obj));
-    // localStorage.setItem(
-    //   "cartItems",
-    //   JSON.stringify(store.getState().cartItems.cart)
-    // JSON.stringify(obj)
-    // );
 
     window.scrollTo(0, 0);
   };
