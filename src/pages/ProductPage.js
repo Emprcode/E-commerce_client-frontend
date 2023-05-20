@@ -7,9 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSingleProductAction } from "../components/redux/products-redux/productAction";
 import { setCart } from "../components/redux/cart/CartSlice";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import { getState } from "@reduxjs/toolkit";
-import store from "../store";
 
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.selectedProduct);
@@ -54,12 +51,13 @@ export const ProductPage = () => {
       _id,
     };
     console.log(obj);
-    toast.success("Item added to cart");
+    // toast.success("Item added to cart");
     dispatch(setCart(obj));
-    localStorage.setItem(
-      "cartItems",
-      JSON.stringify(store.getState().cartItems.cart)
-    );
+    // localStorage.setItem(
+    //   "cartItems",
+    //   JSON.stringify(store.getState().cartItems.cart)
+    // JSON.stringify(obj)
+    // );
 
     window.scrollTo(0, 0);
   };

@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setCart, setUpdateCart } from "../components/redux/cart/CartSlice";
+import { removeProductFromCart, setUpdateCart } from "../components/redux/cart/CartSlice";
+import store from "../store";
 
 const Cart = () => {
 
@@ -10,10 +11,15 @@ const Cart = () => {
 console.log(cart)
 const dispatch = useDispatch()
 
-const handleOnAddCart = (id, e) => {
+const handleOnUpdateCart = (id, e) => {
   const { name, value } = e.target;
   console.log(id)
   dispatch(setUpdateCart({ id, name, value }))
+
+}
+
+const handleOnRemove = (item) => {
+  dispatch(removeProductFromCart(item))
 
 }
  
@@ -36,6 +42,7 @@ const handleOnAddCart = (id, e) => {
           <th>Name</th>
           <th>Price</th>
           <th>Quantity</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -51,6 +58,7 @@ const handleOnAddCart = (id, e) => {
           <td>{item.name}</td>
           <td>{item.price}</td>
           <td>{item.shopQty}</td>
+          <td className="fw-bold btn h4 d-flex justify-content-center " onClick={ ()=> handleOnRemove(item)}><i className="fa-solid fa-xmark"></i></td>
         </tr>)
         } 
        
