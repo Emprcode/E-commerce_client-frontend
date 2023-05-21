@@ -3,18 +3,20 @@ import { toast } from "react-toastify";
 
 // let initialCart= localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : []
 
-const initialCart = JSON.parse(localStorage.getItem("cartItems"))?.cart
-  ? JSON.parse(localStorage.getItem("cartItems")).cart
+const initialCart = JSON.parse(localStorage.getItem("cartItems"))
+  ? JSON.parse(localStorage.getItem("cartItems"))
   : []
 
+
+
   const stateTotalAmount = JSON.parse(localStorage.getItem("cartItems"))
-  ?.totalAmount
-  ? JSON.parse(localStorage.getItem("cartItems")).totalAmount
+ 
+  ? JSON.parse(localStorage.getItem("cartItems"))
   : 0
 
 const stateTotalQuantity = JSON.parse(localStorage.getItem("cartItems"))
-  ?.totalQuantity
-  ? JSON.parse(localStorage.getItem("cartItems")).totalQuantity
+
+  ? JSON.parse(localStorage.getItem("cartItems"))
   : 0
 
 const initialState = {
@@ -47,7 +49,6 @@ if(itemIndex >= 0){
       
     },
 
-
    
     removeProductFromCart: (state, { payload }) => {
       const updateCartItems = state.cart.filter(
@@ -75,33 +76,13 @@ if(itemIndex >= 0){
 
     //calculate total items
    
-    // getTotals: (state, action) => {
-    //   let { total, quantity } = state.cart.reduce(
-    //     (accumulator, cartItem) => {
-    //       const { price, shopQty } = cartItem
-    //       const itemTotal = price * shopQty
-
-    //       accumulator.total += itemTotal
-    //       accumulator.quantity += shopQty
-
-    //       return accumulator
-    //     },
-    //     {
-    //       total: 0,
-    //       quantity: 0,
-    //     }
-    //   )
-    //   state.totalQuantity = quantity
-    //   state.totalAmount = total
-    //   localStorage.setItem("cartState", JSON.stringify(state))
-    // },
- 
+   
   },
 });
 
 const { reducer, actions } = productSlice;
 
-export const { requestPending, setCart, removeProductFromCart, getTotals, clearCart} = actions;
+export const { requestPending, setCart, removeProductFromCart, clearCart} = actions;
 
 export default reducer;
 
