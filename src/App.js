@@ -9,6 +9,7 @@ import { ProductPage } from "./pages/ProductPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { ToastContainer } from "react-toastify";
+import ThankYou from "./pages/ThankYou";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/products/:slug" element={<ProductPage />} />
           <Route path="/myaccount/login" element={<Login />} />
           <Route path="/myaccount/register" element={<Register />} />
+          <Route path="/thank-you" element={<ThankYou />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer/>

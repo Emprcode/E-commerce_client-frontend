@@ -7,6 +7,7 @@ import {
   removeProductFromCart,
 } from "../components/redux/cart/CartSlice";
 import store from "../store";
+import { checkoutSession } from "../components/helper/axiosHelper";
 
 const Cart = () => {
   const { cart } = useSelector((state) => state.cartItems);
@@ -32,6 +33,21 @@ const Cart = () => {
   if (price < 100) {
     shipping = 40;
   }
+
+  const totalPrice = price + shipping;
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+
+    const obj = {
+      totalPrice,
+    };
+    const session = await checkoutSession(obj);
+    if (session?.url) {
+      window.location.href = session.url;
+    }
+  };
+
   return (
     <MainLayout>
       <Container>
@@ -98,14 +114,19 @@ const Cart = () => {
                 <hr />
                 <div className="d-flex justify-content-center align-items-center h5 p-2">
                   <p className="col-9 fw-bold"> Total: </p>
-                  <p className="fw-bold"> ${price + shipping}</p>
+                  <p className="fw-bold"> ${totalPrice}</p>
                 </div>
               </div>
 
               <div className="d-grid gap-3">
-                <Button variant="success" className="fw-bold cartbtn">
+                <Button
+                  type="submit"
+                  variant="success"
+                  className="fw-bold d-grid cartbtn"
+                  onClick={handleOnSubmit}>
                   Proceed to checkout
                 </Button>
+
                 <p className="text-center fw-bold p-3"> or </p>
                 <Button variant="warning" className="fw-bold cartbtn">
                   Paypal

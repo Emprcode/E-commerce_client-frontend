@@ -27,10 +27,8 @@ export const MensTopCard = ({
               <p className="fw-bold"> {price} </p>
               <p>{description}</p>
             </Card.Text>
-            {/* <Button variant="primary">Go somewhere</Button> */}
           </Card.Body>
         </Card>
-        
       </Link>
     </div>
   );

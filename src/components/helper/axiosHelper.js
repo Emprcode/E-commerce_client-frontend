@@ -6,6 +6,8 @@ const productUrl = apiRoot + "/products";
 
 const cartUrl = apiRoot + "/cart"
 
+const paymentUrl = apiRoot + '/payment'
+
 const axiosProcessor = async ({ method, url, objDt }) => {
   try {
     const { data } = await axios({
@@ -65,3 +67,15 @@ export const getCart = async() => {
 }
 
 
+
+
+//checkout session
+
+export const checkoutSession = async(objDt) => {
+  const obj = {
+    method: "post",
+    url: paymentUrl + '/create-checkout-session',
+    objDt
+  }
+  return axiosProcessor(obj)
+}
