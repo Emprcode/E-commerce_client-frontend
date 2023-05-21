@@ -30,6 +30,7 @@ export const MensTopCard = ({
             {/* <Button variant="primary">Go somewhere</Button> */}
           </Card.Body>
         </Card>
+        
       </Link>
     </div>
   );

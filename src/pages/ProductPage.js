@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.selectedProduct);
-  console.log(selectedProduct);
+  // console.log(selectedProduct);
 
   //_id or slug is taken from req.params for fetching product based on that id or slug
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ export const ProductPage = () => {
   const handleDecrease = () => {
     setCount(count - 1);
   };
-  console.log(count);
+  // console.log(count);
 
   const addToCartHandler = (e) => {
     e.preventDefault();
@@ -50,7 +50,7 @@ export const ProductPage = () => {
       thumbnail,
       _id,
     };
-    console.log(obj);
+    // console.log(obj);
     dispatch(setCart(obj));
 
     window.scrollTo(0, 0);
