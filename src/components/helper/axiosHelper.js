@@ -4,6 +4,8 @@ const apiRoot = process.env.REACT_APP_ROOT_API;
 
 const productUrl = apiRoot + "/products";
 
+const categoryUrl = apiRoot + "/categories";
+
 const cartUrl = apiRoot + "/cart"
 
 const paymentUrl = apiRoot + '/payment'
@@ -44,6 +46,17 @@ export const fetchSingleProduct = async (slug) => {
   return axiosProcessor(obj);
 };
 
+
+
+//fetch all cats
+
+export const fetchAllCategories = async () => {
+  const obj = {
+    method: "get",
+    url: categoryUrl,
+  };
+  return axiosProcessor(obj);
+};
 // add product to cart
 
 export const addToCart = async(objDt) => {

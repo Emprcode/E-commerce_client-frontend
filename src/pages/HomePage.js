@@ -7,16 +7,20 @@ import { Trending } from "../components/page-components/Trending";
 import { MainLayout } from "../layout/MainLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsAction } from "../components/redux/products-redux/productAction";
+import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 
 const HomePage = () => {
 
   const {products} = useSelector((state) => state.product)
+const {cats} = useSelector((state)=> state.category)
 
+console.log(cats)
   console.log(products )
 const dispatch = useDispatch()
 
 useEffect(()=> {
   dispatch(getAllProductsAction())
+  dispatch(getAllCategoriesAction())
   
   }, [dispatch])
   return (

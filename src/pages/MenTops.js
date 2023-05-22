@@ -9,7 +9,8 @@ import { MensTopCard } from "../components/card/MensTopCard";
 const MenTops = () => {
 
   const {  products } = useSelector((state) => state.product)
-// console.log(products)
+  const {cats} = useSelector((state)=> state.category)
+console.log(products)
 
 const dispatch = useDispatch()
 
