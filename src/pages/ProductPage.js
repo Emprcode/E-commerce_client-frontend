@@ -71,20 +71,29 @@ export const ProductPage = () => {
                 height="350px"
                 alt="product"
               />
-
-              {/* <div className="d-flex justify-content-center gap-3">
+            </div>
+            <div className="d-flex justify-content-center gap-3 p-4">
+              {selectedProduct?.images?.map((item, i) => (
                 <img
-                  src={
-                    "http://localhost:8000/" +
-                    selectedProduct?.images[0].substr(6)
-                  }
+                  key={i}
+                  src={"http://localhost:8000/" + item[i]?.substr(6)}
                   width="50px"
                   height="50px"
                   alt="product"
                 />
-              </div> */}
+              ))}
+              {/* <img
+                src={
+                  "http://localhost:8000/" +
+                  selectedProduct?.images[0].substr(6)
+                }
+                width="50px"
+                height="50px"
+                alt="product"
+              /> */}
             </div>
           </Col>
+
           <Col>
             <div>
               <h3 className="fw-bold"> {selectedProduct.name}</h3>
