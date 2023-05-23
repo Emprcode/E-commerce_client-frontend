@@ -1,107 +1,16 @@
 import React from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Container } from "react-bootstrap";
-import { CardComponents } from "../components/card/CardComponents";
-import shoes from "../assets/shoes.png";
+import { useSelector } from "react-redux";
+import { ProductCard } from "../components/card/ProductCard";
 
 const MenFootwares = () => {
-  const MenFootwares = [
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-    {
-      img: shoes,
-      title: "Jordan Air 1 High ",
-      price: "$350",
-    },
-  ];
+  const {products} = useSelector(state=> state.product)
+  console.log(products)
+
+  const mensFootwareID = "64699df4e21def3cf70093c8"
+
+  const filteredArray = products.filter((item)=> item.parentCat === mensFootwareID)
 
   return (
     <MainLayout>
@@ -111,8 +20,8 @@ const MenFootwares = () => {
         </div>
 
         <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
-          {MenFootwares.map((item, i) => (
-            <CardComponents key={i} {...item} />
+          {filteredArray.map((item, i) => (
+            <ProductCard key={i} {...item} />
           ))}
         </div>
       </Container>

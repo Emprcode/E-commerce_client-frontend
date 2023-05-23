@@ -1,82 +1,16 @@
 import React from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Container } from "react-bootstrap";
-import { CardComponents } from "../components/card/CardComponents";
-import bottom from "../assets/bottom.png";
+import { useSelector } from "react-redux";
+import { ProductCard } from "../components/card/ProductCard";
 
-const MenBottoms = () => {
-  const MenBottoms = [
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-    {
-      img: bottom,
-      title: "Jordan Originals Track Pants",
-      price: "$200",
-    },
-  ];
+const MenBottoms = ({MenBottoms=[]}) => {
+  const {products} = useSelector((state)=> state.product)
+  console.log(products)
+
+  const mensBottomId = "64699deee21def3cf70093c1"
+
+  const filteredArray = products.filter((item)=> item.parentCat === mensBottomId)
   return (
     <MainLayout>
       <Container>
@@ -85,8 +19,8 @@ const MenBottoms = () => {
         </div>
 
         <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
-          {MenBottoms.map((item, i) => (
-            <CardComponents key={i} {...item} />
+          {filteredArray.map((item, i) => (
+            <ProductCard key={i} {...item} />
           ))}
         </div>
       </Container>

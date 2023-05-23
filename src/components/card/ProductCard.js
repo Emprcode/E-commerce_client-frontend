@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const MensTopCard = ({
+export const ProductCard = ({
   img,
   price,
   name,
