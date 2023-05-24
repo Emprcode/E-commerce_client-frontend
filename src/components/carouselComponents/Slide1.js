@@ -1,26 +1,27 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { CardComponents } from "../card/CardComponents";
 import { useSelector } from 'react-redux';
+import { ProductCard } from '../card/ProductCard';
 
-export const Slide1 = () => {
+export const Slide1 = ({abc=[]}) => {
 
   const {products} = useSelector(state => state.product)
   console.log(products)
 
-  // const randomProducts = [];
+  const randomProducts = [];
 
   // // Generate three random indices
-  // while (randomProducts.length < 3) {
-  //   const randomIndex = Math.floor(Math.random() * products.length);
-  //   const randomProduct = products[randomIndex];
+  while (randomProducts.length < 3) {
+    const randomIndex = Math.floor(Math.random() * products.length);
+    const randomProduct = products[randomIndex];
 
   //   // Check if the product is already in the randomProducts array
-  //   if (!randomProducts.includes(randomProduct)) {
-  //     randomProducts.push(randomProduct);
-  //   }
-  // }
+    if (!randomProducts.includes(randomProduct)) {
+      randomProducts.push(randomProduct);
+    }
+  }
   
-  // console.log(randomProducts)
+  console.log(randomProducts)
     // const products = [
     //     {
     //       title: "Air Jordan 1 High",
@@ -46,9 +47,8 @@ export const Slide1 = () => {
     
   return (
     <div className='d-flex justify-content-center align-items-center gap-3'>
-        
-        
-          {products.map((item, i) => (
+   
+          {randomProducts.map((item, i) => (
             <CardComponents key={i} {...item} />
           ))}
      
