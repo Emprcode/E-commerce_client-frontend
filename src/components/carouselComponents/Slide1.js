@@ -1,61 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { CardComponents } from "../card/CardComponents";
-import { useSelector } from 'react-redux';
-import { ProductCard } from '../card/ProductCard';
+import { useSelector } from "react-redux";
+import { ProductCard } from "../card/ProductCard";
 
-export const Slide1 = ({abc=[]}) => {
+export const Slide1 = ({ abc = [] }) => {
+  const { products } = useSelector((state) => state.product);
+  // console.log(products);
 
-  const {products} = useSelector(state => state.product)
-  console.log(products)
+  // const [randomProducts, setRandomProducts] = useState([]);
 
-  const randomProducts = [];
+  // const generateRandomProducts = () => {
+  //   const randomIndices = [];
+  //   while (randomIndices.length < 3) {
+  //     const randomIndex = Math.floor(Math.random() * products.length);
+  //     if (!randomIndices.includes(randomIndex)) {
+  //       randomIndices.push(randomIndex);
+  //     }
+  //   }
 
-  // // Generate three random indices
-  while (randomProducts.length < 3) {
-    const randomIndex = Math.floor(Math.random() * products.length);
-    const randomProduct = products[randomIndex];
+  //   const randomProducts = randomIndices.map((index) => products[index]);
+  //   setRandomProducts(randomProducts);
+  // };
 
-  //   // Check if the product is already in the randomProducts array
-    if (!randomProducts.includes(randomProduct)) {
-      randomProducts.push(randomProduct);
-    }
-  }
-  
-  console.log(randomProducts)
-    // const products = [
-    //     {
-    //       title: "Air Jordan 1 High",
-    //       img: shoes,
-    //       price: "$200",
-    //     },
-    //     {
-    //       title: "shoes",
-    //       img: shoes,
-    //       price: "$200",
-    //     },
-    //     {
-    //       title: "shoes",
-    //       img: top,
-    //       price: "$200",
-    //     },
-    //     {
-    //       title: "shoes",
-    //       img: shoes,
-    //       price: "$200",
-    //     },
-    //   ];
-    
+  // useEffect(() => {
+  //   generateRandomProducts();
+  // }, []);
+  // console.log(randomProducts);
   return (
-    <div className='d-flex justify-content-center align-items-center gap-3'>
-   
-          {randomProducts.map((item, i) => (
-            <CardComponents key={i} {...item} />
-          ))}
-     
-
-
-
-
+    <div className="d-flex justify-content-center align-items-center gap-5">
+      {
+        // randomProducts.length > 0 &&
+        abc.map((item, i) => (
+          <CardComponents key={i} {...item} />
+        ))
+      }
     </div>
-  )
-}
+  );
+};
