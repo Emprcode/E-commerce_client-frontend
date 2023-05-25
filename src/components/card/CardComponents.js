@@ -16,13 +16,12 @@ export const CardComponents = ({
     <div>
       <Link to={"/products/" + slug} className="nav-link">
         <Card
-         className="cardcss border-0">
+         className=" border-0">
           <Card.Img
             variant="top"
-            className="rounded"
+            className="rounded carouselCard"
             src={"http://localhost:8000/" + item?.thumbnail?.substr(6)}
-            height="210px"
-            width="200px"
+           
           />
           <Card.Body>
             <Card.Title className="text-center m-3">{name}</Card.Title>

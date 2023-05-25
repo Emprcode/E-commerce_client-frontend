@@ -12,6 +12,7 @@ export const Trending = () => {
     setIndex(selectedIndex);
   };
 
+
   return (
     <Container>
       <h2 className=" p-5 text-center fw-bold">Trending</h2>
@@ -27,7 +28,7 @@ export const Trending = () => {
           <Slide2 />
         </Carousel.Item>
         <Carousel.Item>
-          <Slide3 />
+          <Slide3  />
         </Carousel.Item>
       </Carousel>
     </Container>

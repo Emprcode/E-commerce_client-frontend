@@ -83,8 +83,15 @@ cursor: pointer;
 
 .cardcss{
   cursor: pointer;
+  
 }
 
+.carouselCard{
+  cursor: pointer;
+  height: 210px !important;
+  width: 200px !important;
+ 
+}
 /* .title{
   display: flex;
   justify-content: center;
