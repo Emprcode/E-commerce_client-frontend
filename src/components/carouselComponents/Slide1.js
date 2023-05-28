@@ -4,36 +4,23 @@ import { useSelector } from "react-redux";
 
 export const Slide1 = ({ abc = [] }) => {
   const { products } = useSelector((state) => state.product);
-  console.log(products);
-  // const [randomProducts, setRandomProducts] = useState([]);
-
-  // const generateRandomProducts = () => {
-  //   const randomIndices = [];
-  //   while (randomIndices.length < 3) {
-  //     const randomIndex = Math.floor(Math.random() * products.length);
-  //     if (!randomIndices.includes(randomIndex)) {
-  //       randomIndices.push(randomIndex);
-  //     }
-  //   }
-
-  //   const randomProducts = randomIndices.map((index) => products[index]);
-  //   setRandomProducts(randomProducts);
-  // };
-
-  // useEffect(() => {
-  //   generateRandomProducts();
-  // }, []);
-  // console.log(randomProducts);
+  // console.log(products);
 
   const getRandomProducts = () => {
     const randomProducts = [];
-    for (let i = 0; i < 3; i++) {
-      const randomIndex = Math.floor(Math.random() * products.length);
-      if (!randomProducts.includes(randomIndex)) {
-        randomProducts.push(products[randomIndex]);
+    while (randomProducts.length < 3) {
+      const randomObject =
+        products[Math.floor(Math.random() * products.length)];
+      if (!randomProducts.includes(randomObject?._id)) {
+        randomProducts.push(randomObject?._id);
+        // console.log("R", randomProducts);
       }
     }
-    return randomProducts;
+    const newArray = products.filter((obj) =>
+      randomProducts.includes(obj?._id)
+    );
+    console.log("p", newArray);
+    return newArray;
   };
   const randomProductsList = getRandomProducts();
   console.log(randomProductsList);
@@ -42,7 +29,8 @@ export const Slide1 = ({ abc = [] }) => {
     <div className="d-flex justify-content-center align-items-center gap-5">
       {
         // randomProducts.length > 0 &&
-        randomProductsList.map((item, i) => (
+        // abc?.map((item, i) => (
+        randomProductsList?.map((item, i) => (
           <CardComponents key={i} {...item} />
         ))
       }
