@@ -30,7 +30,7 @@ export const Slide1 = ({ abc = [] }) => {
       {
         // randomProducts.length > 0 &&
         // abc?.map((item, i) => (
-        randomProductsList?.map((item, i) => (
+        abc?.map((item, i) => (
           <CardComponents key={i} {...item} />
         ))
       }
