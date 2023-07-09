@@ -122,7 +122,7 @@ const Cart = () => {
                 <Button
                   type="submit"
                   variant="success"
-                  className="fw-bold d-grid cartbtn"
+                  className="fw-bold bg-success cartbtn"
                   onClick={handleOnSubmit}>
                   Proceed to checkout
                 </Button>

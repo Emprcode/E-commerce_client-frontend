@@ -150,3 +150,24 @@ background: rgba(224, 162, 80, 0.87);
 font-weight: bold;
   cursor: pointer;
 }
+.button1{
+  width: 40rem;
+  height: 3rem;
+  border-width: 2px;
+  /* border-style: solid; */
+  
+  transition: 0.1s background-color linear, 0.1s color linear;
+  border-radius: 300px;
+/* background: rgba(224, 162, 80, 0.87); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+font-weight: bold;
+  cursor: pointer;
+}
+
+.button1:hover{
+  color: black;
+  background: white;
+  transition: 0.1s background-color linear, 0.1s color linear;
+}
