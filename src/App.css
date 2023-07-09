@@ -121,3 +121,32 @@ cursor: pointer;
   background-attachment: fixed;
   background-size: cover;
 }
+
+
+.thankyou{
+  font-size: 80px;
+    font-weight: 700;
+    line-height: 52px;
+    font-family: 'Fasthand', cursive;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: currentColor;
+    letter-spacing: 0;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.button{
+  width: 13rem;
+  height: 3rem;
+  border-width: 2px;
+  /* border-style: solid; */
+  background-color: transparent;
+  transition: 0.1s background-color linear, 0.1s color linear;
+  border-radius: 300px;
+background: rgba(224, 162, 80, 0.87);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+font-weight: bold;
+  cursor: pointer;
+}
