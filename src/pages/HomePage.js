@@ -14,8 +14,8 @@ const HomePage = () => {
   const {products} = useSelector((state) => state.product)
 const {cats} = useSelector((state)=> state.category)
 
-console.log(cats)
-  console.log(products )
+// console.log(cats)
+//   console.log(products )
 const dispatch = useDispatch()
 
 useEffect(()=> {
@@ -38,8 +38,8 @@ useEffect(()=> {
         </div>
       </div>
       <ShopHere />
-      <Trending />
-      <LatestRelease />
+      {/* <Trending />
+      <LatestRelease /> */}
       <Membership />
     </MainLayout>
   );

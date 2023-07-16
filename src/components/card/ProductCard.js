@@ -18,14 +18,14 @@ export const ProductCard = ({
           <Card.Img
             variant="top"
             className="rounded"
-            src={"http://localhost:8000/" + item?.thumbnail.substr(6)}
+            src={process.env.REACT_APP_IMAGE_API + item?.thumbnail?.substr(6)}
             height="340px"
           />
           <Card.Body>
             <Card.Title className="text-center m-3">{name}</Card.Title>
             <Card.Text className="text-center">
-              <p className="fw-bold"> {price} </p>
-              <p>{description}</p>
+              <div className="fw-bold"> {price} </div>
+              <div>{description}</div>
             </Card.Text>
           </Card.Body>
         </Card>

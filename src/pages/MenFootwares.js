@@ -8,7 +8,7 @@ const MenFootwares = () => {
   const {products} = useSelector(state=> state.product)
   console.log(products)
 
-  const mensFootwareID = "64699df4e21def3cf70093c8"
+  const mensFootwareID = "64aa3a6498e70af4e51fee7c"
 
   const filteredArray = products.filter((item)=> item.parentCat === mensFootwareID)
 

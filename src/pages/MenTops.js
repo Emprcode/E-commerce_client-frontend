@@ -8,7 +8,7 @@ import { ProductCard } from "../components/card/ProductCard";
 const MenTops = () => {
 
   const {  products } = useSelector((state) => state.product)
-console.log(products)
+// console.log(products)
 
 const dispatch = useDispatch()
 
@@ -16,10 +16,10 @@ useEffect(()=> {
 dispatch(getAllProductsAction())
 }, [dispatch])
 
-const mensTopID = "646c291731f6cfff296ee6c8"
+const mensTopID = "64aa3a5798e70af4e51fee6b"
 
 const filteredArray = products.filter((item)=>item.parentCat === mensTopID )
-console.log(filteredArray)
+// console.log(filteredArray)
 
  
   return (

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiRoot = process.env.REACT_APP_ROOT_API;
+const apiRoot = process.env.REACT_APP_ROOT_API ;
 
 const productUrl = apiRoot + "/products";
 
