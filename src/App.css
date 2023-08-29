@@ -171,3 +171,7 @@ font-weight: bold;
   background: white;
   transition: 0.1s background-color linear, 0.1s color linear;
 }
+
+.headerbg{
+  background-color: rgba(141, 22, 44, 0.605);
+}
