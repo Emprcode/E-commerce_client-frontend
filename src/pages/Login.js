@@ -24,37 +24,44 @@ const Login = () => {
   ];
   return (
     <MainLayout>
-      <Row className="bgcolor p-5">
-        <Col>
-          <h2 className="fw-bold">SIGN IN</h2>
-          <Form>
-            {InputFields.map((item, i) => (
-              <FormComponents key={i} {...item} />
-            ))}
-            <div className="d-grid col-5">
-              <Button variant="dark" type="submit" className="rounded fw-bold">
+      <div className="bgcolor">
+        <Container>
+          <Row className="p-5">
+            <Col>
+              <h2 className="fw-bold">SIGN IN</h2>
+              <Form>
+                {InputFields.map((item, i) => (
+                  <FormComponents key={i} {...item} />
+                ))}
+                <div className="d-grid col-5">
+                  <Button
+                    variant="dark"
+                    type="submit"
+                    className="rounded fw-bold">
+                    {" "}
+                    Sign In
+                  </Button>
+                </div>
+              </Form>
+              <Link className="nav-link mt-3" to="/forgotpassword">
                 {" "}
-                Sign In
-              </Button>
-            </div>
-          </Form>
-          <Link className="nav-link mt-3" to="/forgotpassword">
-            {" "}
-            Forgot Password?
-          </Link>
-        </Col>
+                Forgot Password?
+              </Link>
+            </Col>
 
-        <Col className="d-flex justify-content-center align-items-center ">
-          <p className="mt-3 fw-bold text-center">
-            New to AceAttire?
-            <Link className="nav-link" to="/myaccount/register">
-              <div className="d-grid p-5">
-                <Button variant="dark">Register here</Button>
-              </div>
-            </Link>
-          </p>
-        </Col>
-      </Row>
+            <Col className="d-flex justify-content-center align-items-center ">
+              <p className="mt-3 fw-bold text-center">
+                New to AceAttire?
+                <Link className="nav-link" to="/myaccount/register">
+                  <div className="d-grid p-5">
+                    <Button variant="dark">Register here</Button>
+                  </div>
+                </Link>
+              </p>
+            </Col>
+          </Row>
+        </Container>
+      </div>
 
       <Membership />
     </MainLayout>

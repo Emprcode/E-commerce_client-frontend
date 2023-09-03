@@ -68,29 +68,24 @@ export const ProductPage = () => {
                   selectedProduct?.thumbnail?.substr(6)
                 }
                 width="250px"
-                height="350px"
+                // height="350px"
                 alt="product"
+                className="rounded"
               />
             </div>
-            <div className="d-flex justify-content-center gap-3 p-4">
+            <div className="d-flex justify-content-center gap-3 p-4 rounded">
               {selectedProduct?.images?.map((item, i) => (
                 <img
                   key={i}
-                  src={process.env.REACT_APP_IMAGE_API + selectedProduct?.images[i]?.substr(6)}
+                  src={
+                    process.env.REACT_APP_IMAGE_API +
+                    selectedProduct?.images[i]?.substr(6)
+                  }
                   width="50px"
                   height="50px"
                   alt="product"
                 />
               ))}
-              {/* <img
-                src={
-                  "http://localhost:8000/" +
-                  selectedProduct?.images[0].substr(6)
-                }
-                width="50px"
-                height="50px"
-                alt="product"
-              /> */}
             </div>
           </Col>
 
@@ -119,15 +114,19 @@ export const ProductPage = () => {
 
               <div className=" mt-4 d-grid">
                 <Button
-                  variant="success"
+                  variant="dark"
                   type="submit"
-                  // onClick={() => addToCartHandler()}
                   className="fw-bold cartbtn">
                   ADD TO CART
                 </Button>
               </div>
             </Form>
           </Col>
+        </Row>
+        <Row className="p-4">
+          <p className="fw-bold h5">Product Info</p>
+          <hr />
+          <p>{selectedProduct.description}</p>
         </Row>
       </Container>
       {/* <hr /> */}

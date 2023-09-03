@@ -1,7 +1,7 @@
 
 
 .bgcolor{
- background:rgba(0, 0, 0, 0.171);
+ background:rgba(196, 173, 209, 0.295);
 }
 .hero{
 
@@ -76,7 +76,7 @@ cursor: pointer;
 }
 
 .bgmembership{
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   padding: 4rem;
   background: #f5f5f5;
 }
@@ -174,4 +174,13 @@ font-weight: bold;
 
 .headerbg{
   background-color: rgba(141, 22, 44, 0.605);
+}
+
+.secondCol{
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .secondCol {
+      display: none; 
+  }
 }

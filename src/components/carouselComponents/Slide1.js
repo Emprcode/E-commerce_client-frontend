@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { CardComponents } from "../card/CardComponents";
 import { useSelector } from "react-redux";
+import { ProductCard } from "../card/ProductCard";
 
-export const Slide1 = ({ abc = [] }) => {
+export const Slide1 = () => {
   const { products } = useSelector((state) => state.product);
   // console.log(products);
   const [randomP, setRandomP] = useState([]);
@@ -30,7 +30,7 @@ export const Slide1 = ({ abc = [] }) => {
         // randomProducts.length > 0 &&
         // abc?.map((item, i) => (
         randomP?.map((item, i) => (
-          <CardComponents key={i} {...item} />
+          <ProductCard key={i} {...item} />
         ))
       }
     </div>

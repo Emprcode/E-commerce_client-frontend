@@ -26,7 +26,7 @@ export const Membership = () => {
   };
   return (
     <div className="bgmembership text-center">
-      <Row className=" m-5">
+      <Row className="p-3">
         <h5 className="fw-bold">
           BECOME A VIP MEMBER NOW! BE THE FIRST IN LINE TO DRIP HARD.
         </h5>
@@ -37,12 +37,16 @@ export const Membership = () => {
         </p>
       </Row>
       <Form className="p-3" onSubmit={sendEmail} ref={form}>
-        <Row className="d-flex justify-content-center">
+        <Row className="d-flex justify-content-center gap-2">
           <Col xs="auto">
-            <Form.Control placeholder="Email address" name="user_email" />
+            <Form.Control
+              placeholder="Email address"
+              name="user_email"
+              required
+            />
           </Col>
           <Col xs="auto">
-            <Button variant="dark" type="submit">
+            <Button type="submit" variant="dark">
               Sign Up
             </Button>
           </Col>

@@ -14,12 +14,12 @@ export const ProductCard = ({
   return (
     <div>
       <Link to={"/products/" + slug} className="nav-link">
-        <Card  style={{ width: "18rem" , heigth:"22rem"}} className="cardcss border-0">
+        <Card  style={{ width: "18rem" , heigth:"25rem"}} className="cardcss border-0">
           <Card.Img
             variant="top"
             className="rounded cardimg"
             src={process.env.REACT_APP_IMAGE_API + item?.thumbnail?.substr(6)}
-            height="340px"
+            height="350px"
           />
           <Card.Body>
             <Card.Title className="text-center m-3">{name}</Card.Title>

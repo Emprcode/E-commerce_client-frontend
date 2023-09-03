@@ -70,39 +70,46 @@ const Register = () => {
   ];
   return (
     <MainLayout>
-      <Row className="p-5">
-        <h2 className="fw-bold">Register Here!</h2>
-        <Col>
-          <Form>
-            {InputFields.map((item, i) => (
-              <FormComponents key={i} {...item} />
-            ))}
-            <div className="d-grid col-5">
-              <Button variant="dark" type="submit" className="rounded fw-bold">
-                {" "}
-                Register
-              </Button>
+      <div className="bgcolor">
+        <Container>
+          <Row className="p-5 ">
+            <h2 className="fw-bold">Register Here!</h2>
+            <Col>
+              <Form>
+                {InputFields.map((item, i) => (
+                  <FormComponents key={i} {...item} />
+                ))}
+                <div className="d-grid col-5">
+                  <Button
+                    variant="dark"
+                    type="submit"
+                    className="rounded fw-bold">
+                    {" "}
+                    Register
+                  </Button>
+                </div>
+              </Form>
+            </Col>
+            <Col>
+              <Form>
+                {BillingAddress.map((item, i) => (
+                  <FormComponents key={i} {...item} />
+                ))}
+              </Form>
+            </Col>
+            <div className="p-4">
+              <p>
+                Creating an account means you accept our
+                <span className="fw-bold"> Terms of Use </span> and
+                <span className="fw-bold"> Privacy Policy </span>.
+              </p>
+              <Link className="nav-link mt-3 fw-bold" to="/myaccount/login">
+                Already have an account?
+              </Link>
             </div>
-          </Form>
-        </Col>
-        <Col>
-          <Form>
-            {BillingAddress.map((item, i) => (
-              <FormComponents key={i} {...item} />
-            ))}
-          </Form>
-        </Col>
-        <div className="p-4">
-          <p>
-            Creating an account means you accept our
-            <span className="fw-bold"> Terms of Use </span> and
-            <span className="fw-bold"> Privacy Policy </span>.
-          </p>
-          <Link className="nav-link mt-3 fw-bold" to="/myaccount/login">
-            Already have an account?
-          </Link>
-        </div>
-      </Row>
+          </Row>
+        </Container>
+      </div>
       <Membership />
     </MainLayout>
   );

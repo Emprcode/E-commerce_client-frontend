@@ -38,8 +38,8 @@ useEffect(()=> {
         </div>
       </div>
       <ShopHere />
-      {/* <Trending />
-      <LatestRelease /> */}
+      {/* <Trending /> */}
+      {/* <LatestRelease />  */}
       <Membership />
     </MainLayout>
   );

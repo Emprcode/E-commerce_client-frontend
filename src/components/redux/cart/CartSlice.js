@@ -43,7 +43,9 @@ if(itemIndex >= 0){
   else{
     const productInCart = {...action.payload, shopQty: 1}
     state.cart.push(productInCart)
-    toast.success(`${action.payload.name} has been added to cart`)
+    toast.success(`${action.payload.name} has been added to cart`, {
+      position: "bottom-left",
+    })
   }
   localStorage.setItem("cartItems", JSON.stringify(state.cart))
       
