@@ -2,7 +2,7 @@ import React from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { ProductCard } from "../components/card/ProductCard";
+import { ShoeCard } from "../components/card/ShoeCard";
 
 const MenFootwares = () => {
   const {products} = useSelector(state=> state.product)
@@ -21,7 +21,7 @@ const MenFootwares = () => {
 
         <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
           {filteredArray.map((item, i) => (
-            <ProductCard key={i} {...item} />
+            <ShoeCard key={i} {...item} />
           ))}
         </div>
       </Container>

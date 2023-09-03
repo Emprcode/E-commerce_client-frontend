@@ -6,12 +6,12 @@ import { StoreInfo } from "./StoreInfo";
 
 export const MainLayout = ({ children }) => {
   return (
-    <div className="d-flex flex-column">
+    <div className="">
       <GlobalMsg/>
       <Header />
 
       <div className="main">{children}</div> 
-      <StoreInfo/>
+      <StoreInfo className="mt-5" />
       <Footer />
     </div>
   );

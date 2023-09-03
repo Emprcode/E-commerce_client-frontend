@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.selectedProduct);
-  // console.log(selectedProduct);
+  console.log(selectedProduct);
 
   //_id or slug is taken from req.params for fetching product based on that id or slug
   const dispatch = useDispatch();
@@ -58,7 +58,7 @@ export const ProductPage = () => {
 
   return (
     <MainLayout>
-      <Container>
+      <Container className="p-4 mt-5">
         <Row>
           <Col className="d-column">
             <div className="d-flex justify-content-center gap-3">
@@ -76,7 +76,7 @@ export const ProductPage = () => {
               {selectedProduct?.images?.map((item, i) => (
                 <img
                   key={i}
-                  src={process.env.REACT_APP_IMAGE_API + item[i]?.substr(6)}
+                  src={process.env.REACT_APP_IMAGE_API + selectedProduct?.images[i]?.substr(6)}
                   width="50px"
                   height="50px"
                   alt="product"
@@ -130,8 +130,8 @@ export const ProductPage = () => {
           </Col>
         </Row>
       </Container>
-      <hr />
-      <AssociatedPage />
+      {/* <hr /> */}
+      {/* <AssociatedPage /> */}
       <Membership />
     </MainLayout>
   );
