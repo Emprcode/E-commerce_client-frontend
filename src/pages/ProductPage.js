@@ -64,8 +64,8 @@ export const ProductPage = () => {
             <div className="d-flex justify-content-center gap-3">
               <img
                 src={
-                  "http://localhost:8000/" +
-                  selectedProduct?.thumbnail?.substr(7)
+                  process.env.REACT_APP_IMAGE_API +
+                  selectedProduct?.thumbnail?.substr(6)
                 }
                 width="250px"
                 height="350px"
@@ -76,7 +76,7 @@ export const ProductPage = () => {
               {selectedProduct?.images?.map((item, i) => (
                 <img
                   key={i}
-                  src={"http://localhost:8000/" + item[i]?.substr(6)}
+                  src={process.env.REACT_APP_IMAGE_API + item[i]?.substr(6)}
                   width="50px"
                   height="50px"
                   alt="product"

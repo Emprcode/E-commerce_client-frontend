@@ -43,6 +43,7 @@ const Cart = () => {
       totalPrice,
     };
     const session = await checkoutSession(obj);
+    console.log(session)
     if (session?.url) {
       window.location.href = session.url;
     }
@@ -78,7 +79,7 @@ const Cart = () => {
                       <td>
                         <img
                           src={
-                            "http://localhost:8000/" + item?.thumbnail.substr(6)
+                            process.env.REACT_APP_IMAGE_API + item?.thumbnail?.substr(6)
                           }
                           width="80px"
                           height="80px"
