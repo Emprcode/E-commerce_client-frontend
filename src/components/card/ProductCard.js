@@ -23,8 +23,8 @@ export const ProductCard = ({
           />
           <Card.Body>
             <Card.Title className="text-center m-3">{name}</Card.Title>
-            <Card.Text className="text-center">
-              <div className="fw-bold">${price}.00 </div>
+            <Card.Text className="text-center fw-bold">
+            ${price}.00
               {/* <div>{description}</div> */}
             </Card.Text>
           </Card.Body>

@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ProductCard } from "../components/card/ProductCard";
+import { getAllProductsAction } from "../components/redux/products-redux/productAction";
+import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 
 const MenBottoms = () => {
   const {products} = useSelector((state)=> state.product)
-  console.log(products)
+  const {cats} = useSelector((state)=> state.category)
 
-  const mensBottomId = "64aa3a5e98e70af4e51fee75"
+  const dispatch = useDispatch()
+  useEffect(()=> {
+dispatch(getAllProductsAction())
+dispatch(getAllCategoriesAction())
+}, [dispatch])
 
-  const filteredArray = products.filter((item)=> item.parentCat === mensBottomId)
+  const mensBottomCat = cats?.find((item) => item.slug === process.env.REACT_APP_MENS_BOTTOMS_SLUG)
+
+  const filteredArray = products?.filter((item)=> item?.parentCat === mensBottomCat?._id)
   return (
     <MainLayout>
       <Container>

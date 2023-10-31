@@ -15,13 +15,13 @@ const HomePage = () => {
 const {cats} = useSelector((state)=> state.category)
 
 // console.log(cats)
-  console.log(products )
+//   console.log(products )
 const dispatch = useDispatch()
 
 useEffect(()=> {
   dispatch(getAllProductsAction())
   dispatch(getAllCategoriesAction())
-  
+
   }, [dispatch])
   return (
     <MainLayout>

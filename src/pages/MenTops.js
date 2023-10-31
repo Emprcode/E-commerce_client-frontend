@@ -4,24 +4,27 @@ import { Container} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsAction } from "../components/redux/products-redux/productAction";
 import { ProductCard } from "../components/card/ProductCard";
+import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 
 const MenTops = () => {
 
   const {  products } = useSelector((state) => state.product)
-console.log(products)
+  const {cats} = useSelector((state)=> state.category)
+
 
 const dispatch = useDispatch()
 
 useEffect(()=> {
 dispatch(getAllProductsAction())
+dispatch(getAllCategoriesAction())
 }, [dispatch])
 
-const mensTopID = "64aa3a5798e70af4e51fee6b"
+  const mensTopCat = cats?.find((item) => item.slug === process.env.REACT_APP_MENS_TOPS_SLUG)
 
-const filteredArray = products?.filter((item)=>item.parentCat === mensTopID )
+const filteredArray = products?.filter((item)=> item.parentCat === mensTopCat._id )
 console.log(filteredArray)
 
- 
+
   return (
     <MainLayout>
       <Container>
