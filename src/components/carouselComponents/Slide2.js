@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { ProductCard } from '../card/ProductCard';
 
-export const Slide2 = ({abc=[]}) => {
+export const Slide2 = () => {
   const { products } = useSelector((state) => state.product);
   // console.log(products);
 

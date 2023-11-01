@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { ProductCard } from '../card/ProductCard';
 
-export const Slide3 = ({abc=[]}) => {
+export const Slide3 = () => {
   const { products } = useSelector((state) => state.product);
 
   const [randomP, setRandomP] = useState([])
