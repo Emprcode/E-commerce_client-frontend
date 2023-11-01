@@ -38,7 +38,7 @@ useEffect(()=> {
         </div>
       </div>
       <ShopHere />
-      {/* <Trending /> */}
+      <Trending />
       {/* <LatestRelease />  */}
       <Membership />
     </MainLayout>

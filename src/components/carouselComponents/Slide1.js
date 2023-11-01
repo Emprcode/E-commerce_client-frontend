@@ -6,7 +6,6 @@ export const Slide1 = () => {
   const { products } = useSelector((state) => state.product);
   // console.log(products);
   const [randomP, setRandomP] = useState([]);
-  // console.log(products);
 
   useEffect(() => {
     getRandomProducts();
