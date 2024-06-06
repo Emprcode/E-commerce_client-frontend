@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+env:
+  REACT_APP_ROOT_API: ${{ vars.REACT_APP_ROOT_API }}
+  REACT_APP_MENS_TOPS_SLUG: ${{ vars.REACT_APP_MENS_TOPS_SLUG }}
+  REACT_APP_MENS_BOTTOMS_SLUG: ${{ vars.REACT_APP_MENS_BOTTOMS_SLUG }}
+  REACT_APP_MENS_FOOTWARES_SLUG: ${{ vars.REACT_APP_MENS_FOOTWARES_SLUG }}
 
 jobs:
   Deploy:
