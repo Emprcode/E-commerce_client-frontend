@@ -9,16 +9,20 @@ export const ShoeCard = ({
   slug,
   description,
   _id,
+  thumbnail,
   ...item
 }) => {
   return (
     <div>
       <Link to={"/products/" + slug} className="nav-link">
-        <Card  style={{ width: "18rem", height:"20rem" }} className="cardcss border-0">
+        <Card
+          style={{ width: "18rem", height: "20rem" }}
+          className="cardcss border-0"
+        >
           <Card.Img
             variant="top"
             className="rounded "
-            src={process.env.REACT_APP_IMAGE_API + item?.thumbnail?.substr(6)}
+            src={thumbnail}
             height="230px"
           />
           <Card.Body>

@@ -61,17 +61,14 @@ export const ProductPage = () => {
           <Col className="d-column">
             <div className="d-flex justify-content-center gap-3">
               <img
-                src={
-                  process.env.REACT_APP_IMAGE_API +
-                  selectedProduct?.thumbnail?.substr(6)
-                }
+                src={selectedProduct?.thumbnail}
                 width="250px"
                 // height="350px"
                 alt="product"
                 className="rounded"
               />
             </div>
-            <div className="d-flex justify-content-center gap-3 p-4 rounded">
+            {/* <div className="d-flex justify-content-center gap-3 p-4 rounded">
               {selectedProduct?.images?.map((item, i) => (
                 <img
                   key={i}
@@ -84,28 +81,30 @@ export const ProductPage = () => {
                   alt="product"
                 />
               ))}
-            </div>
+            </div> */}
           </Col>
 
           <Col>
             <div>
               <h3 className="fw-bold"> {selectedProduct.name}</h3>
               <p> {selectedProduct.sku}</p>
-              <p> {selectedProduct.price}</p>
+              <p className="fw-bold h5"> $ {selectedProduct.price}.00</p>
             </div>
             <Form onSubmit={addToCartHandler}>
               <div className="d-flex  align-items-center gap-3">
                 <Button
                   onClick={handleDecrease}
                   variant="none"
-                  className="border border-dark">
+                  className="border border-dark"
+                >
                   <i className="fa-solid fa-minus"></i>
                 </Button>
                 <p className="fw-bold mt-3  "> {count}</p>
                 <Button
                   onClick={handleIncrease}
                   variant="none"
-                  className="border border-dark">
+                  className="border border-dark"
+                >
                   <i className="fa-solid fa-plus"></i>
                 </Button>
               </div>
@@ -114,7 +113,8 @@ export const ProductPage = () => {
                 <Button
                   variant="dark"
                   type="submit"
-                  className="fw-bold cartbtn">
+                  className="fw-bold cartbtn"
+                >
                   ADD TO CART
                 </Button>
               </div>

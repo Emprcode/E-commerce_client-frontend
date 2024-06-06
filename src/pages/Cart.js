@@ -43,7 +43,7 @@ const Cart = () => {
       totalPrice,
     };
     const session = await checkoutSession(obj);
-    console.log(session)
+    console.log(session);
     if (session?.url) {
       window.location.href = session.url;
     }
@@ -78,9 +78,7 @@ const Cart = () => {
                       <td>{i + 1}</td>
                       <td>
                         <img
-                          src={
-                            process.env.REACT_APP_IMAGE_API + item?.thumbnail?.substr(6)
-                          }
+                          src={item?.thumbnail}
                           width="80px"
                           height="80px"
                           alt="product"
@@ -91,7 +89,8 @@ const Cart = () => {
                       <td>{item.shopQty}</td>
                       <td
                         className="fw-bold btn h4 d-flex justify-content-center "
-                        onClick={() => handleOnRemove(item)}>
+                        onClick={() => handleOnRemove(item)}
+                      >
                         <i className="fa-solid fa-xmark"></i>
                       </td>
                     </tr>
@@ -124,7 +123,8 @@ const Cart = () => {
                   type="submit"
                   variant="success"
                   className="fw-bold bg-success cartbtn"
-                  onClick={handleOnSubmit}>
+                  onClick={handleOnSubmit}
+                >
                   Proceed to checkout
                 </Button>
 

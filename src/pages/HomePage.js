@@ -10,19 +10,17 @@ import { getAllProductsAction } from "../components/redux/products-redux/product
 import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 
 const HomePage = () => {
+  const { products } = useSelector((state) => state.product);
+  const { cats } = useSelector((state) => state.category);
 
-  const {products} = useSelector((state) => state.product)
-const {cats} = useSelector((state)=> state.category)
+  // console.log(cats)
+  //   console.log(products )
+  const dispatch = useDispatch();
 
-// console.log(cats)
-//   console.log(products )
-const dispatch = useDispatch()
-
-useEffect(()=> {
-  dispatch(getAllProductsAction())
-  dispatch(getAllCategoriesAction())
-
-  }, [dispatch])
+  useEffect(() => {
+    dispatch(getAllProductsAction());
+    dispatch(getAllCategoriesAction());
+  }, [dispatch]);
   return (
     <MainLayout>
       <div className="hero">
@@ -38,7 +36,7 @@ useEffect(()=> {
         </div>
       </div>
       <ShopHere />
-      <Trending />
+      {/* <Trending /> */}
       {/* <LatestRelease />  */}
       <Membership />
     </MainLayout>
