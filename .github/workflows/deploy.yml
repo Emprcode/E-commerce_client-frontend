@@ -34,4 +34,4 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy an app to S3 bucket
-        run: aws s3 sync ./build s3://ace-x-sports --delete
+        run: aws s3 sync ./build s3://ace-x-sports
