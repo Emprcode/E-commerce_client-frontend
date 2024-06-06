@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  clearCart,
-  removeProductFromCart,
-} from "../components/redux/cart/CartSlice";
-import store from "../store";
+import { removeProductFromCart } from "../components/redux/cart/CartSlice";
 import { checkoutSession } from "../components/helper/axiosHelper";
 
 const Cart = () => {
@@ -25,9 +21,9 @@ const Cart = () => {
   };
 
   // remove all item
-  const clearCartHandler = () => {
-    dispatch(clearCart());
-  };
+  // const clearCartHandler = () => {
+  //   dispatch(clearCart());
+  // };
 
   let shipping = 0;
   if (price < 100) {

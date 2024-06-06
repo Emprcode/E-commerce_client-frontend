@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { AssociatedPage } from "../components/page-components/AssociatedPage";
 import { Membership } from "../components/page-components/Membership";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProductAction } from "../components/redux/products-redux/productAction";
@@ -127,8 +126,7 @@ export const ProductPage = () => {
           <p>{selectedProduct.description}</p>
         </Row>
       </Container>
-      {/* <hr /> */}
-      {/* <AssociatedPage /> */}
+
       <Membership />
     </MainLayout>
   );

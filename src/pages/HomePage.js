@@ -1,17 +1,15 @@
 import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { LatestRelease } from "../components/page-components/LatestRelease";
 import { Membership } from "../components/page-components/Membership";
 import { ShopHere } from "../components/page-components/ShopHere";
-import { Trending } from "../components/page-components/Trending";
 import { MainLayout } from "../layout/MainLayout";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getAllProductsAction } from "../components/redux/products-redux/productAction";
 import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 
 const HomePage = () => {
-  const { products } = useSelector((state) => state.product);
-  const { cats } = useSelector((state) => state.category);
+  // const { products } = useSelector((state) => state.product);
+  // const { cats } = useSelector((state) => state.category);
 
   // console.log(cats)
   //   console.log(products )
