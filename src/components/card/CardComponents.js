@@ -3,11 +3,12 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const CardComponents = ({
-        images,
+  images,
   price,
   name,
   slug,
   description,
+  thumbnail,
   _id,
 
   ...item
@@ -15,19 +16,19 @@ export const CardComponents = ({
   return (
     <div>
       <Link to={"/products/" + slug} className="nav-link">
-        <Card
-         className=" border-0">
-          <Card.Img
-            variant="top"
-            className="rounded carouselCard"
-            src={"http://localhost:8000/" + item?.thumbnail?.substr(6)}
-           
-          />
+        <Card className="border-0" style={{ maxWidth: "250px" }}>
+          <div style={{ width: "250px", height: "250px" }}>
+            <Card.Img
+              variant="top"
+              className="rounded"
+              src={thumbnail}
+              style={{ width: "100%", height: "90%", objectFit: "cover" }}
+            />
+          </div>
           <Card.Body>
-            <Card.Title className="text-center m-3">{name}</Card.Title>
+            <Card.Title className="text-center h6 fw-bold">{name}</Card.Title>
             <Card.Text className="text-center">
-              <p className="fw-bold"> {price} </p>
-              <p>{description}</p>
+              <p className="">${price}.00 </p>
             </Card.Text>
           </Card.Body>
         </Card>

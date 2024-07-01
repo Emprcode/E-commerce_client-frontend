@@ -59,7 +59,6 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
@@ -67,6 +66,7 @@ import { BsFillCartFill } from "react-icons/bs";
 
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { SideBar } from "../components/sidebar/SideBar";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -112,6 +112,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Header = () => {
   const { cart } = useSelector((state) => state.cartItems);
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -153,8 +155,19 @@ export const Header = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {user._id ? (
+        <Link className="nav-link" to="/profile">
+          <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+        </Link>
+      ) : (
+        <Link className="nav-link" to="/myaccount/login">
+          <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+        </Link>
+      )}
+
+      <Link className="nav-link" to="">
+        <MenuItem onClick={handleMenuClose}>Setting</MenuItem>
+      </Link>
     </Menu>
   );
 
@@ -175,15 +188,6 @@ export const Header = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      {/* <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem> */}
-
       <Link className="nav-link" to="/cart">
         <MenuItem>
           <IconButton size="large" color="inherit">
@@ -191,40 +195,33 @@ export const Header = () => {
               <BsFillCartFill />
             </Badge>
           </IconButton>
-          <p>cart</p>
+          {/* <p>cart</p> */}
         </MenuItem>
       </Link>
 
-      <Link className="nav-link" to="/myaccount/login">
-        <MenuItem onClick={handleProfileMenuOpen}>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="primary-search-account-menu"
-            aria-haspopup="true"
-            color="inherit"
-          >
-            <AccountCircle />
-          </IconButton>
-          <p>Profile</p>
-        </MenuItem>
-      </Link>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+      </MenuItem>
     </Menu>
   );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className="">
+      <AppBar
+        position="static"
+        className=""
+        sx={{ backgroundColor: "rgb(137,68,241)" }}
+      >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <SideBar />
 
           <Typography
             variant="h4"
@@ -267,19 +264,18 @@ export const Header = () => {
                 </Badge>
               </IconButton>
             </Link>
-            <Link className="nav-link" to="/myaccount/login">
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-            </Link>
+
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

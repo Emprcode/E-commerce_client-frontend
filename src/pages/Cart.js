@@ -2,28 +2,32 @@ import React from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { removeProductFromCart } from "../components/redux/cart/CartSlice";
+import {
+  clearCart,
+  removeProductFromCart,
+} from "../components/redux/cart/CartSlice";
 import { checkoutSession } from "../components/helper/axiosHelper";
+import { LatestArrival } from "../components/swiperComponents/LatestArrival";
 
 const Cart = () => {
+  const { user } = useSelector((state) => state.user);
   const { cart } = useSelector((state) => state.cartItems);
-  console.log(cart);
+
   const dispatch = useDispatch();
 
   const price = cart.reduce((acc, itemPrice) => {
     return acc + parseInt(itemPrice.shopQty * itemPrice.price);
   }, 0);
 
-  console.log(price);
   // remove one item
   const handleOnRemove = (item) => {
     dispatch(removeProductFromCart(item));
   };
 
   // remove all item
-  // const clearCartHandler = () => {
-  //   dispatch(clearCart());
-  // };
+  const clearCartHandler = () => {
+    dispatch(clearCart());
+  };
 
   let shipping = 0;
   if (price < 100) {
@@ -34,21 +38,25 @@ const Cart = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-
-    const obj = {
-      totalPrice,
-    };
-    const session = await checkoutSession(obj);
-    console.log(session);
-    if (session?.url) {
-      window.location.href = session.url;
+    if (user?._id) {
+      const obj = {
+        totalPrice,
+      };
+      const session = await checkoutSession(obj);
+      console.log(session);
+      if (session?.url) {
+        window.location.href = session.url;
+        clearCartHandler();
+      }
+    } else {
+      window.alert("you need to login first!");
     }
   };
 
   return (
     <MainLayout>
       <Container>
-        <div>
+        <div className="mt-4">
           <h2 className="p-3 fw-bold">YOUR CART </h2>
           <hr />
         </div>
@@ -95,7 +103,7 @@ const Cart = () => {
               </Table>
             </Col>
             <Col>
-              <h4 className="fw-bold">SUMMARY</h4>
+              <h4 className=" p-4 fw-bold">SUMMARY</h4>
               <hr />
               <div>
                 <div className="d-flex justify-content-center align-items-center">
@@ -114,25 +122,14 @@ const Cart = () => {
                 </div>
               </div>
 
-              <div className="d-grid gap-3">
+              <div className="d-grid gap-3 mb-4">
                 <Button
                   type="submit"
-                  variant="success"
-                  className="fw-bold bg-success cartbtn"
+                  variant="dark"
+                  className="fw-bold cartbtn"
                   onClick={handleOnSubmit}
                 >
                   Proceed to checkout
-                </Button>
-
-                <p className="text-center fw-bold p-3"> or </p>
-                <Button variant="warning" className="fw-bold cartbtn">
-                  Paypal
-                </Button>
-                <Button variant="info" className="fw-bold cartbtn">
-                  Apple Pay
-                </Button>
-                <Button variant="secondary" className="fw-bold cartbtn">
-                  Google Pay
                 </Button>
               </div>
             </Col>
@@ -149,6 +146,7 @@ const Cart = () => {
           </Row>
         )}
       </Container>
+      <LatestArrival />
     </MainLayout>
   );
 };

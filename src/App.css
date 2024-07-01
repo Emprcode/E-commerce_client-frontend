@@ -1,11 +1,9 @@
-
-
-.bgcolor{
- background:rgba(196, 173, 209, 0.295);
+.bgcolor {
+  background: rgba(196, 173, 209, 0.295);
 }
-.hero{
-
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(./assets/Bgshoes.png) center center no-repeat ;
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(./assets/Bgshoes.png) center center no-repeat;
   min-height: 100vh;
   width: auto;
   background-size: cover;
@@ -16,81 +14,75 @@
   /* position: relative; */
 }
 
-.shopbtn{
+.shopbtn {
+  height: 40px;
+  width: 250px;
+  font-size: 1rem !important;
 
-height: 40px;
-width: 250px;
-font-size: 1rem !important;
-
-display: flex;
-justify-content: center;
-align-items: flex-end;
-margin-bottom: 5rem;
-
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 5rem;
 }
 
-
-.top{
-background:  linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.3)), url(./assets/top.png) no-repeat center center;
-height:80vh ;
-width: 100%;
-background-size: cover;
-transition: .5s all ease;
-cursor: pointer;
-
-
-
-
+.top {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
+    url(./assets/top.png) no-repeat center center;
+  height: 80vh;
+  width: 100%;
+  background-size: cover;
+  transition: 0.5s all ease;
+  cursor: pointer;
 }
-.bottom{
-background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.3)), url(./assets/bottom.png) no-repeat center center;
-height:80vh ;
-background-size: cover;
-transition: .5s all ease;
-cursor: pointer;
-position: relative;
+.bottom {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
+    url(./assets/bottom.png) no-repeat center center;
+  height: 80vh;
+  background-size: cover;
+  transition: 0.5s all ease;
+  cursor: pointer;
+  position: relative;
 }
-.shoes{
-background:  linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url(./assets/shoes.png) no-repeat center center;
-height:80vh ;
-width: 100%;
-background-size: cover;
-transition: .5s all ease;
-position: relative;
-cursor: pointer;
+.shoes {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),
+    url(./assets/shoes.png) no-repeat center center;
+  height: 80vh;
+  width: 100%;
+  background-size: cover;
+  transition: 0.5s all ease;
+  position: relative;
+  cursor: pointer;
 }
 
-.top:hover{
+.top:hover {
   transform: scale(1.03);
-  transition: .5s all ease;
-
+  transition: 0.5s all ease;
 }
-.bottom:hover{
+.bottom:hover {
   transform: scale(1.03);
-  transition: .5s all ease;
+  transition: 0.5s all ease;
 }
-.shoes:hover{
+.shoes:hover {
   /* filter: grayscale(0); */
   transform: scale(1.03);
-  transition: .5s all ease;
+  transition: 0.5s all ease;
 }
 
-.bgmembership{
+.bgmembership {
   /* margin-top: 2rem; */
   padding: 4rem;
   background: #f5f5f5;
 }
 
-.cardcss{
+.cardcss {
   cursor: pointer;
-  
 }
 
-.carouselCard{
+.carouselCard {
   cursor: pointer;
-  height: 210px !important;
-  width: 200px !important;
- 
+  height: 250px !important;
+  width: 110% !important;
+  background-color: rgba(190, 203, 203, 0.689);
 }
 /* .title{
   display: flex;
@@ -98,44 +90,38 @@ cursor: pointer;
   align-items: center;
 } */
 
-.title span{
-  border-bottom:  5px solid grey;
+.title span {
+  border-bottom: 5px solid grey;
   padding: 1rem 25rem;
-
-
 }
-.cartbtn{
- height: 50px;
- font-weight: bold;
- font-size: 20px !important;
- text-transform: uppercase;
- /* font-family: Roboto Condensed,Impact,Helvetica,Arial,sans-serif !important; */
-
-
-
+.cartbtn {
+  height: 50px;
+  font-weight: bold;
+  font-size: 20px !important;
+  text-transform: uppercase;
+  /* font-family: Roboto Condensed,Impact,Helvetica,Arial,sans-serif !important; */
 }
 
-.displaycolor{
-  background-color: #F7F5F5;
+.displaycolor {
+  background-color: #f7f5f5;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(240)'%3E%3Cstop offset='0' stop-color='%23F7F5F5'/%3E%3Cstop offset='1' stop-color='%23FCFEFF'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='2000' height='1666.7' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.09'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
   background-attachment: fixed;
   background-size: cover;
 }
 
-
-.thankyou{
+.thankyou {
   font-size: 80px;
-    font-weight: 700;
-    line-height: 52px;
-    font-family: 'Fasthand', cursive;
-    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    color: currentColor;
-    letter-spacing: 0;
-    margin-top: 1rem;
-    width: 100%;
+  font-weight: 700;
+  line-height: 52px;
+  font-family: "Fasthand", cursive;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: currentColor;
+  letter-spacing: 0;
+  margin-top: 1rem;
+  width: 100%;
 }
 
-.button{
+.button {
   width: 13rem;
   height: 3rem;
   border-width: 2px;
@@ -143,44 +129,48 @@ cursor: pointer;
   background-color: transparent;
   transition: 0.1s background-color linear, 0.1s color linear;
   border-radius: 300px;
-background: rgba(224, 162, 80, 0.87);
+  background: rgba(224, 162, 80, 0.87);
   display: flex;
   justify-content: center;
   align-items: center;
-font-weight: bold;
+  font-weight: bold;
   cursor: pointer;
 }
-.button1{
+.button1 {
   width: 40rem;
   height: 3rem;
   border-width: 2px;
   /* border-style: solid; */
-  
+
   transition: 0.1s background-color linear, 0.1s color linear;
   border-radius: 300px;
-/* background: rgba(224, 162, 80, 0.87); */
+  /* background: rgba(224, 162, 80, 0.87); */
   display: flex;
   justify-content: center;
   align-items: center;
-font-weight: bold;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.button1:hover{
+.button1:hover {
   color: black;
   background: white;
   transition: 0.1s background-color linear, 0.1s color linear;
 }
 
-.headerbg{
+.headerbg {
   background-color: rgba(141, 22, 44, 0.605);
 }
 
-.secondCol{
+.secondCol {
   text-align: center;
 }
 @media (max-width: 768px) {
   .secondCol {
-      display: none; 
+    display: none;
   }
+}
+
+.gbl-font {
+  font-size: 14px;
 }
