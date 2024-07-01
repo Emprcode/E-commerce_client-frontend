@@ -7,25 +7,28 @@ import { getAllProductsAction } from "../components/redux/products-redux/product
 import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 
 const MenFootwares = () => {
-  const {products} = useSelector(state=> state.product)
-  const {cats} = useSelector((state)=> state.category)
+  const { products } = useSelector((state) => state.product);
+  const { cats } = useSelector((state) => state.category);
 
-  const dispatch = useDispatch()
-  useEffect(()=> {
-dispatch(getAllProductsAction())
-dispatch(getAllCategoriesAction())
-}, [dispatch])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProductsAction());
+    dispatch(getAllCategoriesAction());
+  }, [dispatch]);
 
+  const mensFootwaresCat = cats?.find(
+    (item) => item.slug === process.env.REACT_APP_MENS_FOOTWARES_SLUG
+  );
 
-  const mensFootwaresCat = cats?.find((item) => item.slug === process.env.REACT_APP_MENS_FOOTWARES_SLUG)
-
-  const filteredArray = products.filter((item)=> item.parentCat === mensFootwaresCat?._id)
+  const filteredArray = products.filter(
+    (item) => item.parentCat === mensFootwaresCat?._id
+  );
 
   return (
     <MainLayout>
       <Container>
         <div>
-          <h2 className="p-5 text-center fw-bold"> MEN'S FOOTWEAR</h2>
+          <h2 className="p-5 text-center fw-bold"> MEN'S FOOTWEARS</h2>
         </div>
 
         <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
