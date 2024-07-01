@@ -62,24 +62,21 @@ const Cart = () => {
         </div>
         {cart.length !== 0 ? (
           <Row>
-            {/* <p>My Bag( {cart.length})</p> */}
             <Col className="p-4 ">
               <p className="fw-bold">My Bag ({cart.length})</p>
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th>#</th>
                     <th>Product</th>
                     <th>Name</th>
-                    <th>Price</th>
                     <th>Quantity</th>
+                    <th>Total</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   {cart.map((item, i) => (
                     <tr key={i}>
-                      <td>{i + 1}</td>
                       <td>
                         <img
                           src={item?.thumbnail}
@@ -88,9 +85,13 @@ const Cart = () => {
                           alt="product"
                         />
                       </td>
-                      <td>{item.name}</td>
-                      <td>{item.price}</td>
+                      <td>
+                        {" "}
+                        {item.name}
+                        <br /> ${item.price}.00
+                      </td>
                       <td>{item.shopQty}</td>
+                      <td>{item.price}</td>
                       <td
                         className="fw-bold btn h4 d-flex justify-content-center "
                         onClick={() => handleOnRemove(item)}

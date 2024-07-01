@@ -16,26 +16,24 @@ export const ProductPage = () => {
   const dispatch = useDispatch();
 
   const { slug } = useParams();
-  // console.log(slug);
 
   useEffect(() => {
     dispatch(getSingleProductAction(slug));
   }, [dispatch, slug]);
 
-  // const filteredproduct = selectedProduct.length
-  //   ? selectedProduct.find((item) => item.slug === slug)
-  //   : [];
-
-  // console.log(filteredproduct);
-
   const [count, setCount] = useState(1);
 
   const handleIncrease = () => {
-    setCount(count + 1);
+    if (count < 5) {
+      // Maximum count set to 5
+      setCount(count + 1);
+    }
   };
 
   const handleDecrease = () => {
-    setCount(count - 1);
+    if (count > 1) {
+      setCount(count - 1);
+    }
   };
 
   const addToCartHandler = (e) => {
@@ -91,11 +89,11 @@ export const ProductPage = () => {
               <p className="fw-bold h5"> $ {selectedProduct.price}.00</p>
             </div>
             <Form onSubmit={addToCartHandler}>
-              <div className="d-flex  align-items-center gap-3">
+              <div className="d-flex  align-items-center gap-2">
                 <Button
                   onClick={handleDecrease}
                   variant="none"
-                  className="border border-dark"
+                  className="border-0 border-dark"
                 >
                   <i className="fa-solid fa-minus"></i>
                 </Button>
@@ -103,7 +101,7 @@ export const ProductPage = () => {
                 <Button
                   onClick={handleIncrease}
                   variant="none"
-                  className="border border-dark"
+                  className="border-0 border-dark"
                 >
                   <i className="fa-solid fa-plus"></i>
                 </Button>
