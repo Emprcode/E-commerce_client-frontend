@@ -28,7 +28,7 @@ const Headwares = () => {
     <MainLayout>
       <Container>
         <div>
-          <h2 className="p-5 text-center fw-bold"> MEN'S HEADWEAR</h2>
+          <h2 className="p-5 text-center fw-bold"> MEN'S HEADWEARS</h2>
         </div>
 
         <div className=" p-4 d-flex justify-content-center align-items-center gap-5 flex-wrap">

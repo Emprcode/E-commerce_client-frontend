@@ -25,8 +25,12 @@ const Login = () => {
     <MainLayout>
       <div className="">
         <Container className="p-4">
+          <div className="mt-4">
+            <h2 className="p-3 fw-bold">SIGN IN </h2>
+            <hr />
+          </div>
           <Row className="p-5 d-flex justify-content-center align-items-center flex-column">
-            <h4 className="fw-bold text-center">SIGN IN</h4>
+            <h4 className="fw-bold text-center">Login with google</h4>
             <Oauth />
           </Row>
 
