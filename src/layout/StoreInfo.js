@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const StoreInfo = () => {
   return (
     <div>
-      <Container className="p-0">
+      <Container className="">
         <Row className="p-5 d-flex gap-3 storeinfo">
           <Col className="col-md-4">
             <h2 className="fw-bold">aceXsports</h2>
@@ -32,8 +32,7 @@ export const StoreInfo = () => {
             <h2 className="fw-bold">Contact</h2>
             <div className="">
               <p>
-                <i className="fa-solid fa-location-dot "></i> Sydney,
-                Australia
+                <i className="fa-solid fa-location-dot "></i> Sydney, Australia
               </p>
               <p>
                 <i className="fa-solid fa-phone "></i> 0412354568

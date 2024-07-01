@@ -1,43 +1,47 @@
 import React from "react";
 import { MainLayout } from "../layout/MainLayout";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { Membership } from "../components/page-components/Membership";
-import { FormComponents } from "../components/form-components/FormComponents";
-import { Link } from "react-router-dom";
+import { Oauth } from "../components/utils/Oauth";
 
 const Login = () => {
-  const InputFields = [
-    {
-      name: "email",
-      type: "email",
-      label: "Email",
-      placeholder: "Email",
-      required: "true",
-    },
-    {
-      name: "password",
-      type: "password",
-      label: "Password",
-      placeholder: "*****",
-      required: "true",
-    },
-  ];
+  // const InputFields = [
+  //   {
+  //     name: "email",
+  //     type: "email",
+  //     label: "Email",
+  //     placeholder: "Email",
+  //     required: "true",
+  //   },
+  //   {
+  //     name: "password",
+  //     type: "password",
+  //     label: "Password",
+  //     placeholder: "*****",
+  //     required: "true",
+  //   },
+  // ];
   return (
     <MainLayout>
-      <div className="bgcolor">
-        <Container>
-          <Row className="p-5">
+      <div className="">
+        <Container className="p-4">
+          <Row className="p-5 d-flex justify-content-center align-items-center flex-column">
+            <h4 className="fw-bold text-center">SIGN IN</h4>
+            <Oauth />
+          </Row>
+
+          {/* <Row className="p-5">
             <Col>
-              <h2 className="fw-bold">SIGN IN</h2>
               <Form>
                 {InputFields.map((item, i) => (
                   <FormComponents key={i} {...item} />
                 ))}
-                <div className="d-grid col-5">
+                <div className="d-grid col-lg-5">
                   <Button
                     variant="dark"
                     type="submit"
-                    className="rounded fw-bold">
+                    className="rounded fw-bold rounded-pill"
+                  >
                     {" "}
                     Sign In
                   </Button>
@@ -59,7 +63,7 @@ const Login = () => {
                 </Link>
               </p>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </div>
 

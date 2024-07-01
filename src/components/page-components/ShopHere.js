@@ -7,9 +7,10 @@ export const ShopHere = () => {
     <div>
       <Container
         className="p-4 d-flex justify-content-center align-items-center gap-5 flex-wrap"
-        id="shopnow">
+        id="shopnow"
+      >
         <Col className=" top rounded shopbtn ">
-          <Link className="nav-link" to="/mentops">
+          <Link className="nav-link" to="/men-tops">
             <h4 className="fw-bold text-light text-center">TOPS</h4>
 
             <Button variant="dark" className="shopbtn">
@@ -19,7 +20,7 @@ export const ShopHere = () => {
         </Col>
 
         <Col className="bottom rounded shopbtn">
-          <Link className="nav-link" to="/menbottoms">
+          <Link className="nav-link" to="/men-bottoms">
             <h4 className=" fw-bold text-light text-center"> BOTTOMS</h4>
             <Button variant="dark" className="shopbtn">
               Shop Mens Bottoms
@@ -27,7 +28,7 @@ export const ShopHere = () => {
           </Link>
         </Col>
         <Col className="shoes rounded shopbtn">
-          <Link className="nav-link" to="/menfootwares">
+          <Link className="nav-link" to="/men-footwares">
             <h4 className="text-center fw-bold text-light">FOOTWARES</h4>
             <Button variant="dark" className="shopbtn">
               Shop Mens FootWares

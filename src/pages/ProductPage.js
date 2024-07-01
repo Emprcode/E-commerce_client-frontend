@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSingleProductAction } from "../components/redux/products-redux/productAction";
 import { setCart } from "../components/redux/cart/CartSlice";
 import { useParams } from "react-router-dom";
+import { LatestArrival } from "../components/swiperComponents/LatestArrival";
 
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.selectedProduct);
@@ -126,7 +127,7 @@ export const ProductPage = () => {
           <p>{selectedProduct.description}</p>
         </Row>
       </Container>
-
+      <LatestArrival />
       <Membership />
     </MainLayout>
   );

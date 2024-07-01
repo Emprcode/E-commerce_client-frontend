@@ -6,6 +6,7 @@ import { MainLayout } from "../layout/MainLayout";
 import { useDispatch } from "react-redux";
 import { getAllProductsAction } from "../components/redux/products-redux/productAction";
 import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
+import { LatestArrival } from "../components/swiperComponents/LatestArrival";
 
 const HomePage = () => {
   // const { products } = useSelector((state) => state.product);
@@ -34,6 +35,7 @@ const HomePage = () => {
         </div>
       </div>
       <ShopHere />
+      <LatestArrival />
       {/* <Trending /> */}
       {/* <LatestRelease />  */}
       <Membership />
