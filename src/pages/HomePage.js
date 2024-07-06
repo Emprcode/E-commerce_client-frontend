@@ -9,11 +9,6 @@ import { getAllCategoriesAction } from "../components/redux/category/categoryAct
 import { LatestArrival } from "../components/swiperComponents/LatestArrival";
 
 const HomePage = () => {
-  // const { products } = useSelector((state) => state.product);
-  // const { cats } = useSelector((state) => state.category);
-
-  // console.log(cats)
-  //   console.log(products )
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,8 +31,6 @@ const HomePage = () => {
       </div>
       <ShopHere />
       <LatestArrival />
-      {/* <Trending /> */}
-      {/* <LatestRelease />  */}
       <Membership />
     </MainLayout>
   );

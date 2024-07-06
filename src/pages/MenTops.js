@@ -22,9 +22,9 @@ const MenTops = () => {
   );
 
   const filteredArray = products?.filter(
-    (item) => item.parentCat === mensTopCat._id
+    (item) => item.parentCat === mensTopCat?._id
   );
-  console.log(filteredArray);
+  // console.log(filteredArray);
 
   return (
     <MainLayout>

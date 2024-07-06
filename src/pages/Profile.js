@@ -6,7 +6,6 @@ import { Button, Card, Container } from "react-bootstrap";
 const Profile = () => {
   const { user } = useSelector((state) => state.user);
   const { username, email, avatar } = user;
-  console.log(avatar);
   return (
     <MainLayout>
       <Container className="p-4">
