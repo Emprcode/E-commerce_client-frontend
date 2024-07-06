@@ -64,7 +64,7 @@ export const SideBar = () => {
       </List>
       <Divider />
       <List>
-        {["New Arrivals", "Tranding Now"].map((text, index) => (
+        {["New Arrivals", "Trending Now"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton component={Link} to={`/`}>
               <ListItemIcon>
