@@ -2,7 +2,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/pagination";
-
 import { Pagination } from "swiper/modules";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -19,7 +18,7 @@ export const LatestArrival = () => {
     return shuffledProducts.slice(0, count);
   };
   const randomProducts = getRandomProducts(products, 8);
-  console.log(randomProducts);
+  // console.log(randomProducts);
   return (
     <Container>
       <div>
@@ -54,7 +53,10 @@ export const LatestArrival = () => {
         }}
       >
         {randomProducts.map((product, i) => (
-          <SwiperSlide className="d-flex justify-content-center align-items-center">
+          <SwiperSlide
+            className="d-flex justify-content-center align-items-center"
+            key={i}
+          >
             {" "}
             <CardComponents key={i} {...product} />
           </SwiperSlide>

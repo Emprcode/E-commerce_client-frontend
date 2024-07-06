@@ -5,7 +5,7 @@ import { setUser } from "./UserSlice";
 //login with google
 export const googleSignInAction = (user) => async (dispatch) => {
   const { status, message, token, rest } = await googleSignIn(user);
-  console.log(status, message);
+  // console.log(status, message);
 
   if (status === "success" && token) {
     dispatch(setUser(rest));

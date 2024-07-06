@@ -10,7 +10,6 @@ import { LatestArrival } from "../components/swiperComponents/LatestArrival";
 
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.selectedProduct);
-  console.log(selectedProduct);
 
   //_id or slug is taken from req.params for fetching product based on that id or slug
   const dispatch = useDispatch();
@@ -61,30 +60,15 @@ export const ProductPage = () => {
               <img
                 src={selectedProduct?.thumbnail}
                 width="250px"
-                // height="350px"
                 alt="product"
                 className="rounded"
               />
             </div>
-            {/* <div className="d-flex justify-content-center gap-3 p-4 rounded">
-              {selectedProduct?.images?.map((item, i) => (
-                <img
-                  key={i}
-                  src={
-                    process.env.REACT_APP_IMAGE_API +
-                    selectedProduct?.images[i]?.substr(6)
-                  }
-                  width="50px"
-                  height="50px"
-                  alt="product"
-                />
-              ))}
-            </div> */}
           </Col>
 
           <Col>
-            <div>
-              <h3 className="fw-bold"> {selectedProduct.name}</h3>
+            <div className="p-3">
+              <h3 className="fw-bold "> {selectedProduct.name}</h3>
               <p> {selectedProduct.sku}</p>
               <p className="fw-bold h5"> $ {selectedProduct.price}.00</p>
             </div>

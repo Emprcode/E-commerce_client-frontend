@@ -1,53 +1,3 @@
-// import { Container, Nav, Navbar, Form, Button } from "react-bootstrap";
-// import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
-
-// export const Header = () => {
-//   const { cart } = useSelector((state) => state.cartItems);
-
-//   return (
-//     <Navbar bg="light" expand="md">
-//       <Container className="p-3">
-//         <Navbar.Brand href="/">
-//           <h1 className="fw-bold">aceXsports</h1>
-//         </Navbar.Brand>
-//         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//         <Navbar.Collapse id="basic-navbar-nav">
-//           <Nav className="ms-auto fw-bold gap-3">
-//             <Form className="d-flex">
-//               <Form.Control
-//                 type="search"
-//                 placeholder="Search"
-//                 className="me-2"
-//                 aria-label="Search"
-//               />
-//               <Button variant="outline-info">
-//                 <i className="fa-solid fa-magnifying-glass "></i>
-//               </Button>
-//             </Form>
-
-//             <Link className="nav-link" to="/cart">
-//               {" "}
-//               <h5>
-//                 {cart.length > 0 ? (
-//                   <i className="fa-solid fa-cart-shopping fa-beat"></i>
-//                 ) : (
-//                   <i className="fa-solid fa-cart-shopping"></i>
-//                 )}
-//               </h5>
-//             </Link>
-//             <Link className="nav-link" to="/myaccount/login">
-//               <h5>
-//                 {" "}
-//                 <i className="fa-solid fa-user"></i>
-//               </h5>
-//             </Link>
-//           </Nav>
-//         </Navbar.Collapse>
-//       </Container>
-//     </Navbar>
-//   );
-// };
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
@@ -111,9 +61,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const Header = () => {
-  const { cart } = useSelector((state) => state.cartItems);
+  const { cartItems } = useSelector((state) => state.cartItems);
   const { user } = useSelector((state) => state.user);
-  console.log(user);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -191,7 +140,7 @@ export const Header = () => {
       <Link className="nav-link" to="/cart">
         <MenuItem>
           <IconButton size="large" color="inherit">
-            <Badge badgeContent={cart?.length} color="error">
+            <Badge badgeContent={cartItems?.length} color="error">
               <BsFillCartFill />
             </Badge>
           </IconButton>
@@ -259,7 +208,7 @@ export const Header = () => {
                 aria-label="show 17 new notifications"
                 color="inherit"
               >
-                <Badge badgeContent={cart?.length} color="error">
+                <Badge badgeContent={cartItems?.length} color="error">
                   <BsFillCartFill size={24} />
                 </Badge>
               </IconButton>

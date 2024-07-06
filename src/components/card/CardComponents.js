@@ -10,25 +10,23 @@ export const CardComponents = ({
   description,
   thumbnail,
   _id,
-
-  ...item
 }) => {
   return (
     <div>
       <Link to={"/products/" + slug} className="nav-link">
         <Card className="border-0" style={{ maxWidth: "250px" }}>
-          <div style={{ width: "250px", height: "250px" }}>
+          <span style={{ width: "250px", height: "250px" }}>
             <Card.Img
               variant="top"
               className="rounded"
               src={thumbnail}
               style={{ width: "100%", height: "90%", objectFit: "cover" }}
             />
-          </div>
+          </span>
           <Card.Body>
             <Card.Title className="text-center h6 fw-bold">{name}</Card.Title>
             <Card.Text className="text-center">
-              <p className="">${price}.00 </p>
+              <span className="p">${price}.00 </span>
             </Card.Text>
           </Card.Body>
         </Card>

@@ -1,34 +1,49 @@
 import React from "react";
 import { MainLayout } from "../layout/MainLayout";
-import { Button, Col, Container, Row, Table } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearCart,
-  removeProductFromCart,
+  removeOneItemFromCart,
+  decreaseCart,
+  setCart,
 } from "../components/redux/cart/CartSlice";
 import { checkoutSession } from "../components/helper/axiosHelper";
 import { LatestArrival } from "../components/swiperComponents/LatestArrival";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { user } = useSelector((state) => state.user);
-  const { cart } = useSelector((state) => state.cartItems);
-
+  const { cartItems } = useSelector((state) => state.cartItems);
   const dispatch = useDispatch();
 
-  const price = cart.reduce((acc, itemPrice) => {
-    return acc + parseInt(itemPrice.shopQty * itemPrice.price);
+  const price = cartItems?.reduce((acc, itemPrice) => {
+    return acc + parseInt(itemPrice?.shopQty * itemPrice?.price);
   }, 0);
 
-  // remove one item
-  const handleOnRemove = (item) => {
-    dispatch(removeProductFromCart(item));
-  };
+  const totalQuantity = cartItems?.reduce((total, currentItem) => {
+    return total + currentItem.shopQty;
+  }, 0);
 
-  // remove all item
+  const handleAddToCart = (product) => {
+    dispatch(setCart(product));
+  };
+  const handleDecreaseCart = (product) => {
+    dispatch(decreaseCart(product));
+  };
+  const handleRemoveFromCart = (product) => {
+    if (window.confirm(`Are you sure you want to remove ${product.name}?`)) {
+      console.log(product);
+      dispatch(removeOneItemFromCart(product));
+    }
+  };
   const clearCartHandler = () => {
-    dispatch(clearCart());
+    if (
+      window.confirm("Are you sure you want to remove all products from cart?")
+    ) {
+      dispatch(clearCart());
+    }
   };
-
   let shipping = 0;
   if (price < 100) {
     shipping = 40;
@@ -45,8 +60,7 @@ const Cart = () => {
       const session = await checkoutSession(obj);
       console.log(session);
       if (session?.url) {
-        window.location.href = session.url;
-        clearCartHandler();
+        window.location.href = session.url && clearCartHandler();
       }
     } else {
       window.alert("you need to login first!");
@@ -56,85 +70,82 @@ const Cart = () => {
   return (
     <MainLayout>
       <Container>
-        <div className="mt-4">
-          <h2 className="p-3 fw-bold">YOUR CART </h2>
-          <hr />
+        <div className="mt-4 ">
+          <h2 className=" p-4 fw-bold">YOUR CART </h2>
         </div>
-        {cart.length !== 0 ? (
-          <Row>
-            <Col className="p-4 ">
-              <p className="fw-bold">My Bag ({cart.length})</p>
-              <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cart.map((item, i) => (
-                    <tr key={i}>
-                      <td>
-                        <img
-                          src={item?.thumbnail}
-                          width="80px"
-                          height="80px"
-                          alt="product"
-                        />
-                      </td>
-                      <td>
-                        {" "}
-                        {item.name}
-                        <br /> ${item.price}.00
-                      </td>
-                      <td>{item.shopQty}</td>
-                      <td>{item.price}</td>
-                      <td
-                        className="fw-bold btn h4 d-flex justify-content-center "
-                        onClick={() => handleOnRemove(item)}
-                      >
-                        <i className="fa-solid fa-xmark"></i>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </Col>
-            <Col>
-              <h4 className=" p-4 fw-bold">SUMMARY</h4>
-              <hr />
-              <div>
-                <div className="d-flex justify-content-center align-items-center">
-                  <p className="col-9 "> Subtotal</p>
-                  <p className=""> ${price}</p>
-                </div>
-                <hr />
-                <div className="d-flex justify-content-center align-items-center">
-                  <p className="col-9 "> Shipping</p>
-                  <p className=""> ${shipping}</p>
-                </div>
-                <hr />
-                <div className="d-flex justify-content-center align-items-center h5 p-2">
-                  <p className="col-9 fw-bold"> Total: </p>
-                  <p className="fw-bold"> ${totalPrice}</p>
-                </div>
-              </div>
 
-              <div className="d-grid gap-3 mb-4">
-                <Button
-                  type="submit"
-                  variant="dark"
-                  className="fw-bold cartbtn"
-                  onClick={handleOnSubmit}
-                >
-                  Proceed to checkout
-                </Button>
+        {cartItems?.length !== 0 ? (
+          <div className="cart-container">
+            <div className="titles">
+              <h3 className="product-title">
+                Product <span className="fw-bold h6">({totalQuantity})</span>
+              </h3>
+              <h3 className="price">Price</h3>
+              <h3 className="quantity">Quantity</h3>
+              <h3 className="total">Total</h3>
+            </div>
+            <div className="cart-items">
+              {cartItems &&
+                cartItems.map((cartItem) => (
+                  <div className="cart-item" key={cartItem._id}>
+                    <div className="cart-product">
+                      <img src={cartItem.thumbnail} alt={cartItem.name} />
+                      <div>
+                        <h3>{cartItem.name}</h3>
+                        <p>{cartItem.desc}</p>
+                        <button onClick={() => handleRemoveFromCart(cartItem)}>
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                    <div className="cart-product-price">${cartItem.price}</div>
+                    <div className="cart-product-quantity">
+                      <button onClick={() => handleDecreaseCart(cartItem)}>
+                        -
+                      </button>
+                      <div className="count">{cartItem.shopQty}</div>
+                      <button onClick={() => handleAddToCart(cartItem)}>
+                        +
+                      </button>
+                    </div>
+                    <div className="cart-product-total-price">
+                      ${cartItem.price * cartItem.shopQty}
+                    </div>
+                  </div>
+                ))}
+            </div>
+            <div className="cart-summary">
+              <button className="clear-btn" onClick={() => clearCartHandler()}>
+                Clear Cart
+              </button>
+              <div className="cart-checkout">
+                <div className="subtotal">
+                  <span>Subtotal</span>
+                  <span className="amount">${price}</span>
+                </div>
+                <p>Taxes and shipping calculated at checkout</p>
+                <button onClick={handleOnSubmit}>Check out</button>
+                <div className="continue-shopping">
+                  <Link to="/">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      className="bi bi-arrow-left"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                      />
+                    </svg>
+                    <span>Continue Shopping</span>
+                  </Link>
+                </div>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         ) : (
           <Row className="p-4 d-flex justify-content-center align-items-center flex-column">
             <p className="fw-bold">Your cart is empty.</p>
