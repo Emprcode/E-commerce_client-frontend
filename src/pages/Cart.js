@@ -38,11 +38,7 @@ const Cart = () => {
     }
   };
   const clearCartHandler = () => {
-    if (
-      window.confirm("Are you sure you want to remove all products from cart?")
-    ) {
-      dispatch(clearCart());
-    }
+    dispatch(clearCart());
   };
   let shipping = 0;
   if (price < 100) {
@@ -60,7 +56,8 @@ const Cart = () => {
       const session = await checkoutSession(obj);
       console.log(session);
       if (session?.url) {
-        window.location.href = session.url && clearCartHandler();
+        window.location.href = session.url;
+        clearCartHandler();
       }
     } else {
       window.alert("you need to login first!");

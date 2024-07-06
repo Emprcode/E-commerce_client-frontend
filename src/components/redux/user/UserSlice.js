@@ -12,7 +12,7 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     unSetUser: (state) => {
-      state.admin = {};
+      state.user = {};
     },
   },
 });

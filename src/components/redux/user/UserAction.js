@@ -8,9 +8,9 @@ export const googleSignInAction = (user) => async (dispatch) => {
   // console.log(status, message);
 
   if (status === "success" && token) {
+    console.log(rest);
     dispatch(setUser(rest));
     sessionStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(rest));
     toast[status](message);
   }
 };
