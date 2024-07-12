@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import { setUser } from "./UserSlice";
 import {
   fetchNewAccessJWT,
   getUser,
@@ -6,13 +7,10 @@ import {
   logoutUser,
   updateUser,
 } from "../../helper/axiosHelper";
-import { setUser } from "./UserSlice";
 
 //login with google
 export const googleSignInAction = (user) => async (dispatch) => {
   const { status, message, tokens } = await googleSignIn(user);
-  console.log(tokens);
-
   if (tokens?.accessJWT) {
     const { accessJWT, refreshJWT } = tokens;
     sessionStorage.setItem("accessJWT", accessJWT);
@@ -69,9 +67,7 @@ export const logoutUserProfile = () => async (dispatch) => {
 
   //calling axios to logout
   logoutUser();
-
   //remove token
-
   sessionStorage.removeItem("accessJWT");
   localStorage.removeItem("refreshJWT");
 };
