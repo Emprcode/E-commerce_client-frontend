@@ -17,18 +17,8 @@ export const googleSignInAction = (user) => async (dispatch) => {
     localStorage.setItem("refreshJWT", refreshJWT);
 
     dispatch(getUserProfile());
-
-    const { status, message, token, rest } = await googleSignIn(user);
-    // console.log(status, message);
-
-    if (status === "success" && token) {
-      console.log(rest);
-      dispatch(setUser(rest));
-      sessionStorage.setItem("token", token);
-      toast[status](message);
-    }
-    toast[status](message);
   }
+  toast[status](message);
 };
 
 //fetch user
