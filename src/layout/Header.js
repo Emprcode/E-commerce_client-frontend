@@ -174,7 +174,7 @@ export const Header = () => {
       <AppBar
         position="static"
         className=""
-        sx={{ backgroundColor: "rgb(137,68,241)" }}
+        sx={{ backgroundColor: "rgb(137,68,241)", px: 0.5 }}
       >
         <Toolbar>
           <SideBar />
@@ -204,11 +204,6 @@ export const Header = () => {
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Box sx={{ flexGrow: 1 }} />
 
-            {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton> */}
             <Link className="nav-link" to="/cart">
               <IconButton
                 size="large"

@@ -53,8 +53,8 @@ const Cart = () => {
       const session = await checkoutSession(obj);
       if (session?.url) {
         window.location.href = session.url;
+        clearCartHandler();
       }
-      clearCartHandler();
     } else {
       window.alert("Please login first to continue payment!");
     }
