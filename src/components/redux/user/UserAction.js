@@ -10,7 +10,6 @@ import {
 
 //login with google
 export const googleSignInAction = (user) => async (dispatch) => {
-
   const { status, message, tokens } = await googleSignIn(user);
   if (tokens?.accessJWT) {
     const { accessJWT, refreshJWT } = tokens;
@@ -19,17 +18,17 @@ export const googleSignInAction = (user) => async (dispatch) => {
 
     dispatch(getUserProfile());
 
-  const { status, message, token, rest } = await googleSignIn(user);
-  // console.log(status, message);
+    const { status, message, token, rest } = await googleSignIn(user);
+    // console.log(status, message);
 
-  if (status === "success" && token) {
-    console.log(rest);
-    dispatch(setUser(rest));
-    sessionStorage.setItem("token", token);
+    if (status === "success" && token) {
+      console.log(rest);
+      dispatch(setUser(rest));
+      sessionStorage.setItem("token", token);
+      toast[status](message);
+    }
     toast[status](message);
-
   }
-  toast[status](message);
 };
 
 //fetch user
