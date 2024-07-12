@@ -6,7 +6,7 @@ export const ShopHere = () => {
   return (
     <div>
       <Container
-        className="p-4 d-flex justify-content-center align-items-center gap-5 flex-wrap"
+        className="p-2 d-flex justify-content-center align-items-center gap-5 flex-wrap"
         id="shopnow"
       >
         <Col className=" top rounded shopbtn ">
@@ -32,6 +32,22 @@ export const ShopHere = () => {
             <h4 className="text-center fw-bold text-light">FOOTWARES</h4>
             <Button variant="dark" className="shopbtn">
               Shop Mens FootWares
+            </Button>
+          </Link>
+        </Col>
+        <Col className="caps rounded shopbtn">
+          <Link className="nav-link" to="/men-headwares">
+            <h4 className="text-center fw-bold text-light">HEADWARES</h4>
+            <Button variant="dark" className="shopbtn">
+              Shop Mens Headwares
+            </Button>
+          </Link>
+        </Col>
+        <Col className="accessories rounded shopbtn">
+          <Link className="nav-link" to="/men-accessories">
+            <h4 className="text-center fw-bold text-light">ACCESSORIES</h4>
+            <Button variant="dark" className="shopbtn">
+              Shop Mens Accessories
             </Button>
           </Link>
         </Col>
