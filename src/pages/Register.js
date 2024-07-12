@@ -1,49 +1,14 @@
 import React from "react";
-import { MainLayout } from "../layout/MainLayout";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Membership } from "../components/page-components/Membership";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { FormComponents } from "../components/form-components/FormComponents";
-import { Link } from "react-router-dom";
 
 const Register = () => {
-  const InputFields = [
-    {
-      name: "fName",
-      type: "text",
-      label: "First Name",
-      placeholder: "Sam",
-      required: true,
-    },
-
-    {
-      name: "email",
-      type: "email",
-      label: "Email",
-      placeholder: "Email",
-      required: true,
-    },
-    {
-      name: "password",
-      type: "password",
-      label: "Password",
-      placeholder: "*****",
-      required: true,
-    },
-    {
-      name: "cPassword",
-      type: "password",
-      label: "Confirm Password",
-      placeholder: "*****",
-      required: true,
-    },
-  ];
-
   const BillingAddress = [
     {
-      name: "lName",
+      name: "address",
       type: "text",
-      label: "Last Name",
-      placeholder: "Smith",
+      label: "Address",
+      placeholder: "Your delivery address",
       required: true,
     },
     {
@@ -54,64 +19,50 @@ const Register = () => {
       required: true,
     },
     {
-      name: "country",
+      name: "suburb",
+      type: "text",
+      label: "Suburb",
+      placeholder: "Cronulla",
+      required: true,
+    },
+    {
+      name: "State",
+      type: "text",
+      label: "State",
+      placeholder: "NSW",
+      required: true,
+    },
+    {
+      name: "Country",
       type: "text",
       label: "Country",
       placeholder: "Australia",
       required: true,
     },
-    {
-      name: "address",
-      type: "text",
-      label: "Address",
-      placeholder: "Your delivery address",
-      required: true,
-    },
   ];
   return (
-    <MainLayout>
-      <div className="bgcolor">
-        <Container>
-          <Row className="p-5 ">
-            <h2 className="fw-bold">Register Here!</h2>
-            <Col>
-              <Form>
-                {InputFields.map((item, i) => (
-                  <FormComponents key={i} {...item} />
-                ))}
-                <div className="d-grid col-5">
-                  <Button
-                    variant="dark"
-                    type="submit"
-                    className="rounded fw-bold">
-                    {" "}
-                    Register
-                  </Button>
-                </div>
-              </Form>
-            </Col>
-            <Col>
+    <>
+      <div className="">
+        <>
+          <Row className=" p-4 d-flex justify-content-center align-items-center">
+            <h4 className="fw-bold text-center">
+              Update your delivery address
+            </h4>
+
+            <Col className="col-md-5 ">
               <Form>
                 {BillingAddress.map((item, i) => (
                   <FormComponents key={i} {...item} />
                 ))}
+                <Button variant="info" className="rounded-pill px-5">
+                  Submit
+                </Button>
               </Form>
             </Col>
-            <div className="p-4">
-              <p>
-                Creating an account means you accept our
-                <span className="fw-bold"> Terms of Use </span> and
-                <span className="fw-bold"> Privacy Policy </span>.
-              </p>
-              <Link className="nav-link mt-3 fw-bold" to="/myaccount/login">
-                Already have an account?
-              </Link>
-            </div>
           </Row>
-        </Container>
+        </>
       </div>
-      <Membership />
-    </MainLayout>
+    </>
   );
 };
 

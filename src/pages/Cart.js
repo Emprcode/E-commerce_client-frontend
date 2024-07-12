@@ -16,6 +16,8 @@ const Cart = () => {
   const { user } = useSelector((state) => state.user);
   const { cartItems } = useSelector((state) => state.cartItems);
   const dispatch = useDispatch();
+  console.log(user);
+  const { _id } = user;
 
   const price = cartItems?.reduce((acc, itemPrice) => {
     return acc + parseInt(itemPrice?.shopQty * itemPrice?.price);
@@ -40,27 +42,21 @@ const Cart = () => {
   const clearCartHandler = () => {
     dispatch(clearCart());
   };
-  let shipping = 0;
-  if (price < 100) {
-    shipping = 40;
-  }
-
-  const totalPrice = price + shipping;
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     if (user?._id) {
       const obj = {
-        totalPrice,
+        cartItems,
+        userId: _id,
       };
       const session = await checkoutSession(obj);
-      console.log(session);
       if (session?.url) {
         window.location.href = session.url;
         clearCartHandler();
       }
     } else {
-      window.alert("you need to login first!");
+      window.alert("Please login first to continue payment!");
     }
   };
 
@@ -86,10 +82,10 @@ const Cart = () => {
                 cartItems.map((cartItem) => (
                   <div className="cart-item" key={cartItem._id}>
                     <div className="cart-product">
-                      <img src={cartItem.thumbnail} alt={cartItem.name} />
+                      <img src={cartItem.thumbnail} alt={cartItem.image} />
                       <div>
                         <h3>{cartItem.name}</h3>
-                        <p>{cartItem.desc}</p>
+                        {/* <p>{cartItem.desc}</p> */}
                         <button onClick={() => handleRemoveFromCart(cartItem)}>
                           Remove
                         </button>

@@ -14,7 +14,10 @@ const ThankYou = () => {
 
           <div className="thankyou">Thank you</div>
 
-          <div className="h5 mt-5">Your order is successfully placed.</div>
+          <div className="h5 mt-5">
+            We have received your order. Make sure you update your delivery
+            address.
+          </div>
           <Link to="/" className="d-flex justify-content-center nav-link">
             <div className="button mt-5">Back to Home</div>
           </Link>

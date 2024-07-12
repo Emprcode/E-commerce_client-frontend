@@ -11,35 +11,27 @@ import { LatestArrival } from "../components/swiperComponents/LatestArrival";
 export const ProductPage = () => {
   const { selectedProduct } = useSelector((state) => state.selectedProduct);
 
+  const [size, setSize] = useState();
+
   //_id or slug is taken from req.params for fetching product based on that id or slug
   const dispatch = useDispatch();
 
   const { slug } = useParams();
-
+  console.log(selectedProduct);
   useEffect(() => {
     dispatch(getSingleProductAction(slug));
   }, [dispatch, slug]);
 
-  const [count, setCount] = useState(1);
-
-  const handleIncrease = () => {
-    if (count < 5) {
-      // Maximum count set to 5
-      setCount(count + 1);
-    }
-  };
-
-  const handleDecrease = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
+  const handleSizeChange = (e) => {
+    setSize(e.target.value);
   };
 
   const addToCartHandler = (e) => {
     e.preventDefault();
     const { name, description, price, thumbnail, _id } = selectedProduct;
     const obj = {
-      shopQty: count,
+      shopQty: 1,
+      // size,
       name,
       description,
       price,
@@ -73,7 +65,7 @@ export const ProductPage = () => {
               <p className="fw-bold h5"> $ {selectedProduct.price}.00</p>
             </div>
             <Form onSubmit={addToCartHandler}>
-              <div className="d-flex  align-items-center gap-2">
+              {/* <div className="d-flex  align-items-center gap-2">
                 <Button
                   onClick={handleDecrease}
                   variant="none"
@@ -89,7 +81,20 @@ export const ProductPage = () => {
                 >
                   <i className="fa-solid fa-plus"></i>
                 </Button>
-              </div>
+              </div> */}
+              <Form.Select
+                col={2}
+                size="lg"
+                id="sizeSelect"
+                value={size}
+                onChange={handleSizeChange}
+              >
+                <option value="OS">OS</option>
+                {/* <option value="XS">XS</option> */}
+                {/* <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option> */}
+              </Form.Select>
 
               <div className=" mt-4 d-grid">
                 <Button

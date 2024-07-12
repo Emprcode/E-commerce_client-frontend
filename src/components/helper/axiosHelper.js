@@ -6,16 +6,14 @@ const productUrl = apiRoot + "/products";
 
 const categoryUrl = apiRoot + "/categories";
 
-const cartUrl = apiRoot + "/cart";
-
 const paymentUrl = apiRoot + "/payment";
 
 const userUrl = apiRoot + "/user";
 
-const axiosProcessor = async ({ method, url, objDt, isPrivate }) => {
+const axiosProcessor = async ({ method, url, objDt, isPrivate, token }) => {
   const headers = isPrivate
     ? {
-        Authorization: sessionStorage.getItem("accessJWT"),
+        Authorization: token || sessionStorage.getItem("accessJWT"),
       }
     : null;
   try {
@@ -64,25 +62,6 @@ export const fetchAllCategories = async () => {
 };
 // add product to cart
 
-export const addToCart = async (objDt) => {
-  const obj = {
-    method: "post",
-    url: cartUrl,
-    objDt,
-  };
-  return axiosProcessor(obj);
-};
-
-// get product in cart
-
-export const getCart = async () => {
-  const obj = {
-    method: "get",
-    url: cartUrl,
-  };
-  return axiosProcessor(obj);
-};
-
 //checkout session
 
 export const checkoutSession = async (objDt) => {
@@ -110,6 +89,28 @@ export const getUser = () => {
     method: "get",
     url: userUrl,
     isPrivate: true,
+  };
+  return axiosProcessor(obj);
+};
+
+//update user
+export const updateUser = (objDt) => {
+  const obj = {
+    method: "put",
+    url: userUrl,
+    objDt,
+    isPrivate: true,
+  };
+  return axiosProcessor(obj);
+};
+
+//fetch new access token
+export const fetchNewAccessJWT = () => {
+  const obj = {
+    method: "get",
+    url: userUrl + "/new-accessjwt",
+    isPrivate: true,
+    token: localStorage.getItem("refreshJWT"),
   };
   return axiosProcessor(obj);
 };

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,9 +14,10 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { BsFillCartFill } from "react-icons/bs";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { SideBar } from "../components/sidebar/SideBar";
+import { autoLogin } from "../components/redux/user/UserAction";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -63,6 +64,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const Header = () => {
   const { cartItems } = useSelector((state) => state.cartItems);
   const { user } = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(autoLogin());
+  }, [dispatch]);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
