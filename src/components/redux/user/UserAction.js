@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import { setUser } from "./UserSlice";
 import {
   fetchNewAccessJWT,
   getUser,
@@ -6,14 +7,10 @@ import {
   logoutUser,
   updateUser,
 } from "../../helper/axiosHelper";
-import { setUser } from "./UserSlice";
 
 //login with google
 export const googleSignInAction = (user) => async (dispatch) => {
-
   const { status, message, tokens } = await googleSignIn(user);
-  console.log(tokens);
-
   if (tokens?.accessJWT) {
     const { accessJWT, refreshJWT } = tokens;
     sessionStorage.setItem("accessJWT", accessJWT);
@@ -21,17 +18,17 @@ export const googleSignInAction = (user) => async (dispatch) => {
 
     dispatch(getUserProfile());
 
-  const { status, message, token, rest } = await googleSignIn(user);
-  // console.log(status, message);
+    const { status, message, token, rest } = await googleSignIn(user);
+    // console.log(status, message);
 
-  if (status === "success" && token) {
-    console.log(rest);
-    dispatch(setUser(rest));
-    sessionStorage.setItem("token", token);
+    if (status === "success" && token) {
+      console.log(rest);
+      dispatch(setUser(rest));
+      sessionStorage.setItem("token", token);
+      toast[status](message);
+    }
     toast[status](message);
-
   }
-  toast[status](message);
 };
 
 //fetch user
@@ -80,9 +77,7 @@ export const logoutUserProfile = () => async (dispatch) => {
 
   //calling axios to logout
   logoutUser();
-
   //remove token
-
   sessionStorage.removeItem("accessJWT");
   localStorage.removeItem("refreshJWT");
 };
