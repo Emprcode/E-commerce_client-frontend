@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 import { setUser } from "./UserSlice";
 import {
-  fetchNewAccessJWT,
   getUser,
   googleSignIn,
   logoutUser,
@@ -48,16 +47,16 @@ export const autoLogin = () => async (dispatch) => {
   const accessJWT = sessionStorage.getItem("accessJWT");
   const refreshJWT = localStorage.getItem("refreshJWT");
 
-  if (accessJWT) {
+  if (accessJWT && refreshJWT) {
     return dispatch(getUserProfile());
   }
-  if (refreshJWT) {
-    const { status, accessJWT } = await fetchNewAccessJWT();
-    if (status === "success" && accessJWT) {
-      sessionStorage.setItem("accessJWT", accessJWT);
-      dispatch(getUserProfile());
-    }
-  }
+  // if (refreshJWT) {
+  //   const { status, accessJWT } = await fetchNewAccessJWT();
+  //   if (status === "success" && accessJWT) {
+  //     sessionStorage.setItem("accessJWT", accessJWT);
+  //     dispatch(getUserProfile());
+  //   }
+  // }
 };
 
 //logout user

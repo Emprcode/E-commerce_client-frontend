@@ -3,7 +3,7 @@ import { MainLayout } from "../layout/MainLayout";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Membership } from "../components/page-components/Membership";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleProductAction } from "../components/redux/products-redux/productAction";
+import { getSingleProductAction } from "../components/redux/product/productAction";
 import { setCart } from "../components/redux/cart/CartSlice";
 import { useParams } from "react-router-dom";
 import { LatestArrival } from "../components/swiperComponents/LatestArrival";
@@ -17,7 +17,6 @@ export const ProductPage = () => {
   const dispatch = useDispatch();
 
   const { slug } = useParams();
-  console.log(selectedProduct);
   useEffect(() => {
     dispatch(getSingleProductAction(slug));
   }, [dispatch, slug]);

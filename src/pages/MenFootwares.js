@@ -3,7 +3,7 @@ import { MainLayout } from "../layout/MainLayout";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { ShoeCard } from "../components/card/ShoeCard";
-import { getAllProductsAction } from "../components/redux/products-redux/productAction";
+import { getAllProductsAction } from "../components/redux/product/productAction";
 import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 
 const MenFootwares = () => {

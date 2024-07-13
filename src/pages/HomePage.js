@@ -4,7 +4,7 @@ import { Membership } from "../components/page-components/Membership";
 import { ShopHere } from "../components/page-components/ShopHere";
 import { MainLayout } from "../layout/MainLayout";
 import { useDispatch } from "react-redux";
-import { getAllProductsAction } from "../components/redux/products-redux/productAction";
+import { getAllProductsAction } from "../components/redux/product/productAction";
 import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 import { LatestArrival } from "../components/swiperComponents/LatestArrival";
 

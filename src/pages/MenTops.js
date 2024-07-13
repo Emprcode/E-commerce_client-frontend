@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsAction } from "../components/redux/products-redux/productAction";
+import { getAllProductsAction } from "../components/redux/product/productAction";
 import { ProductCard } from "../components/card/ProductCard";
 import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 

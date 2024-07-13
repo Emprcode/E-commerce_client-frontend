@@ -16,7 +16,6 @@ const Cart = () => {
   const { user } = useSelector((state) => state.user);
   const { cartItems } = useSelector((state) => state.cartItems);
   const dispatch = useDispatch();
-  console.log(user);
   const { _id } = user;
 
   const price = cartItems?.reduce((acc, itemPrice) => {
