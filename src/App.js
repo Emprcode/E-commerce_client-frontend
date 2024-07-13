@@ -14,11 +14,13 @@ import Profile from "./pages/Profile";
 import { RequireAuth } from "./components/utils/RequireAuth";
 import Headwares from "./pages/Headwares";
 import Accessories from "./pages/Accessories";
+import ScrollToTop from "./pages/ScrollToTop";
 
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           {/* public Route */}
 

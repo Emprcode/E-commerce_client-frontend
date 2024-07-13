@@ -9,7 +9,7 @@ export const ShopHere = () => {
         className="p-2 d-flex justify-content-center align-items-center gap-5 flex-wrap"
         id="shopnow"
       >
-        <Col className=" top rounded shopbtn ">
+        <Col className="top rounded shopbtn ">
           <Link className="nav-link" to="/men-tops">
             <h4 className="fw-bold text-light text-center">TOPS</h4>
 
