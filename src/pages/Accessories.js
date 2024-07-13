@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { ProductCard } from "../components/card/ProductCard";
 import { getAllProductsAction } from "../components/redux/product/productAction";
 import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
+import { ShoeCard } from "../components/card/ShoeCard";
 
 const Accessories = () => {
   const { products } = useSelector((state) => state.product);
@@ -32,7 +32,7 @@ const Accessories = () => {
 
         <div className=" p-4 d-flex justify-content-center align-items-center gap-5 flex-wrap">
           {filteredArray.map((item, i) => (
-            <ProductCard key={i} {...item} />
+            <ShoeCard key={i} {...item} />
           ))}
         </div>
       </Container>

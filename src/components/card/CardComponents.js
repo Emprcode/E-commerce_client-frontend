@@ -2,15 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const CardComponents = ({
-  images,
-  price,
-  name,
-  slug,
-  description,
-  thumbnail,
-  _id,
-}) => {
+export const CardComponents = ({ price, name, slug, thumbnail }) => {
   return (
     <div>
       <Link to={"/products/" + slug} className="nav-link">
@@ -20,7 +12,11 @@ export const CardComponents = ({
               variant="top"
               className="rounded"
               src={thumbnail}
-              style={{ width: "100%", height: "90%", objectFit: "cover" }}
+              style={{
+                width: "100%",
+                height: "90%",
+                objectFit: "cover",
+              }}
             />
           </span>
           <Card.Body>
