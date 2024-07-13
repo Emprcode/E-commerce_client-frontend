@@ -150,6 +150,7 @@ const Cart = () => {
           </Row>
         )}
       </Container>
+      <br />
       <LatestArrival />
     </MainLayout>
   );

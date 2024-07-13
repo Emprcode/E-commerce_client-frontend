@@ -23,7 +23,7 @@ export const ShoeCard = ({
             variant="top"
             className="rounded "
             src={thumbnail}
-            height="230px"
+            height="240px"
           />
           <Card.Body>
             <Card.Title className="text-center m-3">{name}</Card.Title>

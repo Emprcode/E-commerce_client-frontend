@@ -50,7 +50,7 @@ export const ProductPage = () => {
             <div className="d-flex justify-content-center gap-5">
               <img
                 src={selectedProduct?.thumbnail}
-                width="250px"
+                width="300px"
                 alt="product"
                 className="rounded"
               />
@@ -107,7 +107,7 @@ export const ProductPage = () => {
             </Form>
           </Col>
         </Row>
-        <Row className="p-4">
+        <Row className="p-4 mt-5">
           <p className="fw-bold h5">Product Info</p>
           <hr />
           <p>{selectedProduct.description}</p>

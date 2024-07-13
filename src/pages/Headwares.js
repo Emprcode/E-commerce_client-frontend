@@ -9,7 +9,8 @@ import { getAllCategoriesAction } from "../components/redux/category/categoryAct
 const Headwares = () => {
   const { products } = useSelector((state) => state.product);
   const { cats } = useSelector((state) => state.category);
-
+  console.log(cats);
+  console.log(products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllProductsAction());
