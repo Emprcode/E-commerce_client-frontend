@@ -175,6 +175,7 @@ export const Header = () => {
         position="static"
         className=""
         sx={{ backgroundColor: "rgb(137,68,241)", px: 0.5 }}
+        // sx={{ backgroundColor: "#212121", px: 0.5 }}
       >
         <Toolbar>
           <SideBar />
