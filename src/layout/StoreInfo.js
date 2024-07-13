@@ -6,7 +6,7 @@ export const StoreInfo = () => {
   return (
     <div>
       <Container className="">
-        <Row className="p-4 d-flex gap-3 storeinfo">
+        <Row className="p-4 d-flex gap-5 storeinfo flex-wrap">
           <Col className="col-md-4">
             <h2 className="fw-bold">aceXsports</h2>
             <p>

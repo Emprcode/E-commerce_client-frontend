@@ -182,7 +182,11 @@ export const Header = () => {
           <Typography
             variant="h4"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block" } }}
+            sx={{
+              flexGrow: 1,
+              fontWeight: "medium",
+              display: { xs: "block", sm: "block" },
+            }}
           >
             <a className="nav-link" href="/">
               aceXsports
