@@ -12,11 +12,10 @@ const ThankYou = () => {
             <AiOutlineCheckCircle size="70" />
           </span>
 
-          <div className="thankyou">Thank you</div>
+          <div className="thankyou p-3">Thank you</div>
 
           <div className="h5 mt-5">
-            We have received your order. Make sure you update your delivery
-            address.
+            We have successfully received your order.
           </div>
           <Link to="/" className="d-flex justify-content-center nav-link">
             <div className="button mt-5">Back to Home</div>

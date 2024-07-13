@@ -33,7 +33,9 @@ const HomePage = () => {
         <Carousel.Item>
           <div className="hero1">
             <div className="mt-5 d-flex flex-column gap-2 justify-content-center align-items-center">
-              <h1 className="fw-bold ">Unleash your inner rebel</h1>
+              <h1 className=" mt-5 hero-title fw-bold ">
+                Unleash your inner Rebel
+              </h1>
 
               <h5 className="mt-2 mb-5">
                 All latest streetware stuff available here.

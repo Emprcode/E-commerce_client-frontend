@@ -48,7 +48,7 @@ export const ProductPage = () => {
       <Container className="p-4 mt-5">
         <Row>
           <Col className="d-column">
-            <div className="d-flex justify-content-center gap-3">
+            <div className="d-flex justify-content-center gap-5">
               <img
                 src={selectedProduct?.thumbnail}
                 width="250px"
@@ -58,8 +58,8 @@ export const ProductPage = () => {
             </div>
           </Col>
 
-          <Col>
-            <div className="p-3">
+          <Col className="col-md-6">
+            <div className="p-4">
               <h3 className="fw-bold "> {selectedProduct.name}</h3>
               <p> {selectedProduct.sku}</p>
               <p className="fw-bold h5"> $ {selectedProduct.price}.00</p>

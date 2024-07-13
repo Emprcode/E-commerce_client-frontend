@@ -6,7 +6,7 @@ export const StoreInfo = () => {
   return (
     <div>
       <Container className="">
-        <Row className="p-5 d-flex gap-3 storeinfo">
+        <Row className="p-4 d-flex gap-3 storeinfo">
           <Col className="col-md-4">
             <h2 className="fw-bold">aceXsports</h2>
             <p>
@@ -16,15 +16,15 @@ export const StoreInfo = () => {
           </Col>
           <Col className="secondCol">
             <h2 className="fw-bold"> Links</h2>
-            <div className="d-flex justify-content-center flex-column gap-4">
+            <div className="d-flex justify-content-center flex-column ">
               <Link className="nav-link" to="/">
                 Home
               </Link>
-              <Link className="nav-link" to="/cart">
+              <Link className="nav-link mt-2 mb-2" to="/cart">
                 cart
               </Link>
-              <Link className="nav-link" to="/myaccount/login">
-                My Account
+              <Link className="nav-link" to="/profile">
+                Profile
               </Link>
             </div>
           </Col>
@@ -38,8 +38,7 @@ export const StoreInfo = () => {
                 <i className="fa-solid fa-phone "></i> 0412354568
               </p>
               <p>
-                <i className="fa-solid fa-envelope"></i>{" "}
-                ouremail@acexsports.com.au
+                <i className="fa-solid fa-envelope"></i> email@acexsports.com
               </p>
             </div>
           </Col>
