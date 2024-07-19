@@ -19,9 +19,8 @@ export const Oauth = () => {
       // console.log(result);
       const { displayName, email, photoURL } = result.user;
       const user = { name: displayName, email, photo: photoURL };
-
       dispatch(googleSignInAction(user));
-      navigate("/cart");
+      navigate("/profile");
     } catch (error) {
       console.log("The error is: ", error);
     }

@@ -23,7 +23,7 @@ export const googleSignInAction = (user) => async (dispatch) => {
 //fetch user
 export const getUserProfile = () => async (dispatch) => {
   const { status, user } = await getUser();
-  if (status === "success" && user?._id) {
+  if (status === "success" && user) {
     dispatch(setUser(user));
   }
 };
