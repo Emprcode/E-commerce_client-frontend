@@ -49,6 +49,7 @@ const Cart = () => {
         cartItems,
         userId: _id,
       };
+      console.log(obj);
       const session = await checkoutSession(obj);
       if (session?.url) {
         window.location.href = session.url;

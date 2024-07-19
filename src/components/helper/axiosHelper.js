@@ -10,6 +10,8 @@ const paymentUrl = apiRoot + "/payment";
 
 const userUrl = apiRoot + "/user";
 
+const orderUrl = apiRoot + "/order";
+
 const axiosProcessor = async ({ method, url, objDt, isPrivate, token }) => {
   const headers = isPrivate
     ? {
@@ -121,6 +123,16 @@ export const logoutUser = () => {
     url: userUrl + "/logout",
     isPrivate: true,
     token: localStorage.getItem("refreshJWT"),
+  };
+  return axiosProcessor(obj);
+};
+
+//get orders
+export const getOrder = () => {
+  const obj = {
+    method: "get",
+    url: orderUrl,
+    isPrivate: true,
   };
   return axiosProcessor(obj);
 };
