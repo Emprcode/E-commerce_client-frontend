@@ -64,9 +64,12 @@ export const SideBar = () => {
       </List>
       <Divider />
       <List>
-        {["New Arrivals", "Trending Now"].map((text, index) => (
+        {[
+          // "New Arrivals",
+          "All Products",
+        ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton component={Link} to={`/`}>
+            <ListItemButton component={Link} to={`/all-products`}>
               <ListItemIcon>
                 {index % 2 === 0 ? <MdDashboard /> : <BsMenuButtonWideFill />}
               </ListItemIcon>

@@ -15,6 +15,7 @@ import { RequireAuth } from "./components/utils/RequireAuth";
 import Headwares from "./pages/Headwares";
 import Accessories from "./pages/Accessories";
 import ScrollToTop from "./pages/ScrollToTop";
+import AllProducts from "./pages/AllProducts";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/men-footwares" element={<MenFootwares />} />
           <Route path="/men-headwares" element={<Headwares />} />
           <Route path="/men-accessories" element={<Accessories />} />
+          <Route path="/all-products" element={<AllProducts />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products/:slug" element={<ProductPage />} />
           <Route path="/myaccount/login" element={<Login />} />
