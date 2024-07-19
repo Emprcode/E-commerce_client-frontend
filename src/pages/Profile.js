@@ -6,6 +6,8 @@ import { logoutUserProfile } from "../components/redux/user/UserAction";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.user);
+  // const { orders } = useSelector((state) => state.orders);
+
   const { name, email, avatar } = user;
 
   const dispatch = useDispatch();
@@ -29,6 +31,11 @@ const Profile = () => {
   //   e.preventDefault();
   //   dispatch(updateUserAction(updateUser));
   // };
+
+  // useEffect(() => {
+  //   dispatch(getOrdersAction());
+  // }, []);
+
   return (
     <MainLayout>
       <Container className="p-4">
@@ -100,23 +107,26 @@ const Profile = () => {
             <thead>
               <tr>
                 <th>#</th>
-                <th>Product</th>
+                <th>Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
+              {orders?.products?.map((item, i) => (
+                <tr key={i}>
+                  <td>{i + 1}</td>
+                  <td>{item.name}</td>
+                  <td>{item.quantity}</td>
+                  <td>$ {item.price}.00</td>
+                  <td>{orders.delivery_status}</td>
+                </tr>
+              ))}
 
               <tr>
                 <td>3</td>
-                <td colSpan={2}>Larry the Bird</td>
+                <td colSpan={3}>Total</td>
                 <td>@twitter</td>
               </tr>
             </tbody>
