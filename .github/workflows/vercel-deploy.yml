@@ -1,10 +1,7 @@
-name: Deploy ecom app
-
-on:
-  push:
-    branches:
-      - main1
+name: Vercel Production Deployment
 env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   REACT_APP_ROOT_API: ${{ vars.REACT_APP_ROOT_API }}
   REACT_APP_MENS_TOPS_SLUG: ${{ vars.REACT_APP_MENS_TOPS_SLUG }}
   REACT_APP_MENS_BOTTOMS_SLUG: ${{ vars.REACT_APP_MENS_BOTTOMS_SLUG }}
@@ -18,28 +15,21 @@ env:
   REACT_APP_MESSAGING_SENDER_ID: ${{ vars.REACT_APP_MESSAGING_SENDER_ID }}
   REACT_APP_APP_ID: ${{ vars.REACT_APP_APP_ID }}
 
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  Deploy:
+  Deploy-Production:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v2
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build static file
-        run: npm run build
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-
-      - name: Deploy an app to S3 bucket
-        run: aws s3 sync ./build s3://ace-x-sports
+      - uses: actions/checkout@v2
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
