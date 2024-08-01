@@ -102,37 +102,39 @@ const Profile = () => {
             </Col>
           </Row>
         </div> */}
-        <div className="p-2 mt-4">
-          <h4 className="fw-bold m-3"> Your Order</h4>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Delivery Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders?.products?.map((item, i) => (
-                <tr key={i}>
-                  <td>{i + 1}</td>
-                  <td>{item.name}</td>
-                  <td>{item.quantity}</td>
-                  <td>$ {item.price}.00</td>
-                  <td>{orders.delivery_status}</td>
+        {orders && (
+          <div className="p-2 mt-4">
+            <h4 className="fw-bold m-3"> Your Order</h4>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Delivery Status</th>
                 </tr>
-              ))}
+              </thead>
+              <tbody>
+                {orders?.products?.map((item, i) => (
+                  <tr key={i}>
+                    <td>{i + 1}</td>
+                    <td>{item.name}</td>
+                    <td>{item.quantity}</td>
+                    <td>$ {item.price}.00</td>
+                    <td>{orders.delivery_status}</td>
+                  </tr>
+                ))}
 
-              <tr>
-                <td></td>
-                <td colSpan={3}>Total</td>
-                <td>${orders.total / 100}</td>
-              </tr>
-            </tbody>
-          </Table>
-        </div>
+                <tr>
+                  <td></td>
+                  <td colSpan={3}>Total</td>
+                  <td>${orders.total / 100}</td>
+                </tr>
+              </tbody>
+            </Table>
+          </div>
+        )}
       </Container>
     </MainLayout>
   );
