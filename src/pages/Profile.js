@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card, Container, Table } from "react-bootstrap";
 import { logoutUserProfile } from "../components/redux/user/UserAction";
+import { getOrdersAction } from "../components/redux/order/orderAction";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.user);
-  // const { orders } = useSelector((state) => state.orders);
+  const { orders } = useSelector((state) => state.orders);
 
   const { name, email, avatar } = user;
 
@@ -32,9 +33,9 @@ const Profile = () => {
   //   dispatch(updateUserAction(updateUser));
   // };
 
-  // useEffect(() => {
-  //   dispatch(getOrdersAction());
-  // }, []);
+  useEffect(() => {
+    dispatch(getOrdersAction());
+  }, [dispatch]);
 
   return (
     <MainLayout>
@@ -101,7 +102,7 @@ const Profile = () => {
             </Col>
           </Row>
         </div> */}
-        {/* <div className="p-2 mt-4">
+        <div className="p-2 mt-4">
           <h4 className="fw-bold m-3"> Your Order</h4>
           <Table striped bordered hover>
             <thead>
@@ -110,7 +111,7 @@ const Profile = () => {
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
-                <th>Status</th>
+                <th>Delivery Status</th>
               </tr>
             </thead>
             <tbody>
@@ -125,13 +126,13 @@ const Profile = () => {
               ))}
 
               <tr>
-                <td>3</td>
+                <td></td>
                 <td colSpan={3}>Total</td>
-                <td>@twitter</td>
+                <td>${orders.total / 100}</td>
               </tr>
             </tbody>
           </Table>
-        </div> */}
+        </div>
       </Container>
     </MainLayout>
   );
