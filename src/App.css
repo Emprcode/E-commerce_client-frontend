@@ -3,19 +3,27 @@
 }
 .hero1 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url(./assets/Bgshoes.png) center center no-repeat;
-  min-height: 90vh;
-  width: auto;
+    url(./assets/cr7.png) center center no-repeat;
+  width: 100%;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  /* position: relative; */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero1 {
+    min-height: 100vh !important;
+  }
+}
+
+.content {
+  margin-top: 20rem !important;
 }
 .hero2 {
   background: linear-gradient(rgba(0, 0, 0, 0.532), rgba(0, 0, 0, 0.6)),
-    url(./assets/store.png) center center no-repeat;
+    url(./assets/boots.jpg) center center no-repeat;
   min-height: 90vh;
   width: auto;
   background-size: cover;
@@ -27,7 +35,7 @@
 }
 .hero3 {
   background: linear-gradient(rgba(0, 0, 0, 0.479), rgba(0, 0, 0, 0.402)),
-    url(./assets/store3.png) center center no-repeat;
+    url(./assets/pitch.png) center center no-repeat;
   min-height: 90vh;
   width: auto;
   background-size: cover;
@@ -51,49 +59,47 @@
 
 .top {
   background: linear-gradient(rgba(0, 0, 0, 0.304), rgba(0, 0, 0, 0.564)),
-    url(./assets/top1.png) no-repeat center center;
+    url(./assets/jersey.png) no-repeat center center;
   height: 80vh;
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   transition: 0.5s all ease;
   cursor: pointer;
 }
 .bottom {
   background: linear-gradient(rgba(0, 0, 0, 0.304), rgba(0, 0, 0, 0.564)),
-    url(./assets/bottom.png) no-repeat center center;
+    url(./assets/short.png) no-repeat center center;
   height: 80vh;
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   transition: 0.5s all ease;
   cursor: pointer;
   position: relative;
 }
 .shoes {
   background: linear-gradient(rgba(0, 0, 0, 0.349), rgba(0, 0, 0, 0.564)),
-    url(./assets/shoes.png) no-repeat center center;
+    url(./assets/boot.png) no-repeat center center;
   height: 80vh;
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   transition: 0.5s all ease;
   position: relative;
   cursor: pointer;
 }
-.caps {
+.kits {
   background: linear-gradient(rgba(0, 0, 0, 0.354), rgba(0, 0, 0, 0.564)),
-    url(./assets/cap.png) no-repeat center center;
+    url(./assets/ball.png) center no-repeat;
   height: 80vh;
-  width: 100%;
-  background-size: cover;
+  /* width: 100%; */
   transition: 0.5s all ease;
   position: relative;
   cursor: pointer;
 }
 .accessories {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.564)),
-    url(./assets/accessories.png) no-repeat center center;
+    url(./assets/shin.png) no-repeat center center;
   height: 80vh;
   width: 100%;
-  background-size: cover;
   transition: 0.5s all ease;
   position: relative;
   cursor: pointer;

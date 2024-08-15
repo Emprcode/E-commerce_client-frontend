@@ -10,7 +10,8 @@ export const MainLayout = ({ children }) => {
       <Header />
 
       <div className="main">{children}</div>
-      <StoreInfo className="mt-5" />
+      <br />
+      <StoreInfo className="mt-5 pt-4" />
       <Footer />
     </div>
   );

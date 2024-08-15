@@ -24,6 +24,9 @@ export const ProductCard = ({
             className="rounded cardimg"
             src={thumbnail}
             height="330px"
+            style={{
+              objectFit: "contain",
+            }}
           />
           <Card.Body>
             <Card.Title className="text-center m-3">{name}</Card.Title>

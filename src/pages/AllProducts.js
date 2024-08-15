@@ -12,13 +12,22 @@ const AllProducts = () => {
   const { products } = useSelector((state) => state.product);
   const { cats } = useSelector((state) => state.category);
 
+  const getRandomProducts = (array, count) => {
+    const arrayCopy = [...array];
+    // Shuffle array (Fisher-Yates shuffle algorithm)
+    const shuffledProducts = arrayCopy.sort(() => Math.random() - 0.5);
+    // Get sub-array of first `count` elements after shuffle
+    return shuffledProducts.slice(0, count);
+  };
+  const randomProducts = getRandomProducts(products);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllProductsAction());
     dispatch(getAllCategoriesAction());
   }, [dispatch]);
 
-  const [listProduct, SetListProduct] = useState(products);
+  const [listProduct, SetListProduct] = useState(randomProducts);
   const [search, setSearch] = useState("");
 
   //filter function
@@ -34,7 +43,7 @@ const AllProducts = () => {
 
   //pagination
   const [page, setPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 7;
 
   // Calculate the index range of the products to display for the current page
   const startIndex = (page - 1) * itemsPerPage;
@@ -55,7 +64,7 @@ const AllProducts = () => {
     <MainLayout>
       <Container>
         <div>
-          <h2 className="p-5 text-center fw-bold"> SHOP ALL PRODUCTS</h2>
+          <h2 className="p-5 text-center fw-bold"> SHOP ALL FOOTBALL KITS</h2>
         </div>
         <div className="p-2 d-flex justify-content-center align-items-center gap-3 flex-wrap">
           <div className="d-grid">
@@ -63,7 +72,7 @@ const AllProducts = () => {
               className="p-2 rounded"
               onChange={(e) => handleOnFilter(e.target.value)}
             >
-              <option value="all"> All</option>
+              <option value="all"> All Kits</option>
               {cats.map((item) => (
                 <option key={item._id} value={item._id}>
                   {item.name}

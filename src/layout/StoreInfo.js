@@ -10,8 +10,8 @@ export const StoreInfo = () => {
           <Col className="col-md-4">
             <h2 className="fw-bold">aceXsports</h2>
             <p>
-              Visit our store for the latest and trending streetwear from most
-              popular brands available.
+              Step onto the field with style! <br /> Elevate your game with the
+              best gear in the sport.
             </p>
           </Col>
           <Col className="secondCol">

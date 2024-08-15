@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Carousel } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Membership } from "../components/page-components/Membership";
 import { ShopHere } from "../components/page-components/ShopHere";
 import { MainLayout } from "../layout/MainLayout";
@@ -17,23 +17,25 @@ const HomePage = () => {
   }, [dispatch]);
   return (
     <MainLayout>
-      {/* <div className="hero">
-        <div className="mt-5 d-flex flex-column gap-2 justify-content-center align-items-center">
-          <h1 className="fw-bold ">Unleash your inner rebel</h1>
+      <div className="hero1 p-3">
+        <div className="d-flex flex-column gap-2 justify-content-center align-items-center content">
+          <h1 className="fw-bold ">Gear Up, Game On!</h1>
 
-          <h5 className="mt-4 mb-5">
-            All latest streetware stuff available here.
-          </h5>
-          <Button variant="dark" href="#shopnow" className="rounded fw-bold">
+          <h5 className="mt-3">Wear the Game & Live the Dream</h5>
+          <Button
+            variant="dark"
+            href="#shopnow"
+            className="rounded fw-bold  mb-5"
+          >
             Shop Now!
           </Button>
         </div>
-      </div> */}
-      <Carousel>
+      </div>
+      {/* <Carousel>
         <Carousel.Item>
           <div className="hero1">
-            <div className="mt-5 d-flex flex-column gap-2 justify-content-center align-items-center">
-              <h1 className=" mt-5 hero-title fw-bold ">
+            <div className="mt-5 pt-4 d-flex flex-column gap-2 justify-content-center align-items-center">
+              <h1 className="mt-5 hero-title fw-bold ">
                 Unleash your inner Rebel
               </h1>
 
@@ -91,7 +93,7 @@ const HomePage = () => {
             </div>
           </div>
         </Carousel.Item>
-      </Carousel>
+      </Carousel> */}
       <br />
       <ShopHere />
       <LatestArrival />

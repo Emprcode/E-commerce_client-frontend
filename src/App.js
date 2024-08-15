@@ -12,7 +12,6 @@ import { ToastContainer } from "react-toastify";
 import ThankYou from "./pages/ThankYou";
 import Profile from "./pages/Profile";
 import { RequireAuth } from "./components/utils/RequireAuth";
-import Headwares from "./pages/Headwares";
 import Accessories from "./pages/Accessories";
 import ScrollToTop from "./pages/ScrollToTop";
 import AllProducts from "./pages/AllProducts";
@@ -26,12 +25,11 @@ const App = () => {
           {/* public Route */}
 
           <Route path="/" element={<HomePage />} />
-          <Route path="/men-tops" element={<MenTops />} />
-          <Route path="/men-bottoms" element={<MenBottoms />} />
-          <Route path="/men-footwares" element={<MenFootwares />} />
-          <Route path="/men-headwares" element={<Headwares />} />
-          <Route path="/men-accessories" element={<Accessories />} />
-          <Route path="/all-products" element={<AllProducts />} />
+          <Route path="/kits-jerseys" element={<MenTops />} />
+          <Route path="/kits-shorts" element={<MenBottoms />} />
+          <Route path="/kits-boots" element={<MenFootwares />} />
+          <Route path="/kits-accessories" element={<Accessories />} />
+          <Route path="/all-kits" element={<AllProducts />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products/:slug" element={<ProductPage />} />
           <Route path="/myaccount/login" element={<Login />} />

@@ -14,8 +14,8 @@ export const CardComponents = ({ price, name, slug, thumbnail }) => {
               src={thumbnail}
               style={{
                 width: "100%",
-                height: "90%",
-                objectFit: "cover",
+                height: "100%",
+                objectFit: "contain",
               }}
             />
           </span>

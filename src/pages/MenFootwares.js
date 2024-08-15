@@ -28,7 +28,7 @@ const MenFootwares = () => {
     <MainLayout>
       <Container>
         <div>
-          <h2 className="p-5 text-center fw-bold"> MEN'S FOOTWEARS</h2>
+          <h2 className="p-5 text-center fw-bold"> FOOTBALL BOOTS</h2>
         </div>
 
         <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
