@@ -23,14 +23,15 @@ const Accessories = () => {
   const filteredArray = products?.filter(
     (item) => item?.parentCat === mensAccessories?._id
   );
+
   return (
     <MainLayout>
       <Container>
         <div>
-          <h2 className="p-5 text-center fw-bold"> MEN'S ACCESSORIES</h2>
+          <h2 className="p-5 text-center fw-bold"> FOOTBALL ACCESSORIES</h2>
         </div>
 
-        <div className=" p-4 d-flex justify-content-center align-items-center gap-5 flex-wrap">
+        <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
           {filteredArray.map((item, i) => (
             <ShoeCard key={i} {...item} />
           ))}

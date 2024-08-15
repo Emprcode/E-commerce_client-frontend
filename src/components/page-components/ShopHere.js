@@ -5,49 +5,49 @@ import { Link } from "react-router-dom";
 export const ShopHere = () => {
   return (
     <div>
-      <Container className="p-2 " id="shopnow">
-        <Row className="pt-2 d-flex justify-content-center align-items-center gap-5 flex-wrap">
+      <Container className="" id="shopnow">
+        <Row className="p-2 d-flex justify-content-center align-items-center gap-5 flex-wrap">
           <Col className="top rounded shopbtn ">
-            <Link className="nav-link" to="/men-tops">
-              <h4 className="fw-bold text-light text-center">TOPS</h4>
+            <Link className="nav-link" to="/kits-jersey">
+              <h4 className="fw-bold text-light text-center">JERSEYS</h4>
 
               <Button variant="dark" className="shopbtn">
-                Shop Mens Tops
+                Shop Football Jerseys
               </Button>
             </Link>
           </Col>
 
           <Col className="bottom rounded shopbtn ">
-            <Link className="nav-link" to="/men-bottoms">
-              <h4 className=" fw-bold text-light text-center"> BOTTOMS</h4>
+            <Link className="nav-link" to="/kits-shorts">
+              <h4 className=" fw-bold text-light text-center">SHORTS</h4>
               <Button variant="dark" className="shopbtn">
-                Shop Mens Bottoms
+                Shop Football shorts
               </Button>
             </Link>
           </Col>
           <Col className="shoes rounded shopbtn">
-            <Link className="nav-link" to="/men-footwares">
-              <h4 className="text-center fw-bold text-light">FOOTWARES</h4>
+            <Link className="nav-link" to="/kits-boots">
+              <h4 className="text-center fw-bold text-light">BOOTS</h4>
               <Button variant="dark" className="shopbtn">
-                Shop Mens FootWares
+                Shop Football Boots
               </Button>
             </Link>
           </Col>
         </Row>
         <Row className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
-          <Col className="caps rounded shopbtn ">
-            <Link className="nav-link" to="/men-headwares">
-              <h4 className="text-center fw-bold text-light">HEADWARES</h4>
+          <Col className="accessories rounded shopbtn">
+            <Link className="nav-link" to="/kits-accessories">
+              <h4 className="text-center fw-bold text-light">ACCESSORIES</h4>
               <Button variant="dark" className="shopbtn">
-                Shop Mens Headwares
+                Shop Football Accessories
               </Button>
             </Link>
           </Col>
-          <Col className="accessories rounded shopbtn">
-            <Link className="nav-link" to="/men-accessories">
-              <h4 className="text-center fw-bold text-light">ACCESSORIES</h4>
+          <Col className="kits rounded shopbtn ">
+            <Link className="nav-link" to="/all-kits">
+              <h4 className="text-center fw-bold text-light">All KITS</h4>
               <Button variant="dark" className="shopbtn">
-                Shop Mens Accessories
+                Shop All Kits
               </Button>
             </Link>
           </Col>

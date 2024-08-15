@@ -30,7 +30,7 @@ const MenTops = () => {
     <MainLayout>
       <Container>
         <div>
-          <h2 className="p-5 text-center fw-bold"> MEN'S TOPS</h2>
+          <h2 className="p-5 text-center fw-bold"> FOOTBALL KITS & JERSEYS</h2>
         </div>
         <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
           {filteredArray?.map((item, i) => (

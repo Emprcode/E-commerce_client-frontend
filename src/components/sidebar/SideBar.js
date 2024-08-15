@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 import { FaShirt } from "react-icons/fa6";
 import { PiPantsFill } from "react-icons/pi";
 import { GiRunningShoe } from "react-icons/gi";
-import { FaHatCowboy } from "react-icons/fa";
 import { IoMdGlasses } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 import { BsMenuButtonWideFill } from "react-icons/bs";
@@ -27,10 +26,10 @@ export const SideBar = () => {
   };
 
   const menuItems = [
-    { text: "Tops", icon: <FaShirt size={25} /> },
-    { text: "Bottoms", icon: <PiPantsFill size={25} /> },
-    { text: "Footwares", icon: <GiRunningShoe size={25} /> },
-    { text: "Headwares", icon: <FaHatCowboy size={25} /> },
+    { text: "Jerseys", icon: <FaShirt size={25} /> },
+    { text: "Shorts", icon: <PiPantsFill size={25} /> },
+    { text: "Boots", icon: <GiRunningShoe size={25} /> },
+    // { text: "Headwares", icon: <FaHatCowboy size={25} /> },
     { text: "Accessories", icon: <IoMdGlasses size={25} /> },
   ];
   const DrawerList = (
@@ -54,7 +53,7 @@ export const SideBar = () => {
           <ListItem key={text} disablePadding>
             <ListItemButton
               component={Link}
-              to={`/men-${String(text).toLowerCase()}`}
+              to={`/kits-${String(text).toLowerCase()}`}
             >
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={text} />
@@ -66,10 +65,10 @@ export const SideBar = () => {
       <List>
         {[
           // "New Arrivals",
-          "All Products",
+          "Shop All Kits",
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton component={Link} to={`/all-products`}>
+            <ListItemButton component={Link} to={`/all-kits`}>
               <ListItemIcon>
                 {index % 2 === 0 ? <MdDashboard /> : <BsMenuButtonWideFill />}
               </ListItemIcon>

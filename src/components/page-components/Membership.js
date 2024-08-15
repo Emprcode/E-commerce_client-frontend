@@ -28,7 +28,7 @@ export const Membership = () => {
     <div className="bgmembership text-center">
       <Row className="p-3">
         <h5 className="fw-bold">
-          BECOME A VIP MEMBER NOW! BE THE FIRST IN LINE TO DRIP HARD.
+          BECOME A VIP MEMBER NOW! BE THE FIRST IN LINE TO GET EXCLUSIVE KITS.
         </h5>
 
         <p>
