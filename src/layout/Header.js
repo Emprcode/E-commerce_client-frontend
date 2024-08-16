@@ -175,7 +175,7 @@ export const Header = () => {
         position="static"
         className=""
         sx={{ backgroundColor: "rgb(137,68,241)", px: 0.5 }}
-        // sx={{ backgroundColor: "#212121", px: 0.5 }}
+        // sx={{ backgroundColor: "#FFFFFF", px: 0.5 }}
       >
         <Toolbar>
           <SideBar />
@@ -197,7 +197,10 @@ export const Header = () => {
           <Search>
             <SearchIconWrapper>
               <SearchIcon
-                sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", sm: "block" },
+                }}
               />
             </SearchIconWrapper>
             <StyledInputBase

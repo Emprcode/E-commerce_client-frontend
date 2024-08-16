@@ -31,6 +31,7 @@ const HomePage = () => {
           </Button>
         </div>
       </div>
+
       {/* <Carousel>
         <Carousel.Item>
           <div className="hero1">
