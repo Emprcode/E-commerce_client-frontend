@@ -35,6 +35,7 @@ const App = () => {
           <Route path="/myaccount/login" element={<Login />} />
           <Route path="/myaccount/register" element={<Register />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/*" element={<HomePage />} />
           {/* private route */}
 
           <Route

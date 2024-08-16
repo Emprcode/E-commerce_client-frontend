@@ -85,7 +85,7 @@ const AllProducts = () => {
               <InputGroup className="my-3">
                 <Form.Control
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search products"
+                  placeholder="Search all kits"
                 />
               </InputGroup>
             </Form>

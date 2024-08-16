@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { MainLayout } from "../layout/MainLayout";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Card, Container, Table } from "react-bootstrap";
+import { Badge, Button, Card, Container, Table } from "react-bootstrap";
 import { logoutUserProfile } from "../components/redux/user/UserAction";
 import { getOrdersAction } from "../components/redux/order/orderAction";
 
@@ -122,7 +122,11 @@ const Profile = () => {
                     <td>{item.name}</td>
                     <td>{item.quantity}</td>
                     <td>$ {item.price}.00</td>
-                    <td>{orders.delivery_status}</td>
+                    <td className="h5">
+                      <Badge pill bg="warning" text="dark">
+                        {orders.delivery_status}
+                      </Badge>
+                    </td>
                   </tr>
                 ))}
 
