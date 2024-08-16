@@ -10,12 +10,13 @@ import {
 } from "../components/redux/cart/CartSlice";
 import { checkoutSession } from "../components/helper/axiosHelper";
 import { LatestArrival } from "../components/swiperComponents/LatestArrival";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { user } = useSelector((state) => state.user);
   const { cartItems } = useSelector((state) => state.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { _id } = user;
 
   const price = cartItems?.reduce((acc, itemPrice) => {
@@ -56,7 +57,8 @@ const Cart = () => {
         clearCartHandler();
       }
     } else {
-      window.alert("Please login first to continue payment!");
+      navigate("/myaccount/login");
+      window.alert("Please login here to continue payment!");
     }
   };
 

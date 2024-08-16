@@ -43,6 +43,7 @@ export const ShopHere = () => {
               </Button>
             </Link>
           </Col>
+
           <Col className="kits rounded shopbtn ">
             <Link className="nav-link" to="/all-kits">
               <h4 className="text-center fw-bold text-light">All KITS</h4>

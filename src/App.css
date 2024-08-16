@@ -54,7 +54,7 @@
 
 .top {
   background: linear-gradient(rgba(0, 0, 0, 0.304), rgba(0, 0, 0, 0.564)),
-    url(./assets/jersey.png) no-repeat center center;
+    url(./assets/ronaldo.png) no-repeat center center;
   height: 80vh;
   width: 100%;
   background-size: contain;
@@ -81,15 +81,18 @@
   position: relative;
   cursor: pointer;
 }
+
 .kits {
   background: linear-gradient(rgba(0, 0, 0, 0.354), rgba(0, 0, 0, 0.564)),
     url(./assets/ball.png) no-repeat center center;
   height: 80vh;
-  /* width: 100%; */
+  width: 100%;
+  background-size: contain;
   transition: 0.5s all ease;
   position: relative;
   cursor: pointer;
 }
+
 .accessories {
   background: linear-gradient(rgba(0, 0, 0, 0.354), rgba(0, 0, 0, 0.564)),
     url(./assets/shin.png) no-repeat center center;
@@ -113,7 +116,7 @@
   transform: scale(1.03);
   transition: 0.5s all ease;
 }
-.caps:hover {
+.kits:hover {
   /* filter: grayscale(0); */
   transform: scale(1.03);
   transition: 0.5s all ease;

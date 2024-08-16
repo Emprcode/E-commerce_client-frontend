@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 export const Membership = () => {
   const form = useRef();
@@ -17,10 +18,11 @@ export const Membership = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          result.text === "OK" && toast.success("You have signed up!");
+          // console.log(result);
         },
         (error) => {
-          console.log(error.text);
+          error && toast.error("Unable to sign up, Please try again later!");
         }
       );
   };
