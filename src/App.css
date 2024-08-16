@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: center;
   color: #fff;
+  position: relative;
 }
 
 .content {
@@ -54,7 +55,7 @@
 
 .top {
   background: linear-gradient(rgba(0, 0, 0, 0.304), rgba(0, 0, 0, 0.564)),
-    url(./assets/ronaldo.png) no-repeat center center;
+    url(./assets/ronaldo1.png) no-repeat center center;
   height: 80vh;
   width: 100%;
   background-size: contain;
