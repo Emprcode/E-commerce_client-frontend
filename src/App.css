@@ -4,18 +4,13 @@
 .hero1 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(./assets/cr7.png) center center no-repeat;
+  min-height: 90vh;
   width: 100%;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero1 {
-    min-height: 100vh !important;
-  }
 }
 
 .content {
@@ -88,7 +83,7 @@
 }
 .kits {
   background: linear-gradient(rgba(0, 0, 0, 0.354), rgba(0, 0, 0, 0.564)),
-    url(./assets/ball.png) center no-repeat;
+    url(./assets/ball.png) no-repeat center center;
   height: 80vh;
   /* width: 100%; */
   transition: 0.5s all ease;
@@ -96,10 +91,10 @@
   cursor: pointer;
 }
 .accessories {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.564)),
+  background: linear-gradient(rgba(0, 0, 0, 0.354), rgba(0, 0, 0, 0.564)),
     url(./assets/shin.png) no-repeat center center;
   height: 80vh;
-  width: 100%;
+  /* width: 100%; */
   transition: 0.5s all ease;
   position: relative;
   cursor: pointer;
