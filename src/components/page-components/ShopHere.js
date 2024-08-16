@@ -8,7 +8,7 @@ export const ShopHere = () => {
       <Container className="" id="shopnow">
         <Row className="mt-3 px-2 d-flex justify-content-center align-items-center gap-5 flex-wrap">
           <Col className="top rounded shopbtn ">
-            <Link className="nav-link" to="/kits-jersey">
+            <Link className="nav-link" to="/kits-jerseys">
               <h4 className="fw-bold text-light text-center">JERSEYS</h4>
 
               <Button variant="dark" className="shopbtn">
