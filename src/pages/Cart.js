@@ -35,7 +35,6 @@ const Cart = () => {
   };
   const handleRemoveFromCart = (product) => {
     if (window.confirm(`Are you sure you want to remove ${product.name}?`)) {
-      console.log(product);
       dispatch(removeOneItemFromCart(product));
     }
   };
@@ -50,7 +49,6 @@ const Cart = () => {
         cartItems,
         userId: _id,
       };
-      console.log(obj);
       const session = await checkoutSession(obj);
       if (session?.url) {
         window.location.href = session.url;
