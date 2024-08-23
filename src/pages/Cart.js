@@ -82,9 +82,17 @@ const Cart = () => {
                 cartItems.map((cartItem) => (
                   <div className="cart-item" key={cartItem._id}>
                     <div className="cart-product">
-                      <img src={cartItem.thumbnail} alt={cartItem.image} />
+                      <img
+                        src={cartItem.thumbnail}
+                        alt={cartItem.image}
+                        style={{
+                          width: "30%",
+                          height: "30%",
+                          objectFit: "contain",
+                        }}
+                      />
                       <div>
-                        <h3>{cartItem.name}</h3>
+                        <h5>{cartItem.name}</h5>
                         {/* <p>{cartItem.desc}</p> */}
                         <button onClick={() => handleRemoveFromCart(cartItem)}>
                           Remove
