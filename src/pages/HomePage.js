@@ -5,8 +5,8 @@ import { ShopHere } from "../components/page-components/ShopHere";
 import { MainLayout } from "../layout/MainLayout";
 import { useDispatch } from "react-redux";
 import { getAllProductsAction } from "../components/redux/product/productAction";
-import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 import { LatestArrival } from "../components/swiperComponents/LatestArrival";
+import { getAllCategoriesAction } from "../components/redux/category/categoryAction";
 
 const HomePage = () => {
   const dispatch = useDispatch();

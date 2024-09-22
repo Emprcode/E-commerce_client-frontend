@@ -7,6 +7,7 @@ import { getAllCategoriesAction } from "../components/redux/category/categoryAct
 import { CardComponents } from "../components/card/CardComponents";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Pagination, PaginationItem } from "@mui/material";
+import { SpinnerComponent } from "../components/page-components/SpinnerComponent";
 
 const AllProducts = () => {
   const { products } = useSelector((state) => state.product);
@@ -14,9 +15,7 @@ const AllProducts = () => {
 
   const getRandomProducts = (array, count) => {
     const arrayCopy = [...array];
-    // Shuffle array (Fisher-Yates shuffle algorithm)
     const shuffledProducts = arrayCopy.sort(() => Math.random() - 0.5);
-    // Get sub-array of first `count` elements after shuffle
     return shuffledProducts.slice(0, count);
   };
   const randomProducts = getRandomProducts(products);
@@ -91,13 +90,15 @@ const AllProducts = () => {
             </Form>
           </div>
         </div>
-
-        <div className=" p-4 d-flex justify-content-center align-items-center gap-5 flex-wrap">
-          {/* {filteredSearchProducts?.map((item, i) => ( */}
-          {currentProducts?.map((item, i) => (
-            <CardComponents key={i} {...item} />
-          ))}
-        </div>
+        {currentProducts.length > 0 ? (
+          <div className=" p-4 d-flex justify-content-center align-items-center gap-5 flex-wrap">
+            {currentProducts?.map((item, i) => (
+              <CardComponents key={i} {...item} />
+            ))}
+          </div>
+        ) : (
+          <SpinnerComponent />
+        )}
         <div className="d-flex justify-content-center align-items-center">
           <Pagination
             count={Math.ceil(filteredSearchProducts.length / itemsPerPage)}

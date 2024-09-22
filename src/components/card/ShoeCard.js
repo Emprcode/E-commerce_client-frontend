@@ -31,7 +31,7 @@ export const ShoeCard = ({
           <Card.Body>
             <Card.Title className="text-center m-3">{name}</Card.Title>
             <Card.Text className="text-center">
-              <div className="fw-bold">${price}.00 </div>
+              <p className="fw-bold">${price}.00 </p>
               {/* <div>{description}</div> */}
             </Card.Text>
           </Card.Body>
