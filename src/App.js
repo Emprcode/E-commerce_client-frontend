@@ -15,12 +15,14 @@ import { RequireAuth } from "./components/utils/RequireAuth";
 import Accessories from "./pages/Accessories";
 import ScrollToTop from "./pages/ScrollToTop";
 import AllProducts from "./pages/AllProducts";
+import { AlertComponent } from "./components/page-components/AlertComponent";
 
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
         <ScrollToTop />
+        <AlertComponent />
         <Routes>
           {/* public Route */}
 
